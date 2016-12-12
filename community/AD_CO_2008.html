@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>커뮤니티 현황</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>커뮤니티 개설 신청</strong>
+		<a href="#" class="close" data-pop-close="popup">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="tbl_wrap">
+			<table class="tbl_write">				
+				<colgroup>
+					<col style="width:143px" />
+					<col />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th scope="row">커뮤니티 유형</th>
+					<td>
+						일반
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="vt">개설 커뮤니티 명</th>
+					<td class="al_l">
+						<div class="subject">
+							<div class="subject_reg" data-chk-length="">
+								<div class="textbox">
+									<input type="text" />
+									<span class="byte"><span>0</span>/<em class="count">40</em></span>
+									<a href="#" class="btn line02">중복체크</a>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="vt">개설목적</th>
+					<td>
+						<div class="vreply_write" data-chk-length="">
+							<div class="textarea">
+								<textarea id="reply_con01" cols="30" rows="10"></textarea>
+								<span class="byte"><span>0</span>/<em class="count">200</em></span>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">공개여부</th>
+					<td>
+						<div class="target_chk">
+							<input type="radio" name="target01" id="t01" class="chk_target" data-target-toggle='{"ele":".watch", "display":"show"}'/><label for="t01">공개</label>
+							<input type="radio" name="target01" id="t02" class="chk_target" data-target-toggle='{"ele":".watch", "display":"hide"}' checked="checked" /><label for="t02">비공개</label>
+						</div>
+					</td>
+				</tr>
+				<tr class="watch dn">
+					<th scope="row">가입방식</th>
+					<td>
+						<div class="target_chk">
+							<input type="radio" name="target02" id="t03" class="chk_target"  /><label for="t03">가입 신청시 즉시 가입</label>
+							<input type="radio" name="target02" id="t04" class="chk_target" /><label for="t04">가입 신청시 승인후 가입</label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="vt">운영자 선택</th>
+					<td>
+						<div class="target_box">
+							<div data-target-box="box01">
+								<span class="target_tag">홍길동 (eqssss1023,마케팅팀)<a href="#" class="del"></a></span>
+							</div>
+							<a href="#" class="find_target submit"  data-target-box-button="box01">운영자 설정</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="vt">대상 선택</th>
+					<td>
+						<div class="target_chk mb5">
+							<input type="radio" name="target03" id="t07" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"show"}' checked="checked" /><label for="t07">게시 대상 선택</label>
+							<input type="radio" name="target03" id="t08" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"hide"}' /><label for="t08">모든 사용자</label>
+						</div>
+
+						<div class="target_box t_box02">
+							<div data-target-box="box02">
+								<span class="target_tag">미디어그룹<a href="#" class="del"></a></span>
+							</div>
+							<a href="#" onclick="javascript:window.open('AD_CO_2009.html','popup','scrollbars=no, resizable=no, width=920,height=611,left=370,top=213')" class="find_target submit" data-target-box-button="box02">대상 찾기</a>
+						</div><!-- //대상찾기 -->
+					</td>
+				</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<div class="btnbox">
+			<a href="#" class="btn confirm">확인</a>
+			<a href="#" class="btn" data-pop-close="popup" onclick="javascript:window.close()">취소</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

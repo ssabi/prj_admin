@@ -1,0 +1,11 @@
+document.write("<script src='../resource_admin/js/libs/jquery-1.11.2.min.js'></script>");
+document.write("<script src='../resource_admin/js/libs/jquery-ui.min.js'></script>");
+document.write("<script src='../resource_admin/js/libs/jquery-migrate-1.2.1.min.js'></script>");
+document.write("<script src='../resource_admin/js/libs/jquery.easing.min.js'></script>");
+document.write("<script src='../resource_admin/js/plugins/selectordie.min.js'></script>");
+document.write("<script src='../resource_admin/js/plugins/spectrum.js'></script>");
+document.write("<script src='../resource_admin/js/plugins/slick.min.js'></script>");
+document.write("<script src='../resource_admin/js/plugins/jquery.blockUI.js'></script>");
+document.write("<script src='../resource_admin/js/plugins/jstree.min.js'></script>");
+document.write("<script src='../resource_admin/js/plugins/jqgrid/i18n/grid.locale-en.js'></script>");
+document.write("<script src='../resource_admin/js/plugins/jqgrid/jquery.jqGrid.js'></script>");

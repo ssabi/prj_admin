@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>커뮤니티 현황</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+var table_header = [
+	{ label: '이름', name: 'name', width: 80,},
+	{ label: '아이디', name: 'id', width: 120 },
+	{ label: '소속부서', name: 'depa', width: 200 }
+];
+$(document).ready(function(){
+	$("#jqGrid").jqGrid({
+		url:'../data.json',
+		datatype: "json",
+		height:460,
+		multiselect:true,
+		scrollOffset:0,
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['NO','구분', '커뮤니티 이름', '운영자','소속부서','신청일','상태'],
+		colModel:[
+			{name:'NO',index:'num', width:60},
+			{name:'구분',index:'type', width:60},
+			{name:'커뮤니티 이름',index:'cname', width:150},
+			{name:'운영자',index:'oper', width:80, align:"right"},
+			{name:'소속부서',index:'group', width:120, align:"right"},
+			{name:'신청일',index:'date', width:120,align:"right"},
+			{name:'상태',index:'condition', width:80, sortable:false}
+/*
+		colNames:['seq_user','Date', 'Client', 'Amount','name','Total','Notes'],
+		colModel:[
+			{name:'seq_user',index:'seq_user', width:55},
+			{name:'invdate',index:'invdate', width:90},
+			{name:'name',index:'invdate', width:100},
+			{name:'amount',index:'amount', width:80, align:"right"},
+			{name:'name',index:'name123123', width:80, align:"right"},
+			{name:'total',index:'total', width:80,align:"right"},
+			{name:'note',index:'note', width:150, sortable:false}
+*/
+		],
+		rowNum:10,
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+			var flag = 0;
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
+				var isAllChecked = true;
+				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
+					if ($(this).prop('checked') === false)
+					{
+						isAllChecked = false;
+					}
+				});
+
+				if (isAllChecked)
+				{
+					$("thead").find(className).prop("checked",isAllChecked);
+				}
+			});
+		}
+	});
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+
+	//JQ그리드 테이블 Width
+	resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");	
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li class="on"><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">커뮤니티 관리</h2>
+				<div class="multiview">
+					<ul class="multi">
+						<li><a href="AD_CO_2001.html"><span>승인요청 관리</span></a></li>
+						<li class="on"><a href="AD_CO_2004.html"><span>커뮤니티 현황</span></a></li>
+						<li><a href="AD_CO_2011.html"><span>커뮤니티 게시판 관리</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>커뮤니티 현황</h2>
+				<div class="tbl_opt reset_area mt10">
+					<form action="#" method="post">
+						<table>
+							<colgroup>
+								<col style="width:73px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th>키워드</th>
+								<td>
+									<div class="frm_ele">
+										<select class="w170">
+											<option value="">커뮤니티 이름</option>
+											<option value="">개설자 이름</option>
+											<option value="">운영자 이름</option>
+										</select>
+										<input type="text" placeholder="검색어를 입력해주세요" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">신청일</th>
+								<td>
+									<div class="period">
+										<p><input type="text" id="opt_start" readonly="readonly" /></p>
+										<p><input type="text" id="opt_end" readonly="readonly" /></p>
+										<a href="#" class="btn line02" data-period="month3">3개월</a>
+										<a href="#" class="btn line02" data-period="month6">6개월</a>
+										<a href="#" class="btn line02" data-period="month12">12개월</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">상태</th>
+								<td>
+									<input type="checkbox" id="survey_type01" checked="checked" /><label for="survey_type01">노출</label>
+									<input type="checkbox" id="survey_type02" checked="checked" /><label for="survey_type02">비노출</label>
+									<input type="checkbox" id="survey_type03" /><label for="survey_type03">폐쇄중</label>
+									<input type="checkbox" id="survey_type04" /><label for="survey_type04">폐쇄</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">구분</th>
+								<td>
+									<input type="checkbox" id="survey_status01" checked="checked" /><label for="survey_status01">지역본부</label>
+									<input type="checkbox" id="survey_status02" checked="checked" /><label for="survey_status02">일반</label>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="btnbox">
+					<a href="#" class="btn confirm">검색</a>
+					<a href="#" class="btn resetBtn">초기화</a>
+				</div>
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<div class="fl">
+							<p class="tbl_result">전체115건&nbsp;&nbsp;1/8페이지</p>
+						</div>
+
+						<div class="fr">
+							<select class="w121">
+								<option value="">10개씩 조회</option>
+								<option value="">20개씩 조회</option>
+								<option value="">30개씩 조회</option>
+								<option value="">50개씩 조회</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="tbl_wrap">
+					<table id="jqGrid"></table>
+					<div id="Pager"></div>
+				</div>
+				<div class="btnbox">
+						<div class="fl">
+							<a href="AD_CO_2010_01.html" data-layer-popup='{"name":"일괄 노출","width":"680","height":"748"}' class="btn">노출</a>
+							<a href="AD_CO_2010_02.html" data-layer-popup='{"name":"일괄 비노출","width":"680","height":"748"}' class="btn">비노출</a>
+						</div>
+						<div class="fr">
+							<a href="AD_CO_2008.html" data-layer-popup='{"name":"커뮤니티 신규개설","width":"680","height":"614"}' class="btn_long confirm">커뮤니티 신규개설</a>
+						</div>
+					</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

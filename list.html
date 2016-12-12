@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swing Portal</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+table{border-collapse:collapse;border-spacing:0;border:0 none}
+blockquote,q{quotes: none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle}
+button{border:0 none;background-color:transparent;cursor:pointer}
+a{color:#333;text-decoration:none}
+a:active, a:hover{text-decoration:underline}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+html, body{height:100%}
+img{vertical-align:middle}
+legend, .hide{width:1px;height:1px;line-height:0;position:absolute;left:-5000px;top:-5000px;z-index:-100;text-indent:-2000px;}
+legend{*display:none}
+caption{font-size:0;width:0;height:0;line-height:0;text-indent:-9999px}
+*{-webkit-text-size-adjust:none}
+
+body{overflow-y:scroll;font-size:13px;line-height:20px;font-family:Malgun Gothic, '맑은 고딕', Arial, Dotum, '돋움', sans-serif}
+
+h1{display:block;padding-top:20px;text-align:center;font-size:30px;letter-spacing:0.5em;line-height:40px;font-family:verdana;}
+
+.gnb_box{background-color:#2e3441}
+.gnb ul{overflow:hidden}
+.gnb ul li{float:left;width:12.5%;font-weight:bold;font-size:14px;line-height:20px;color:#fff;text-align:center}
+.gnb ul li a{display:block;padding:7px 0 8px;color:#fff;border-right:1px solid #20242d}
+.gnb ul li.on a, .gnb ul li a:hover, .gnb ul li a:focus{padding-bottom:5px;border-bottom:3px solid #e60724;text-decoration:none}
+.gnb ul li:first-child a{border-left:1px solid #20242d}
+
+.boxwrap .tbl_box{margin:20px 20px 30px;position:relative;border-top:1px solid #2e3441;border-bottom:1px solid #2e3441}
+.boxwrap .table{width:100%;font-size:12px;text-align:left}
+.boxwrap .table thead th{padding:0 11px;height:38px;font-weight:bold;text-align:center;letter-spacing:-0.025em;color:#3c404a;background:#edeef3;border-bottom:1px solid #e1e2e6}
+.boxwrap .table tbody th, .boxwrap .table tbody td{position:relative;padding:5px 10px;line-height:20px;letter-spacing:-0.025em;color:#3c404a;border-top:1px solid #e1e2e6;border-left:1px solid #e1e2e6;vertical-align:top}
+.boxwrap .table .num{border-left:0}
+.boxwrap .table .al_c{text-align:center}
+.boxwrap .table input[type=text]{vertical-align:top;margin:-7px 0}
+.boxwrap .table input[type=checkbox]{position:absolute;left:-9999px}
+.boxwrap .table input[type=checkbox] + label{display:inline-block;position:relative;margin-top:-4px;width:14px;height:14px;vertical-align:middle;cursor:pointer}
+.boxwrap .table input[type=checkbox]:checked + label{background-position:0 -14px}
+.boxwrap .table a{color:#fb6d07}
+</style>
+</head>
+<body>
+<div class="boxwrap">
+	<h1>Swing Portal Admin</h1>
+	<div class="tbl_box">
+		<table class="table">
+			<colgroup>
+				<col style="width:50px">
+				<col style="width:150px" />
+				<col style="width:200px" />
+				<col style="width:200px" />
+				<col style="width:250px" />
+				<col />
+			</colgroup>
+			<thead>
+			<tr>
+				<th scope="col">No.</th>
+				<th scope="col">1Depth</th>
+				<th scope="col">2Depth</th>
+				<th scope="col">화면ID</th>
+				<th scope="col">URL</th>
+				<th scope="col">비고</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="num">01</td>
+				<td rowspan="11">게시판 관리</td>
+				<td rowspan="2">Swing Portal 게시판 관리</td>
+				<td>AD_BO_1001</td>
+				<td><a href="./board/AD_BO_1001.html" target="_blank">AD_BO_1001.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">02</td>
+				<td>AD_BO_1002</td>
+				<td><a href="./board/AD_BO_1002.html" target="_blank">AD_BO_1002.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">03</td>
+				<td rowspan="8">Swing Portal Board 관리</td>
+				<td>AD_BO_1003</td>
+				<td>
+					<a href="./board/AD_BO_1003.html" target="_blank">AD_BO_1003.html</a><br>
+					<a href="./board/AD_BO_1003_01.html" target="_blank">AD_BO_1003_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">04</td>
+				<td>AD_BO_1004</td>
+				<td>
+					<a href="./board/AD_BO_1004_01.html" target="_blank">AD_BO_1004_01.html</a><br>
+					<a href="./board/AD_BO_1004_02.html" target="_blank">AD_BO_1004_02.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">05</td>
+				<td>AD_BO_1005</td>
+				<td><a href="./board/AD_BO_1005.html" target="_blank">AD_BO_1005.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">06</td>
+				<td>AD_BO_1007</td>
+				<td><a href="./board/AD_BO_1007.html" target="_blank">AD_BO_1007.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">07</td>
+				<td>AD_BO_1009</td>
+				<td>
+					<a href="./board/AD_BO_1009.html" target="_blank">AD_BO_1009.html</a><br>
+					<a href="./board/AD_BO_1009_01.html" target="_blank">AD_BO_1009_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">08</td>
+				<td>AD_BO_1010</td>
+				<td><a href="./board/AD_BO_1010.html" target="_blank">AD_BO_1010.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">09</td>
+				<td>AD_BO_1011</td>
+				<td><a href="./board/AD_BO_1011.html" target="_blank">AD_BO_1011.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">10</td>
+				<td>AD_BO_1012</td>
+				<td><a href="./board/AD_BO_1012.html" target="_blank">AD_BO_1012.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">11</td>
+				<td >BP Portal Board 관리</td>
+				<td>AD_BO_1013</td>
+				<td><a href="./board/AD_BO_1013.html" target="_blank">AD_BO_1013.html</a></td>
+				<td></td>
+			</tr>
+			<!-- //board -->
+			<tr>
+				<td class="num">12</td>
+				<td rowspan="13">커뮤니티 관리</td>
+				<td rowspan="3">승인요청관리</td>
+				<td>AD_CO_2001</td>
+				<td>
+					<a href="./community/AD_CO_2001.html" target="_blank">AD_CO_2001.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">13</td>
+				<td>AD_CO_2002</td>
+				<td>
+					<a href="./community/AD_CO_2002.html" target="_blank">AD_CO_2002.html</a><br>
+					<a href="./community/AD_CO_2002_01.html" target="_blank">AD_CO_2002_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">14</td>
+				<td>AD_CO_2003</td>
+				<td>
+					<a href="./community/AD_CO_2003.html" target="_blank">AD_CO_2003.html</a><br>
+					<a href="./community/AD_CO_2003_01.html" target="_blank">AD_CO_2003_01.html</a><br>
+					<a href="./community/AD_CO_2003_02.html" target="_blank">AD_CO_2003_02.html</a><br>
+					<a href="./community/AD_CO_2003_03.html" target="_blank">AD_CO_2003_03.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">15</td>
+				<td rowspan="6">커뮤니티 현황</td>
+				<td>AD_CO_2004</td>
+				<td><a href="./community/AD_CO_2004.html" target="_blank">AD_CO_2004.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">16</td>
+				<td>AD_CO_2005</td>
+				<td><a href="./community/AD_CO_2005.html" target="_blank">AD_CO_2005.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">17</td>
+				<td>AD_CO_2007</td>
+				<td><a href="./community/AD_CO_2007.html" target="_blank">AD_CO_2007.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">18</td>
+				<td>AD_CO_2008</td>
+				<td><a href="./community/AD_CO_2008.html" target="_blank">AD_CO_2008.html</a><br></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">19</td>
+				<td>AD_CO_2009</td>
+				<td><a href="./community/AD_CO_2009.html" target="_blank">AD_CO_2009.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">20</td>
+				<td>AD_CO_2010</td>
+				<td>
+					<a href="./community/AD_CO_2010_01.html" target="_blank">AD_CO_2010_01.html</a><br>
+					<a href="./community/AD_CO_2010_02.html" target="_blank">AD_CO_2010_02.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">21</td>
+				<td rowspan="4">커뮤니티 게시판 관리</td>
+				<td>AD_CO_2011</td>
+				<td><a href="./community/AD_CO_2011.html" target="_blank">AD_CO_2011.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">22</td>
+				<td>AD_CO_2012</td>
+				<td>
+					<a href="./community/AD_CO_2012.html" target="_blank">AD_CO_2012.html</a><br>
+					<a href="./community/AD_CO_2012_01.html" target="_blank">AD_CO_2012_01.html</a><br>
+					<a href="./community/AD_CO_2012_02.html" target="_blank">AD_CO_2012_02.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">23</td>
+				<td>AD_CO_2013</td>
+				<td><a href="./community/AD_CO_2013.html" target="_blank">AD_CO_2013.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">24</td>
+				<td>AD_CO_2014</td>
+				<td>
+					<a href="./community/AD_CO_2014_01.html" target="_blank">AD_CO_2014_01.html</a><br>
+					<a href="./community/AD_CO_2014_02.html" target="_blank">AD_CO_2014_02.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<!-- //Community -->
+			<tr>
+				<td class="num">25</td>
+				<td rowspan="5">설문 관리</td>
+				<td rowspan="5"></td>
+				<td>AD_SV_3001</td>
+				<td>
+					<a href="./survey/AD_SV_3001.html" target="_blank">AD_SV_3001.html</a><br>
+					<a href="./survey/AD_SV_3001_01.html" target="_blank">AD_SV_3001_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">26</td>
+				<td>AD_SV_3002</td>
+				<td>
+					<a href="./survey/AD_SV_3002.html" target="_blank">AD_SV_3002.html</a><br>
+					<a href="./survey/AD_SV_3002_01.html" target="_blank">AD_SV_3002_01.html</a><br>
+					<a href="./survey/AD_SV_3002_02.html" target="_blank">AD_SV_3002_02.html</a><br>
+					<a href="./survey/AD_SV_3002_03.html" target="_blank">AD_SV_3002_03.html</a><br>
+					<a href="./survey/AD_SV_3002_04.html" target="_blank">AD_SV_3002_04.html</a><br>
+					<a href="./survey/AD_SV_3002_05.html" target="_blank">AD_SV_3002_05.html</a><br>
+					<a href="./survey/AD_SV_3002_06.html" target="_blank">AD_SV_3002_06.html</a><br>
+					<a href="./survey/AD_SV_3002_07.html" target="_blank">AD_SV_3002_07.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">27</td>
+				<td>AD_SV_3003</td>
+				<td><a href="./survey/AD_SV_3003.html" target="_blank">AD_SV_3003.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">28</td>
+				<td>AD_SV_3004</td>
+				<td>
+					<a href="./survey/AD_SV_3004.html" target="_blank">AD_SV_3004.html</a><br>
+					<a href="./survey/AD_SV_3004_01.html" target="_blank">AD_SV_3004_01.html</a><br>
+					<a href="./survey/AD_SV_3004_02.html" target="_blank">AD_SV_3004_02.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">29</td>
+				<td>AD_SV_3005</td>
+				<td>
+					<a href="./survey/AD_SV_3005.html" target="_blank">AD_SV_3005.html</a><br>
+					<a href="./survey/AD_SV_3005_01.html" target="_blank">AD_SV_3005_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<!-- //survey -->
+			<tr>
+				<td class="num">30</td>
+				<td rowspan="27">서비스 관리</td>
+				<td rowspan="6">Swing Portal 배너관리</td>
+				<td>AD_SE_4001</td>
+				<td>
+					<a href="./service/AD_SE_4001.html" target="_blank">AD_SE_4001.html</a><br>
+					<a href="./service/AD_SE_4001_01.html" target="_blank">AD_SE_4001_01.html</a><br>
+					<a href="./service/AD_SE_4001_01_01.html" target="_blank">AD_SE_4001_01_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">31</td>
+				<td>AD_SE_4002</td>
+				<td>
+					<a href="./service/AD_SE_4002.html" target="_blank">AD_SE_4002.html</a><br>
+					<a href="./service/AD_SE_4002_01.html" target="_blank">AD_SE_4002_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">32</td>
+				<td>AD_SE_4003</td>
+				<td>
+					<a href="./service/AD_SE_4003.html" target="_blank">AD_SE_4003.html</a><br>
+					<a href="./service/AD_SE_4003_01.html" target="_blank">AD_SE_4003_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">33</td>
+				<td>AD_SE_4004</td>
+				<td>
+					<a href="./service/AD_SE_4004.html" target="_blank">AD_SE_4004.html</a><br>
+					<a href="./service/AD_SE_4004_01.html" target="_blank">AD_SE_4004_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">34</td>
+				<td>AD_SE_4005</td>
+				<td>
+					<a href="./service/AD_SE_4005.html" target="_blank">AD_SE_4005.html</a><br>
+					<a href="./service/AD_SE_4005_01.html" target="_blank">AD_SE_4005_01.html</a><br>
+					<a href="./service/AD_SE_4005_02.html" target="_blank">AD_SE_4005_02.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">35</td>
+				<td>AD_SE_4006</td>
+				<td><a href="./service/AD_SE_4006.html" target="_blank">AD_SE_4006.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">36</td>
+				<td rowspan="7">Swing Portal 링크관리</td>
+				<td>AD_SE_4007</td>
+				<td><a href="./service/AD_SE_4007.html" target="_blank">AD_SE_4007.html</a></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td class="num">37</td>
+				<td>AD_SE_4008</td>
+				<td><a href="./service/AD_SE_4008.html" target="_blank">AD_SE_4008.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">38</td>
+				<td>AD_SE_4009</td>
+				<td><a href="./service/AD_SE_4009.html" target="_blank">AD_SE_4009.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">39</td>
+				<td>AD_SE_4010</td>
+				<td><a href="./service/AD_SE_4010.html" target="_blank">AD_SE_4010.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">40</td>
+				<td>AD_SE_4011</td>
+				<td><a href="./service/AD_SE_4011.html" target="_blank">AD_SE_4011.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">41</td>
+				<td>AD_SE_4012</td>
+				<td><a href="./service/AD_SE_4012.html" target="_blank">AD_SE_4012.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">42</td>
+				<td>AD_SE_4013</td>
+				<td>
+					<a href="./service/AD_SE_4013.html" target="_blank">AD_SE_4013.html</a><br>
+					<a href="./service/AD_SE_4013_01.html" target="_blank">AD_SE_4013_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">43</td>
+				<td rowspan="3">Swing Portal 팝업관리</td>
+				<td>AD_SE_4015</td>
+				<td><a href="./service/AD_SE_4015.html" target="_blank">AD_SE_4015.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">44</td>
+				<td>AD_SE_4016</td>
+				<td><a href="./service/AD_SE_4016.html" target="_blank">AD_SE_4016.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">45</td>
+				<td>AD_SE_4017</td>
+				<td><a href="./service/AD_SE_4017.html" target="_blank">AD_SE_4017.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">46</td>
+				<td rowspan="2">Swing Portal 고객정보서약 관리</td>
+				<td>AD_SE_4019</td>
+				<td><a href="./service/AD_SE_4019.html" target="_blank">AD_SE_4019.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">47</td>
+				<td>AD_SE_4020</td>
+				<td>
+					<a href="./service/AD_SE_4020.html" target="_blank">AD_SE_4020.html</a><br>
+					<a href="./service/AD_SE_4020_01.html" target="_blank">AD_SE_4020_01.html</a><br>
+					<a href="./service/AD_SE_4020_01_01.html" target="_blank">AD_SE_4020_01_01.html</a><br>
+					<a href="./service/AD_SE_4020_01_02.html" target="_blank">AD_SE_4020_01_02.html</a><br>
+					<a href="./service/AD_SE_4020_01_03.html" target="_blank">AD_SE_4020_01_03.html</a><br>
+					<a href="./service/AD_SE_4020_02.html" target="_blank">AD_SE_4020_02.html</a><br>
+					<a href="./service/AD_SE_4020_03.html" target="_blank">AD_SE_4020_03.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">48</td>
+				<td rowspan="3">BP Portal 배너관리</td>
+				<td>AD_SE_4021</td>
+				<td>
+					<a href="./service/AD_SE_4021.html" target="_blank">AD_SE_4021.html</a><br>
+					<a href="./service/AD_SE_4021_01.html" target="_blank">AD_SE_4021_01.html</a>
+					</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">49</td>
+				<td>AD_SE_4022</td>
+				<td><a href="./service/AD_SE_4022.html" target="_blank">AD_SE_4022.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">50</td>
+				<td>AD_SE_4023</td>
+				<td><a href="./service/AD_SE_4023.html" target="_blank">AD_SE_4023.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">51</td>
+				<td rowspan="6">BP Portal 링크관리</td>
+				<td>AD_SE_4028</td>
+				<td><a href="./service/AD_SE_4028.html" target="_blank">AD_SE_4028.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">52</td>
+				<td>AD_SE_4029</td>
+				<td>
+					<a href="./service/AD_SE_4029.html" target="_blank">AD_SE_4029.html</a><br>
+					<a href="./service/AD_SE_4029_01.html" target="_blank">AD_SE_4029_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">53</td>
+				<td>AD_SE_4030</td>
+				<td>
+					<a href="./service/AD_SE_4030.html" target="_blank">AD_SE_4030.html</a><br>
+					<a href="./service/AD_SE_4030_01.html" target="_blank">AD_SE_4030_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">54</td>
+				<td>AD_SE_4031</td>
+				<td><a href="./service/AD_SE_4031.html" target="_blank">AD_SE_4031.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">55</td>
+				<td>AD_SE_4032</td>
+				<td>
+					<a href="./service/AD_SE_4032.html" target="_blank">AD_SE_4032.html</a><br>
+					<a href="./service/AD_SE_4032_01.html" target="_blank">AD_SE_4032_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">56</td>
+				<td>AD_SE_4033</td>
+				<td><a href="./service/AD_SE_4033.html" target="_blank">AD_SE_4033.html</a></td>
+				<td></td>
+			</tr>
+			<!-- //service -->
+			<tr>
+				<td class="num">57</td>
+				<td rowspan="12">통계 관리</td>
+				<td rowspan="4">Swing Portal 배너관리</td>
+				<td>AD_ST_5001</td>
+				<td><a href="./statistic/AD_ST_5001.html" target="_blank">AD_ST_5001.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">58</td>
+				<td>AD_ST_5002</td>
+				<td><a href="./statistic/AD_ST_5002.html" target="_blank">AD_ST_5002.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">59</td>
+				<td>AD_ST_5003</td>
+				<td><a href="./statistic/AD_ST_5003.html" target="_blank">AD_ST_5003.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">60</td>
+				<td>AD_ST_5004</td>
+				<td><a href="./statistic/AD_ST_5004.html" target="_blank">AD_ST_5004.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">61</td>
+				<td rowspan="2">Swing Portal 게시판 사용현황</td>
+				<td>AD_ST_5005</td>
+				<td><a href="./statistic/AD_ST_5005.html" target="_blank">AD_ST_5005.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">62</td>
+				<td>AD_ST_5006</td>
+				<td><a href="./statistic/AD_ST_5006.html" target="_blank">AD_ST_5006.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">63</td>
+				<td rowspan="2">Swing Portal 커뮤니티 사용현황</td>
+				<td>AD_ST_5007</td>
+				<td><a href="./statistic/AD_ST_5007.html" target="_blank">AD_ST_5007.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">64</td>
+				<td>AD_ST_5008</td>
+				<td><a href="./statistic/AD_ST_5008.html" target="_blank">AD_ST_5008.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">65</td>
+				<td>Swing Portal 설문 배포현황</td>
+				<td>AD_ST_5009</td>
+				<td><a href="./statistic/AD_ST_5009.html" target="_blank">AD_ST_5009.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">69</td>
+				<td>BP Portal 접속현황</td>
+				<td>AD_ST_5013</td>
+				<td><a href="./statistic/AD_ST_5013.html" target="_blank">AD_ST_5013.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">70</td>
+				<td rowspan="2">BP Portal 게시판 사용현황</td>
+				<td>AD_ST_5014</td>
+				<td><a href="./statistic/AD_ST_5014.html" target="_blank">AD_ST_5014.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">71</td>
+				<td>AD_ST_5015</td>
+				<td><a href="./statistic/AD_ST_5015.html" target="_blank">AD_ST_5015.html</a></td>
+				<td></td>
+			</tr>
+			<!-- //Statistic -->
+			<tr>
+				<td class="num">72</td>
+				<td rowspan="4">관리자 관리</td>
+				<td rowspan="3">관리자 목록</td>
+				<td>AD_MA_6001</td>
+				<td><a href="./operator/AD_MA_6001.html" target="_blank">AD_MA_6001.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">73</td>
+				<td>AD_MA_6002</td>
+				<td><a href="./operator/AD_MA_6002.html" target="_blank">AD_MA_6002.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">74</td>
+				<td>AD_MA_6003</td>
+				<td>
+					<a href="./operator/AD_MA_6003.html" target="_blank">AD_MA_6003.html</a><br>
+					<a href="./operator/AD_MA_6003_01.html" target="_blank">AD_MA_6003_01.html</a><br>
+					<a href="./operator/AD_MA_6003_02.html" target="_blank">AD_MA_6003_02.html</a><br>
+					<a href="./operator/AD_MA_6003_03.html" target="_blank">AD_MA_6003_03.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">75</td>
+				<td>사용자 그룹조회</td>
+				<td>AD_MA_6004</td>
+				<td><a href="./operator/AD_MA_6004.html" target="_blank">AD_MA_6004.html</a></td>
+				<td></td>
+			</tr>
+			<!-- //Operator -->
+			<tr>
+				<td class="num">76</td>
+				<td rowspan="17">시스템 관리</td>
+				<td>메뉴관리(TBD)</td>
+				<td>AD_SY_7001</td>
+				<td><a href="./system/AD_SY_7001.html" target="_blank">AD_SY_7001.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">77</td>
+				<td rowspan="5">권한 관리</td>
+				<td>AD_SY_7002</td>
+				<td><a href="./system/AD_SY_7002.html" target="_blank">AD_SY_7002.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">78</td>
+				<td>AD_SY_7003</td>
+				<td>
+					<a href="./system/AD_SY_7003.html" target="_blank">AD_SY_7003.html</a><br>
+					<a href="./system/AD_SY_7003_01.html" target="_blank">AD_SY_7003_01.html</a><br>
+					<a href="./system/AD_SY_7003_02.html" target="_blank">AD_SY_7003_02.html</a><br>
+					<a href="./system/AD_SY_7003_03.html" target="_blank">AD_SY_7003_03.html</a><br>
+					<a href="./system/AD_SY_7003_04.html" target="_blank">AD_SY_7003_04.html</a><br>
+					<a href="./system/AD_SY_7003_05.html" target="_blank">AD_SY_7003_05.html</a><br>
+					<a href="./system/AD_SY_7003_06.html" target="_blank">AD_SY_7003_06.html</a><br>
+					<a href="./system/AD_SY_7003_07.html" target="_blank">AD_SY_7003_07.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">79</td>
+				<td>AD_SY_7004</td>
+				<td><a href="./system/AD_SY_7004.html" target="_blank">AD_SY_7004.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">80</td>
+				<td>AD_SY_7005</td>
+				<td><a href="./system/AD_SY_7005.html" target="_blank">AD_SY_7005.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">81</td>
+				<td>AD_SY_7006</td>
+				<td><a href="./system/AD_SY_7006.html" target="_blank">AD_SY_7006.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">82</td>
+				<td>시스템 메시지 관리(TBD)</td>
+				<td>AD_SY_7007</td>
+				<td><a href="./system/AD_SY_7007.html" target="_blank">AD_SY_7007.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">83</td>
+				<td>화면관리(TBD)</td>
+				<td>AD_SY_7008</td>
+				<td><a href="./system/AD_SY_7008.html" target="_blank">AD_SY_7008.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">84</td>
+				<td rowspan="2">공통코드 관리(TBD)</td>
+				<td>AD_SY_7009</td>
+				<td>
+					<a href="./system/AD_SY_7009.html" target="_blank">AD_SY_7009.html</a><br>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">85</td>
+				<td>AD_SY_7018</td>
+				<td><a href="./system/AD_SY_7018.html" target="_blank">AD_SY_7018.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">86</td>
+				<td rowspan="8">Mobile 배포관리</td>
+				<td>AD_SY_7010</td>
+				<td><a href="./system/AD_SY_7010.html" target="_blank">AD_SY_7010.html</a></td>
+				<td></td>
+			</tr>
+		<tr>
+				<td class="num">87</td>
+				<td>AD_SY_7011</td>
+				<td><a href="./system/AD_SY_7011.html" target="_blank">AD_SY_7011.html</a></td>
+				<td></td>
+			</tr>
+		<tr>
+				<td class="num">88</td>
+				<td>AD_SY_7012</td>
+				<td>
+					<a href="./system/AD_SY_7012.html" target="_blank">AD_SY_7012.html</a><br>
+					<a href="./system/AD_SY_7012_01.html" target="_blank">AD_SY_7012_01.html</a>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">89</td>
+				<td>AD_SY_7013</td>
+				<td><a href="./system/AD_SY_7013.html" target="_blank">AD_SY_7013.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">90</td>
+				<td>AD_SY_7014</td>
+				<td><a href="./system/AD_SY_7014.html" target="_blank">AD_SY_7014.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">91</td>
+				<td>AD_SY_7015</td>
+				<td><a href="./system/AD_SY_7015.html" target="_blank">AD_SY_7015.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">92</td>
+				<td>AD_SY_7016</td>
+				<td><a href="./system/AD_SY_7016.html" target="_blank">AD_SY_7016.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="num">93</td>
+				<td></td>
+				<td>AD_SY_7017</td>
+				<td><a href="./system/AD_SY_7017.html" target="_blank">AD_SY_7017.html</a></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</body>
+</html>

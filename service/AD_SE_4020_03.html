@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal 고객정보서약 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		$("#jqGrid").jqGrid({
+		url:'../data.json',
+		datatype: "json",
+		height:"auto",
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['조직명','서약', '미서약'],
+		colModel:[
+			{ name: '조직명', index: 'name', width: 120},
+			{ name: '서약', index: 'pro', width: 80 },
+			{ name: '미서약', index: 'npro', width: 80 }
+		],
+		rowNum:10,
+		//sortname: 'seq_user',
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+			var flag = 0;
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+
+			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
+				var isAllChecked = true;
+				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
+					if ($(this).prop('checked') === false)
+					{
+						isAllChecked = false;
+					}
+				});
+
+				if (isAllChecked)
+				{
+					$("thead").find(className).prop("checked",isAllChecked);
+
+				}
+			});
+		}
+	});
+
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+	//JQ그리드 테이블 Width
+
+	resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+
+});
+</script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+#jqGrid tbody tr:nth-child(2) td{background-color: #f5f5f6;}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>고객정보보호서약 통계</strong>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="tbl_wrap mt10">
+			<table id="jqGrid"></table>			
+		</div>
+		<div class="btnbox">
+			<div class="fr">
+				<a href="#" class="btn_long confirm">미서약자 EXCEL 다운로드</a>
+			</div>
+		</div>
+		<div class="btnbox">
+			<a href="#" class="btn">확인</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

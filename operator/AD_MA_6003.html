@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>관리자 목록</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>권한 상세보기</strong>
+		<a href="#" class="close" data-pop-close="popup">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="tbl_wrap">
+			<h2>관리자 기본정보</h2>
+			<table class="tbl_view">
+				<caption></caption>
+				<colgroup>
+					<col style="width:140px" />
+					<col />
+					<col style="width:140px" />
+					<col />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th scope="row">이름</th>
+					<td class="w274">
+						홍은길(eqssss1023)
+					</td>
+					<th scope="row">소속부서</th>
+					<td>
+						강동마케팅팀
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">상태</th>
+					<td>
+						Active
+					</td>
+					<th scope="row">최근접속일</th>
+					<td>
+						2016.08.25 09:23:23
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="tbl_wrap">
+			<h2>권한</h2>
+			<table class="tbl_list">
+				<caption></caption>
+				<colgroup>
+					<col style="width:70%;" />
+					<col />
+				</colgroup>
+				<thead>
+				<tr>
+					<th scope="col" class="al_l">권한</th>
+					<th scope="col">선택</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td class="al_l">총괄업무 관리</td>
+					<td><input type="checkbox" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group4"></label></td>
+				</tr>
+				<tr>
+					<td class="al_l">게시판 관리</td>
+					<td><input type="checkbox" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group4"></label></td>					
+				</tr>
+				<tr>
+					<td class="al_l">커뮤니티 관리</td>
+					<td><input type="checkbox" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group4"></label></td>
+				</tr>
+				<tr>
+					<td class="al_l">설문관리</td>
+					<td><input type="checkbox" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group4"></label></td>
+				</tr>
+				<tr>
+					<td class="al_l">서비스 관리</td>
+					<td><input type="checkbox" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group4"></label></td>
+				</tr>
+				</tbody>
+			</table>
+			<table class="single_tb">
+				<caption></caption>
+				<colgroup>
+					<col style="width:142px" />
+					<col />
+					<col style="width:142px" />
+					<col />
+				</colgroup>
+				<tbody>
+					<tr class="bd_top">
+						<th scope="row" class="vt pl16">최종 수정자</th>
+						<td class="w274">홍길순(eqsss1023,SD마케팅팀)</td>
+						<th scope="row" class="vt">최종 수정일</th>
+						<td>2016.07.25 16:23:23</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="btnbox">
+			<div class="fl">
+			<a href="AD_MA_6003_01.html" class="btn_long" data-layer-popup='{"name":"저장", "width":"400", "height":"279"}'>관리자 삭제</a>
+			</div>
+			<div class="fr">
+				<a href="AD_MA_6003_02.html" class="btn confirm" data-layer-popup='{"name":"저장", "width":"400", "height":"279"}'>적용</a>
+				<a href="AD_MA_6003_03.html" class="btn" data-layer-popup='{"name":"저장", "width":"400", "height":"279"}'>취소</a>
+			</div>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

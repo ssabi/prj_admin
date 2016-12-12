@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>사용자 그룹조회</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li class="on"><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">관리자 관리</h2>
+				<div class="multiview">
+					<ul>
+						<li><span><a href="AD_SY_7001.html">메뉴관리</a></span></li>
+						<li class="on"><span><a href="AD_SY_7002.html">권한관리</a></span></li>
+						<li><span><a href="AD_SY_7007.html">시스템 메시지관리</a></span></li>
+						<li><span><a href="AD_SY_7008.html">화면관리</a></span></li>
+						<li class="multi"><span>코드 관리</span>
+							<ul>
+								<li><span><a href="AD_SY_7009.html">공통코드그룹 관리</a></span></li>
+								<li><span><a href="AD_SY_7018.html">공통코드 관리</a></span></li>
+							</ul>
+						</li>
+						<li><span><a href="AD_SY_7010.html">Mobile 배포관리</a></span></li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>사용자 그룹조회</h2>
+				<div class="tbl_wrap">
+					<div class="tbl_oper sy del_bt">
+						<div class="oper_left sy">
+							<h3>권한</h3>
+							<ul>
+								<li><a href="#">총괄업무 관리</a> <span><a href="AD_SY_7006.html"  class="find_target" data-layer-popup='{"name":"권한 상세 설정","width":"600","height":"713"}' data-target-box-button="box01">(1명)</a></span></li>
+								<li class="on"><a href="#">게시판 관리</a> <span><a href="AD_SY_7006.html"  class="find_target" data-layer-popup='{"name":"권한 상세 설정","width":"600","height":"713"}' data-target-box-button="box01">(15명)</a></span></li>
+								<li><a href="#">커뮤니티 관리</a> <span><a href="AD_SY_7006.html"  class="find_target" data-layer-popup='{"name":"권한 상세 설정","width":"600","height":"713"}' data-target-box-button="box01">(3명)</a></span></li>
+								<li><a href="#">설문 관리</a> <span><a href="AD_SY_7006.html"  class="find_target" data-layer-popup='{"name":"권한 상세 설정","width":"600","height":"713"}' data-target-box-button="box01">(5명)</a></span></li>
+								<li><a href="#">서비스 관리</a> <span><a href="AD_SY_7006.html"  class="find_target" data-layer-popup='{"name":"권한 상세 설정","width":"600","height":"713"}' data-target-box-button="box01">(1명)</a></span></li>
+								<li><a href="#">총괄업무관리총괄업무관리관리명</a> <span><a href="AD_SY_7006.html"  class="find_target" data-layer-popup='{"name":"권한 상세 설정","width":"600","height":"713"}' data-target-box-button="box01">(1명)</a></span></li>
+							</ul>
+						</div>
+						<div class="oper_right sy">
+							<h3 class="del_bb">권한 조회/수정</h3>
+							<div class="managebox">
+								<form action="#" method="post">
+									<table class="tbl_write del_b">
+										<caption></caption>
+										<colgroup>
+											<col style="width:135px;" />
+											<col />
+										</colgroup>
+										<tbody>
+										<tr>
+											<th scope="row" class="del_pt"><span class="point">권한이름</span></th>
+											<td class="del_pt">
+												<div class="subject">
+													<div class="subject_reg" data-chk-length="">
+														<input type="text" />
+														<span class="byte"><span>0</span>/<em class="count red02">15</em></span>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row" class="vt"><span class="point">설명</span></th>
+											<td>
+												<div class="vreply_write" data-chk-length="">
+													<div class="textarea">
+														<textarea id="reply_con" cols="30" rows="10"></textarea>
+														<span class="byte"><span>0</span>/<em class="count">100</em></span>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row" class="vt pl16">사용여부</th>
+											<td>
+												<div class="target_chk">
+													<input type="radio" name="target" id="t01" class="chk_target" checked="checked" /><label for="t01">사용</label>
+													<input type="radio" name="target" id="t02" class="chk_target" /><label for="t02">미사용</label>
+												</div>
+												<p class="red02">미사용시 해당권한을 소지한 사용자라 하더라도 권한을 행사 할 수 없습니다.</p>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row" class="pl16">최종수정자</th>
+											<td></td>
+										</tr>
+										<tr>
+											<th scope="row" class="vt pl16">최종수정일시</th>
+											<td></td>
+										</tr>
+										<tr>
+											<th scope="row" class="vt"><span class="point">메뉴설정</span></th>
+											<td>
+												<a href="AD_SY_7005.html"  class="find_target btn_long" data-layer-popup='{"name":"권한 상세 설정","width":"400","height":"662"}' data-target-box-button="box01">메뉴설정</a>
+											</td>
+										</tr>
+										</tbody>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="btnbox">
+					<div class="fl">
+						<a href="AD_SY_7004.html" class="btn confirm">권한추가</a>
+					</div>
+					<div class="fr">
+						<a href="AD_SY_7003_01.html" class="btn confirm" data-layer-popup='{"name":"저장", "width":"400", "height":"279"}'>저장</a>
+						<a href="AD_SY_7003_04.html" class="btn" data-layer-popup='{"name":"삭제", "width":"400", "height":"279"}'>삭제</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- //Container -->		
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

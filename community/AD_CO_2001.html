@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>승인요청 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+		$("#jqGrid").jqGrid({
+		url:'../data.json',
+		datatype: "json",
+		height:"auto",
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['NO','유형', '구분','커뮤니티 이름','신청자 이름','신청자 조직명','신청일','처리'],
+		colModel:[
+			{ name: 'NO', index: 'number', key: true, width: 50 },
+			{ name: '유형', index: 'cont', width: 50,},
+			{ name: '구분', index: 'division', width: 50 },
+			{ name: '커뮤니티 이름', index: 'cname', width: 200 },
+			{ name: '신청자 이름', index: 'name', width: 100 },
+			{ name: '신청자 조직명', index: 'group', width: 150 },
+			{ name: '신청일', index: 'date', width: 80 },
+			{ name: '처리', index: 'process', width: 100 }
+		],
+		rowNum:10,
+		//sortname: 'seq_user',
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+			var flag = 0;
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+
+			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
+				var isAllChecked = true;
+				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
+					if ($(this).prop('checked') === false)
+					{
+						isAllChecked = false;
+					}
+				});
+
+				if (isAllChecked)
+				{
+					$("thead").find(className).prop("checked",isAllChecked);
+
+				}
+			});
+		}
+	});
+
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+	//JQ그리드 테이블 Width
+
+	resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+
+	$('#opt_start').datepicker('setDate', setDateCal(180));
+});
+
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li class="on"><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">커뮤니티 관리</h2>
+				<div class="multiview">
+					<ul class="multi">
+						<li class="on"><a href="AD_CO_2001.html"><span>승인요청 관리</span></a></li>
+						<li><a href="AD_CO_2004.html"><span>커뮤니티 현황</span></a></li>
+						<li><a href="AD_CO_2011.html"><span>커뮤니티 게시판 관리</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="incon">
+				<h2>승인요청 관리</h2>
+				<div class="tbl_opt reset_area mt10">
+					<form action="#" method="post">
+						<table>
+							<colgroup>
+								<col style="width:73px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th>키워드</th>
+								<td>
+									<div class="frm_ele">
+										<select class="w170">
+											<option value="">커뮤니티 이름</option>
+											<option value="">신청자 이름</option>
+											<option value="">신청자 ID</option>
+										</select>
+										<input type="text" placeholder="검색어를 입력해주세요" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">신청일</th>
+								<td>
+									<div class="period">
+										<p><input type="text" id="opt_start" readonly="readonly" /></p>
+										<p><input type="text" id="opt_end" readonly="readonly" /></p>
+										<a href="#" class="btn line02" data-period="month3">3개월</a>
+										<a href="#" class="btn line02 on" data-period="month6">6개월</a>
+										<a href="#" class="btn line02" data-period="month12">12개월</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">유형</th>
+								<td>
+									<input type="checkbox" id="survey_type01" checked="checked" /><label for="survey_type01">지역</label>
+									<input type="checkbox" id="survey_type02" checked="checked" /><label for="survey_type02">일반</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">구분</th>
+								<td>
+									<input type="checkbox" id="survey_type03" checked="checked" /><label for="survey_type03">개설</label>
+									<input type="checkbox" id="survey_type04" checked="checked" /><label for="survey_type04">폐쇄</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">처리</th>
+								<td>
+									<input type="checkbox" id="survey_status01" checked="checked" /><label for="survey_status01">대기</label>
+									<input type="checkbox" id="survey_status02" checked="checked" /><label for="survey_status02">검토중</label>
+									<input type="checkbox" id="survey_status03" /><label for="survey_status03">승인</label>
+									<input type="checkbox" id="survey_status04" /><label for="survey_status04">반려</label>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="btnbox">
+					<a href="#" class="btn confirm">검색</a>
+					<a href="#" class="btn resetBtn">초기화</a>
+				</div>
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<div class="fl">
+							<p class="tbl_result">전체115건&nbsp;&nbsp;1/8페이지</p>
+						</div>
+
+						<div class="fr">
+							<select class="w121">
+								<option value="">10개씩 조회</option>
+								<option value="">20개씩 조회</option>
+								<option value="">30개씩 조회</option>
+								<option value="">50개씩 조회</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="tbl_wrap">
+					<table id="jqGrid"></table>
+					<div id="Pager"></div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- //Container -->		
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

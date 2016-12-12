@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>BP Portal Notice 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#add_subject").bind({
+		"click" : function(e){
+			e.preventDefault();
+
+			var target = $(".tbl_list");
+			var targetBody = target.find("tbody");
+			var len = targetBody.find("tr").length;
+
+			var html = '<tr class="exclude">';
+			html += '<td class="num">'+(len+1)+'</td>';
+			html += '<td class="al_l" colspan="4">';
+			html += '	<div class="subject">';
+			html += '		<div class="subject_reg" data-chk-length="">';
+			html += '			<input type="text" />';
+			html += '			<a href="#" class="btn line02">중복체크</a>';
+			html += '			<span class="byte"><span>0</span>/<em class="count red02">20</em></span>';
+			html += '		</div>';
+			html += '	</div>';
+			html += '</td>';
+			html += '<td><a href="#" class="btn">적용</a><a href="#" class="btn">취소</a></td>';
+			html += '</tr>';
+
+			if(targetBody.find("tr.exclude").length < 1){
+				targetBody.append(html);
+				chklength();
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li class="on"><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">게시판 관리</h2>
+				<div class="multiview">
+					<ul>
+						<li class="multi"><span>Swing Portal</span>
+							<ul>
+								<li><a href="AD_BO_1001.html">Notice 관리</a></li>
+								<li><a href="AD_BO_1003.html">Board 관리</a></li>
+							</ul>
+						</li>
+						<li class="multi"><span class="open active">BP Portal</span>
+							<ul class="open">
+								<li class="on"><a href="AD_BO_1013.html">Notice 관리</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>BP Portal Notice 관리</h2>
+				<div class="tbl_wrap">
+					<form action="#" method="post">
+						<table class="tbl_write">
+							<caption class="view">운영자 설정</caption>
+							<colgroup>
+								<col style="width:216px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr style="height: 65px;">
+								<th scope="row" class="vt">BP Portal Notice 운영자</th>
+								<td class="del_p">
+									<div class="target_box">
+										<div data-target-box="box01">
+											<span class="target_tag">홍길동 (eqssss1023,SD마케팅팀)<a href="#" class="del"></a></span>
+										</div>
+										<a href="AD_BO_1002.html"  class="find_target submit" data-layer-popup='{"name":"BP Portal 운영자 설정","width":"680","height":"777"}'>운영자 설정</a>
+									</div>
+								</td>
+							</tr>								
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="managebox mt40">
+					<div class="tbl_wrap">
+						<table class="tbl_list" data-tbl-sort='{"up":".up","down":".down"}'>
+							<caption class="view">말머리 설정</caption>
+							<colgroup>
+								<col style="width:10%;" />
+								<col />
+								<col style="width:15%;" />
+								<col style="width:15%;" />
+								<col style="width:12%;" />
+								<col style="width:20%;" />
+							</colgroup>
+							<thead>
+							<tr>
+								<th scope="col">순서</th>
+								<th scope="col">말머리</th>
+								<th scope="col">등록자</th>
+								<th scope="col">등록일</th>
+								<th scope="col">정렬</th>
+								<th scope="col">관리</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="num">1</td>
+								<td class="al_l">
+									<div class="subject">
+										<div class="subject_reg" data-chk-length="">
+											<input type="text" />
+											<a href="#" class="btn line02">중복체크</a>
+											<span class="byte"><span>0</span>/<em class="count red02">20</em></span>
+										</div>
+									</div>
+								</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+								<td>
+									<div class="orderby first">
+										<a href="#" class="up disabled"></a>
+										<a href="#" class="down"></a>
+									</div>
+								</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">2</td>
+								<td class="al_l">교육</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">3</td>
+								<td class="al_l">Smart Planner</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">4</td>
+								<td class="al_l">B-Smart</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">5</td>
+								<td class="al_l">NIS</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">6</td>
+								<td class="al_l">유통망(CMS)</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">7</td>
+								<td class="al_l">상품(CMS)</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">8</td>
+								<td class="al_l">일일(CMS)</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<tr>
+								<td class="num">9</td>
+								<td class="al_l">배너제목1</td>
+								<td>홍길동</td>
+								<td>2016.08.20</td>
+								<td>
+									<div class="orderby">
+										<a href="#" class="up"></a>
+										<a href="#" class="down disabled"></a>
+									</div>
+								</td>
+								<td><a href="#" class="btn">수정</a><a href="#" class="btn">삭제</a></td>
+							</tr>
+							<!-- <tr class="exclude">
+								<td class="num">10</td>
+								<td class="al_l" colspan="5">
+									<div class="subject">
+										<div class="subject_reg" data-chk-length="">
+											<input type="text" />
+											<a href="#" class="btn line02">중복체크</a>
+											<span class="byte"><span>0</span>/<em class="count red02">20</em></span>
+										</div>
+									</div>
+								</td>
+							</tr> -->
+							</tbody>
+						</table>
+					</div>
+					<div class="btnbox">
+						<div class="fl">
+							<a href="#" class="btn" id="add_subject">말머리 추가</a>
+						</div>
+						<div class="fr">
+							<a href="#" class="btn confirm">순서 적용</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

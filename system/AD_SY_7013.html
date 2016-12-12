@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Mobile 배포관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li class="on"><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">시스템 관리</h2>
+				<div class="multiview">
+					<ul>
+						<li><span><a href="AD_SY_7001.html">메뉴관리</a></span></li>
+						<li><span><a href="AD_SY_7002.html">권한관리</a></span></li>
+						<li><span><a href="AD_SY_7007.html">시스템 메시지관리</a></span></li>
+						<li><span><a href="AD_SY_7008.html">화면관리</a></span></li>
+						<li class="multi"><span>코드 관리</span>
+							<ul>
+								<li><span><a href="AD_SY_7009.html">공통코드그룹 관리</a></span></li>
+								<li><span><a href="AD_SY_7018.html">공통코드 관리</a></span></li>
+							</ul>
+						</li>
+						<li class="on"><span><a href="AD_SY_7010.html">Mobile 배포관리</a></span></li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>정보변경</h2>
+				<div class="tbl_wrap tbl_opt">
+					<form action="#" method="post">
+						<table class="tbl_write">
+							<caption></caption>
+							<colgroup>
+								<col style="width:160px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row"><span class="point">명칭</span></th>
+								<td>
+									<div class="ele_wrap">
+										<input type="text" placeholder="제목을 입력해주세요." />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt"><span class="point">설명</span></th>
+								<td>
+									<div class="vreply_write" data-chk-length="">
+										<div class="textarea">
+											<textarea id="reply_con" cols="30" rows="10"></textarea>
+											<span class="byte"><span>0</span>/<em class="count">200</em></span>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="point">회사구분</span></th>
+								<td>
+									<select class="w140">
+										<option value="">전체</option>
+										<option value="">선택</option>
+										<option value="">프로젝트</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="point">OS</span></th>
+								<td>
+									<select class="w140">
+										<option value="">전체</option>
+										<option value="">선택</option>
+										<option value="">프로젝트</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt"><span class="point">유형</span></th>
+								<td>
+									<select class="w140">
+										<option value="">전체</option>
+										<option value="">선택</option>
+										<option value="">프로젝트</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="pc">
+								<th scope="row" class="vt">아이콘</th>
+								<td>
+									<div class="include_preview del_p">
+										<div class="filebox" data-file-box="">
+											<input type="text" readonly="readonly" />
+											<input type="file" id="file01" />
+											<label for="file01">찾아보기</label>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt">노출여부</th>
+								<td>
+									<div class="target_chk">
+										<input type="radio" name="target01" id="t01" class="chk_target" checked="checked" /><label for="t01">노출</label>
+										<input type="radio" name="target01" id="t02" class="chk_target" /><label for="t02">비노출</label>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="btnbox">
+					<div class="fl">
+						<a href="#" class="btn">삭제</a>
+					</div>
+					<div class="fr">
+						<a href="#" class="btn confirm">변경저장</a>
+						<a href="AD_SY_7016.html" class="btn">취소</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

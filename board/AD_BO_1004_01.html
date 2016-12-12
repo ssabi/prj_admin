@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal 게시판 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//jqChk();
+	$("#jqGrid").jqGrid({
+		url:'../data.json',
+		datatype: "json",
+		height:"auto",
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['게시판 이름','분류'],
+		colModel:[
+			{name:'게시판 이름',index:'name', width:200},
+			{name:'분류',index:'cate', width:80}
+		],
+		rowNum:10,
+		//sortname: 'seq_user',
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+			var flag = 0;
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+
+			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
+				var isAllChecked = true;
+				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
+					if ($(this).prop('checked') === false)
+					{
+						isAllChecked = false;
+					}
+				});
+
+				if (isAllChecked)
+				{
+					$("thead").find(className).prop("checked",isAllChecked);
+
+				}
+			});
+		}
+	});
+
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+	//JQ그리드 테이블 Width
+
+	resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+	
+});
+</script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>게시판 노출</strong>
+		<a href="#" class="close" data-pop-close="popup">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="tbl_wrap mt10">
+			<table id="jqGrid"></table>
+		</div>
+		<p class="mt10">위 <span class="red">4</span>개 게시판에 대해 <span class="blue">노출처리</span> 하시겠습니까?</p>
+		<div class="btnbox">
+			<a href="#" class="btn confirm" data-pop-close="popup">확인</a>
+			<a href="#" class="btn" data-pop-close="popup">취소</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

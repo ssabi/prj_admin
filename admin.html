@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal Admin_guide</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/libs/jquery-1.11.2.min.js"></script>
+<script src="../resource_admin/js/libs/jquery-ui.min.js"></script>
+<script src="../resource_admin/js/libs/jquery-migrate-1.2.1.min.js"></script>
+<script src="../resource_admin/js/libs/jquery.easing.min.js"></script>
+<script src="../resource_admin/js/plugins/selectordie.min.js"></script>
+<script src="../resource_admin/js/plugins/tag-it.min.js"></script>
+<script src="../resource_admin/js/plugins/spectrum.js"></script>
+<script src="../resource_admin/js/plugins/slick.min.js"></script>
+<script src="../resource_admin/js/plugins/jquery.blockUI.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="#">게시판관리</a></li>
+				<li><a href="#">커뮤니티관리</a></li>
+				<li class="on"><a href="#">설문관리</a></li>
+				<li><a href="#">서비스관리</a></li>
+				<li><a href="#">통계관리</a></li>
+				<li><a href="#">관리자관리</a></li>
+				<li><a href="#">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">게시판 관리</h2>
+				<div class="treeview">
+					<ul>
+						<li><span>Swing Portal</span>
+							<ul>
+								<li class="on">Notice 관리</li>
+								<li>Board 관리</li>
+							</ul>
+						</li>
+					</ul>
+					<ul>
+						<li><span>BP Portal</span>
+							<ul>
+								<li>Notice 관리</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<!-- //------------------------------------ -->
+			</div>
+		</div>
+		<div id="content">
+			<div class="incon">
+				<h2>-----Table opt-----</h2>
+
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<div class="fl">
+							<ul class="orderby">
+								<li class="on"><a href="#">최신순</a></li>
+								<li><a href="#">조회순</a></li>
+							</ul>
+						</div>
+
+						<div class="fr">
+							<select class="w121">
+								<option value="">20개씩 조회</option>
+								<option value="">40개씩 조회</option>
+								<option value="">60개씩 조회</option>
+								<option value="">100개씩 조회</option>
+							</select>
+							<ul class="view_type">
+								<li class="on"><a href="#" class="vt_list">리스트형</a></li>
+								<li><a href="#" class="vt_preview">미리보기형</a></li>
+							</ul>
+						</div>
+					</form>
+				</div>
+
+				<br><br>
+
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<div class="fl">
+							<p class="tbl_result">전체125건&nbsp;&nbsp;825/9999페이지</p>
+						</div>
+
+						<div class="fr">
+							<select class="w99">
+								<option value="">말머리</option>
+								<option value="">####01</option>
+								<option value="">####02</option>
+								<option value="">####03</option>
+							</select>
+
+							<select class="w121">
+								<option value="">20개씩 조회</option>
+								<option value="">40개씩 조회</option>
+								<option value="">60개씩 조회</option>
+								<option value="">100개씩 조회</option>
+							</select>
+						</div>
+					</form>
+				</div>
+
+				<br><br>
+
+				<div class="tbl_opt">
+					<div class="fl">
+						<p class="txt_point"><span>*</span> 항목은 필수 입력 항목 입니다.</p>
+					</div>
+
+					<div class="fr">
+						<p class="txt_point"><a href="#">임시저장 글(2)</a></p>
+					</div>
+				</div>
+
+				<br><br>
+
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<table>
+							<colgroup>
+								<col style="width:98px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<td colspan="2">
+									<div class="period">
+										<select class="w170">
+											<option value="">설문명</option>
+										</select>
+
+										<p><input type="text" id="opt_start02" readonly="readonly" /></p>
+										<p><input type="text" id="opt_end02" readonly="readonly" /></p>
+										<a href="#" class="btn line02" data-period="today">오늘</a>
+										<a href="#" class="btn line02" data-period="week">1주일</a>
+										<a href="#" class="btn line02" data-period="month">1개월</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<div class="frm_ele">
+										<select class="w170">
+											<option value="">설문명</option>
+										</select>
+										<input type="text" placeholder="검색어를 입력해주세요" />
+										<input type="checkbox" name="" id="insch" /><label for="insch">결내 과 검색하기</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">설문유형</th>
+								<td>
+									<input type="checkbox" name="" id="survey_type01" checked="checked" /><label for="survey_type01">전체</label>
+									<input type="checkbox" name="" id="survey_type02" /><label for="survey_type02">설문</label>
+									<input type="checkbox" name="" id="survey_type03" /><label for="survey_type03">퀴즈</label>
+									<input type="checkbox" name="" id="survey_type04" /><label for="survey_type04">취합</label>
+									<input type="checkbox" name="" id="survey_type05" /><label for="survey_type05">모바일</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">배포상태</th>
+								<td>
+									<input type="checkbox" name="" id="survey_status01" checked="checked" /><label for="survey_status01">저장</label>
+									<input type="checkbox" name="" id="survey_status02" /><label for="survey_status02">배포대기</label>
+									<input type="checkbox" name="" id="survey_status03" /><label for="survey_status03">배포 중</label>
+									<input type="checkbox" name="" id="survey_status04" /><label for="survey_status04">배포종료</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">기간검색</th>
+								<td>
+									<div class="period">
+										<p><input type="text" id="opt_start" readonly="readonly" /></p>
+										<p><input type="text" id="opt_end" readonly="readonly" /></p>
+										<a href="#" class="btn line02" data-period="today">오늘</a>
+										<a href="#" class="btn line02" data-period="week">1주일</a>
+										<a href="#" class="btn line02" data-period="month">1개월</a>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div><!--//Tbl_opt-->
+
+				<br><br><br>
+
+				<h2>-----Table List-----</h2>
+
+				<div class="tbl_wrap">
+					<table class="tbl_list">
+						<caption></caption>
+						<colgroup>
+							<col style="width:6%;" />
+							<col style="width:8%;" />
+							<col style="width:10%;" />
+							<col />
+							<col style="width:10%;" />
+							<col style="width:10%;" />
+							<col style="width:10%;" />
+						</colgroup>
+						<thead>
+						<tr>
+							<th scope="col"><input type="checkbox" name="" id="chkAll" class="label_check" data-check-all="check_group5" /><label for="chkAll"></label></th>
+							<th scope="col">번호</th>
+							<th scope="col">구분</th>
+							<th scope="col">제목</th>
+							<th scope="col">작성자</th>
+							<th scope="col"><a href="#">작성일<span class="sort_down"></span></a></th>
+							<th scope="col"><a href="#">조회<span class="sort_up"></span></a></th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr class="noti">
+							<td><input type="checkbox" name="" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group5"></label></td>
+							<td>125</td>
+							<td class="al_l">[말머리 1]</td>
+							<td class="al_l"><a href="#" class="ells">[상품] 지점 소통 마케팅 전략 수립에 관한 자료</a><img src="../resource_admin/images/common/ico_file.png" alt="첨부파일" class="badge"></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr class="noti">
+							<td><input type="checkbox" name="" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group5"></label></td>
+							<td>124</td>
+							<td class="al_l">[말머리 2]</td>
+							<td class="al_l"><a href="#" class="ells">[교육] 동대구마케팅팀 워크샵 일정 공유</a></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr class="noti">
+							<td><input type="checkbox" name="" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group5"></label></td>
+							<td>123</td>
+							<td class="al_l">[말머리 3]</td>
+							<td class="al_l"><a href="#" class="ells">[Smart Planner] 부산마케팅팀 자율 출근제</a></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group5"></label></td>
+							<td>122</td>
+							<td class="al_l">[말머리 4]</td>
+							<td class="al_l"><a href="#" class="ells">[상품] 지점 소통 마케팅 전략 수립에 관한 자료[상품] 지점 소통 마케팅 전략 수립에 관한 자료</a><img src="../resource_admin/images/common/badge_new.png" alt="NEW" class="badge"><img src="../resource_admin/images/common/badge_urgent.png" alt="긴급" class="badge"><img src="../resource_admin/images/common/badge_important.png" alt="중요" class="badge"></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group5"></label></td>
+							<td>121</td>
+							<td class="al_l">[말머리 5]</td>
+							<td class="al_l"><a href="#" class="ells">[교육] 동대구마케팅팀 워크샵 일정 공유</a><img src="../resource_admin/images/common/badge_new.png" alt="NEW" class="badge"></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr class="reply">
+							<td><input type="checkbox" name="" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group5"></label></td>
+							<td class="re"></td>
+							<td class="al_l" colspan="2" class="ells"><a href="#">RE : 지점 소통 전략 문의드려요</a></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="chk07" /><label for="chk07" class="label_check" data-check-group="check_group5"></label></td>
+							<td>119</td>
+							<td class="al_l">[말머리 2]</td>
+							<td class="al_l"><a href="#" class="ells">[교육] 동대구마케팅팀 워크샵 일정 공유</a><img src="../resource_admin/images/common/ico_file.png" alt="첨부파일" class="badge"></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="chk08" /><label for="chk08" class="label_check" data-check-group="check_group5"></label></td>
+							<td>118</td>
+							<td class="al_l">[말머리 3]</td>
+							<td class="al_l"><a href="#" class="ells">[교육] 동대구마케팅팀 워크샵 일정 공유</a></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="chk09" /><label for="chk09" class="label_check" data-check-group="check_group5"></label></td>
+							<td>117</td>
+							<td class="al_l">[말머리 4]</td>
+							<td class="al_l"><a href="#" class="ells">[교육] 동대구마케팅팀 워크샵 일정 공유</a></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="chk10" /><label for="chk10" class="label_check" data-check-group="check_group5"></label></td>
+							<td>116</td>
+							<td class="al_l">[말머리 5]</td>
+							<td class="al_l"><a href="#" class="ells">[교육] 동대구마케팅팀 워크샵 일정 공유</a></td>
+							<td>홍길동</td>
+							<td>2016.06.20</td>
+							<td>9999</td>
+						</tr>
+						</tbody>
+					</table>
+				</div><!-- //List Table -->
+
+				<br><br><br>
+
+				<h2>게시판 생성</h2>
+				<div class="tbl_wrap">
+					<form action="#" method="post">
+						<table class="tbl_write del_bb">
+							<caption></caption>
+							<colgroup>
+								<col style="width:141px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row"><span class="point">게시판 이름</span></th>
+								<td>
+									<div class="ele_wrap">
+										<input type="text" placeholder="" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="point">분류</span></th>
+								<td>
+									<select class="w340">
+										<option value="">일반 게시판</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="pl16">생성자</th>
+								<td>홍길동 (eqsss1023,SD마케팅팀)</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt pl16">노출설정</th>
+								<td>
+									<div class="target_chk">
+										<input type="radio" name="target" id="t01" class="chk_target" checked="checked" /><label for="t01">노출</label>
+										<input type="radio" name="target" id="t02" class="chk_target" /><label for="t02">비노출</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt pl16">노출순서</th>
+								<td>7</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt"><span class="point">게시판 운영자</span></th>
+								<td>
+									<div class="include_preview">
+										<div class="filebox" data-file-box="">
+											<input type="text" readonly="readonly" />
+											<input type="file" id="file01" />
+											<label for="file01">운영자 설정</label>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt"><span class="point">조회 운영자</span></th>
+								<td>
+									<div class="include_preview">
+										<div class="filebox" data-file-box="">
+											<input type="text" readonly="readonly" />
+											<input type="file" id="file02" />
+											<label for="file02">대상 설정</label>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt"><span class="point">쓰기 권한자</span></th>
+								<td>
+									<div class="include_preview">
+										<div class="filebox" data-file-box="">
+											<input type="text" readonly="readonly" />
+											<input type="file" id="file03" />
+											<label for="file03">대상 설정</label>
+										</div>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div><!-- //Write Table -->
+				<div class="managebox">
+					<div class="tbl_wrap" style="border:none;">
+						<table class="tbl_view">
+							<caption></caption>
+							<colgroup>
+								<col style="width:140px" />
+								<col />
+								<col style="width:140px" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row">알림설정</th>
+								<td class="w274">
+									<input type="radio" name="display" id="display01" checked="checked" /><label for="display01">허용</label>
+									<input type="radio" name="display" id="display02" /><label for="display02">미허용</label>
+								</td>
+								<th scope="row">비밀게시글</th>
+								<td>
+									<input type="radio" name="display01" id="display03" checked="checked" /><label for="display03">허용</label>
+									<input type="radio" name="display01" id="display04" /><label for="display04">미허용</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">첨부파일</th>
+								<td>
+									<input type="radio" name="display02" id="display05" checked="checked" /><label for="display05">허용</label>
+									<input type="radio" name="display02" id="display06" /><label for="display06">미허용</label>
+								</td>
+								<th scope="row">댓글허용</th>
+								<td>
+									<input type="radio" name="display03" id="display07" checked="checked" /><label for="display07">허용</label>
+									<input type="radio" name="display03" id="display08" /><label for="display08">미허용</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">첨부파일</th>
+								<td colspan="3">
+									<input type="radio" name="display04" id="display09" checked="checked" /><label for="display09">허용</label>
+									<input type="radio" name="display04" id="display10" /><label for="display10">미허용</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">게시글<br>조회권한 설정</th>
+								<td colspan="3" class="vt">
+									<input type="radio" name="display05" id="display11" checked="checked" /><label for="display11">허용</label>
+									<input type="radio" name="display05" id="display12" /><label for="display12">미허용</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="vt">말머리</th>
+								<td colspan="3">
+									<div class="subject">
+										<div class="subject_reg" data-chk-length="">
+											<input type="text" />
+											<a href="#" class="btn line02">추가</a>
+											<span class="byte"><span>0</span>/<em class="count">10</em></span>
+										</div><!-- //말머리 등록 -->
+										<div class="subject_result">
+											<div class="subject_list">
+												<div class="subject_item">
+													<p class="txt">말머리01<a href="#">삭제</a></p>
+													<p class="input"><input type="text" value="말머리01" /></p>
+												</div><!-- //item01 -->
+												<div class="subject_item">
+													<p class="txt">말머리02<a href="#">삭제</a></p>
+													<p class="input"><input type="text" value="말머리02" /></p>
+												</div><!-- //item02 -->
+												<div class="subject_item">
+													<p class="txt">말머리03<a href="#">삭제</a></p>
+													<p class="input"><input type="text" value="말머리03" /></p>
+												</div><!-- //item03 -->
+												<div class="subject_item">
+													<p class="txt">말머리04<a href="#">삭제</a></p>
+													<p class="input"><input type="text" value="말머리04" /></p>
+												</div><!-- //item04 -->
+											</div>
+											<p class="desc">말머리를 더블 클릭하면 수정할 수 있습니다.</p>
+										</div><!-- //말머리 결과 -->
+									</div>
+								</td>
+							</tr>
+							<tr class="tb_end">
+								<th scope="row" class="vt">비고</th>
+								<td colspan="3">
+									<div class="vreply_write" data-chk-length="">
+										<form action="#" method="post">
+											<div class="textarea">
+												<textarea id="reply_con" cols="30" rows="10"></textarea>
+												<span class="byte"><span>0</span>/<em class="count">400</em></span>
+											</div>
+										</form>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="btnbox">
+					<div class="fr">
+						<button type="button" class="btn confirm">생성</button>
+						<button type="button" class="btn">취소</button>
+					</div>
+				</div>
+
+					<!-- //BO_1005 -->
+
+					<br><br><br><br><br><br>
+																			
+				<h2>게시판 상세조회</h2>
+				<div class="managebox">
+					<div class="tbl_wrap">
+						<form action="#" method="post">
+							<table class="tbl_write">
+								<caption></caption>
+								<colgroup>
+									<col style="width:141px;" />
+									<col />
+								</colgroup>
+								<tbody>
+								<tr>
+									<th scope="row"><span class="point">Board 이름</span></th>
+									<td>
+										<div class="ele_wrap">
+											<input type="text" placeholder="sales Talk" />
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row"><span class="point">분류</span></th>
+									<td>특수목적</td>
+								</tr>
+								<tr>
+									<th scope="row" class="pl16">생성자</th>
+									<td>시스템관리자</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt pl16">생성일</th>
+									<td>2016.07.23 16:23:23</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt pl16">노출설정</th>
+									<td>
+										<div class="target_chk">
+											<input type="radio" name="target01" id="t03" class="chk_target" checked="checked" /><label for="t03">노출</label>
+											<input type="radio" name="target01" id="t04" class="chk_target" /><label for="t04">비노출</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt pl16">노출순서</th>
+									<td>1</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt"><span class="point">운영자</span></th>
+									<td>
+										<div class="target_box">
+											<div data-target-box="box01">
+												<span class="target_tag">홍길동<a href="#" class="del"></a></span>
+											</div>
+											<a href="javascript:void(0)"  class="find_target submit" onclick="openpop('notice/SP_NO_1005.html','대상선택', 920, 611)">운영자 설정</a>
+										</div><!-- //대상찾기 -->
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt"><span class="point">조회 권한자</span></th>
+									<td>
+										<div class="target_chk mb5">
+											<input type="radio" name="target02" id="t05" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"show"}' checked="checked" /><label for="t05">게시 대상 선택</label>
+											<input type="radio" name="target02" id="t06" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"hide"}' /><label for="t06">모든 사용자</label>
+										</div>
+
+										<div class="target_box t_box01">
+											<div data-target-box="box01">
+												<span class="target_tag">미디어그룹<a href="#" class="del"></a></span>
+											</div>
+											<a href="javascript:void(0)"  class="find_target submit" onclick="openpop('notice/SP_NO_1005.html','대상선택', 920, 611)">대상 설정</a>
+										</div><!-- //대상찾기 -->
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt"><span class="point">쓰기 권한자</span></th>
+									<td>
+										<div class="target_chk mb5">
+											<input type="radio" name="target03" id="t07" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"show"}' checked="checked" /><label for="t07">게시 대상 선택</label>
+											<input type="radio" name="target03" id="t08" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"hide"}' /><label for="t08">모든 사용자</label>
+										</div>
+
+										<div class="target_box t_box02">
+											<div data-target-box="box01">
+												<span class="target_tag">미디어그룹<a href="#" class="del"></a></span>
+											</div>
+											<a href="javascript:void(0)"  class="find_target submit" onclick="openpop('notice/SP_NO_1005.html','대상선택', 920, 611)" >대상 설정</a>
+										</div><!-- //대상찾기 -->
+									</td>
+								</tr>
+								<tr class="bd_bot">
+									<th scope="row" class="vt pl16">게시글수</th>
+									<td>9999</td>
+								</tr>
+								<tr class=" tb_add">
+									<th scope="row" class="vt pl16">말머리</th>
+									<td>
+										<div class="subject">
+											<div class="subject_reg" data-chk-length="">
+												<input type="text" />
+												<a href="#" class="btn line02">추가</a>
+												<span class="byte"><span>0</span>/<em class="count">20</em></span>
+											</div><!-- //말머리 등록 -->
+												<div class="subject_result">
+												<div class="subject_list">
+													<div class="subject_item">
+														<p class="txt">말머리01<a href="#">삭제</a></p>
+														<p class="input"><input type="text" value="말머리01" /></p>
+													</div><!-- //item01 -->
+												</div>
+													<p class="desc">말머리를 더블 클릭하면 수정할 수 있습니다.</p>
+											</div><!-- //말머리 결과 -->
+										</div>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</form>
+					</div><!-- //Write Table -->
+				</div>
+				<div class="tbl_wrap">
+					<table class="single_tb">
+						<caption></caption>
+						<colgroup>
+							<col style="width:142px" />
+							<col />
+							<col style="width:142px" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr class="bd_top">
+								<th scope="row" class="vt pl16">최종 수정자</th>
+								<td class="w274">홍길순(eqsss1023,SD마케팅팀)</td>
+								<th scope="row" class="vt">최종 수정일</th>
+								<td>2016.07.25 16:23:23</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btnbox">
+					<div class="fl">
+						<a href="#" class="btn">폐쇄</a>
+					</div>
+
+					<div class="fr">
+						<a href="#" class="btn confirm">수정</a>
+						<a href="#" class="btn">취소</a>
+					</div>
+				</div>
+			</div>
+
+			<br><br>
+
+			<div class="tbl_wrap">
+				<table class="tbl_list">
+					<caption></caption>
+					<colgroup>
+						<col style="width:38px;" />
+						<col style="width:6%;" />
+						<col />
+						<col style="width:15%;" />
+						<col style="width:10%;" />
+						<col style="width:8%;" />
+					</colgroup>
+					<tfoot>
+					<tr>
+						<td colspan="6" class="al_l"><input type="checkbox" name="" id="chkAll" /><label for="chkAll" class="label_check" data-check-all="check_group4">전체 선택</label><a href="#" class="btn">삭제</a></td>
+					</tr>
+					</tfoot>
+					<tbody>
+					<tr class="noti">
+						<td><input type="checkbox" name="" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group4"></label></td>
+						<td>117</td>
+						<td class="al_l"><a href="#">[상품] 맴버십 제휴 공지</a> <img src="../resource_admin/images/common/badge_new.png" alt="NEW" class="badge"> <img src="../resource_admin/images/common/badge_urgent.png" alt="긴급" class="badge"></td>
+						<td class="al_l">지점 소통</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr class="noti">
+						<td><input type="checkbox" name="" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group4"></label></td>
+						<td>116</td>
+						<td class="al_l"><a href="#">[교육] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">동대구마케팅팀</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr class="noti">
+						<td><input type="checkbox" name="" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group4"></label></td>
+						<td>115</td>
+						<td class="al_l"><a href="#">[B-Smart] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">지점 소통</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr class="noti">
+						<td><input type="checkbox" name="" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group4"></label></td>
+						<td>114</td>
+						<td class="al_l"><a href="#">[Smart Planner] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">부산 마케팅 본부</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr class="noti">
+						<td><input type="checkbox" name="" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group4"></label></td>
+						<td>113</td>
+						<td class="al_l"><a href="#">[주요] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">지점 소통</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr class="noti">
+						<td><input type="checkbox" name="" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group4"></label></td>
+						<td>112</td>
+						<td class="al_l"><a href="#">[주요] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">동대구마케팅팀</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk07" /><label for="chk07" class="label_check" data-check-group="check_group4"></label></td>
+						<td>111</td>
+						<td class="al_l"><a href="#">[상품] T 맴버십 제휴 공지</a> <img src="../resource_admin/images/common/badge_new.png" alt="NEW" class="badge"></td>
+						<td class="al_l">부산 마케팅 본부</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk08" /><label for="chk08" class="label_check" data-check-group="check_group4"></label></td>
+						<td>110</td>
+						<td class="al_l"><a href="#">[Smart Planner] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">지점 소통</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk09" /><label for="chk09" class="label_check" data-check-group="check_group4"></label></td>
+						<td>109</td>
+						<td class="al_l"><a href="#">[NIS] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">지점 소통</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk10" /><label for="chk10" class="label_check" data-check-group="check_group4"></label></td>
+						<td>108</td>
+						<td class="al_l"><a href="#">[교육] T 맴버십 제휴 공지</a> <img src="../resource_admin/images/common/badge_urgent.png" alt="긴급" class="badge"> <img src="../resource_admin/images/common/badge_important.png" alt="중요" class="badge"></td>
+						<td class="al_l">지점 소통</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk11" /><label for="chk11" class="label_check" data-check-group="check_group4"></label></td>
+						<td>107</td>
+						<td class="al_l"><a href="#">[NIS] T 맴버십 제휴 공지</a> <img src="../resource_admin/images/common/badge_important.png" alt="중요" class="badge"></td>
+						<td class="al_l">부산 마케팅 본부</td>
+						<td>2016.06.20</td>
+						<td>9999</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk12" /><label for="chk12" class="label_check" data-check-group="check_group4"></label></td>
+						<td>106</td>
+						<td class="al_l"><a href="#">[교육] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">마케팅본부</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk13" /><label for="chk13" class="label_check" data-check-group="check_group4"></label></td>
+						<td>105</td>
+						<td class="al_l"><a href="#">[교육] T 맴버십 제휴 공지</a></td>
+						<td class="al_l">마케팅본부</td>
+						<td>2016.06.20</td>
+						<td>999</td>
+					</tr>
+					</tbody>
+				</table>
+			</div><!-- //List Table -->
+
+			<br><br>
+
+			<div class="tbl_wrap">
+				<table class="tbl_list">
+					<caption></caption>
+					<colgroup>
+						<col style="width:5%;" />
+						<col style="width:5%;" />
+						<col style="width:248px" />
+						<col />
+						<col style="width:8%;" />
+						<col style="width:10%;" />
+						<col style="width:10%;" />
+						<col style="width:10%;" />
+					</colgroup>
+					<thead>
+					<tr>
+						<th scope="col"><input type="checkbox" name="" id="chkAll" /><label for="chkAll" class="label_check" data-check-all="check_group6"></label></th>
+						<th scope="col">순서</th>
+						<th scope="col">이미지</th>
+						<th scope="col">제목/게시기간</th>
+						<th scope="col">모바일</th>
+						<th scope="col">순서변경</th>
+						<th scope="col">등록자</th>
+						<th scope="col">상태</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><input type="checkbox" name="" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group6"></label></td>
+						<td>125</td>
+						<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+						<td class="al_l"><a href="#">배너제목1 <span class="period">2016.06.11 ~ 2016.06.30</span></a></td>
+						<td>노출</td>
+						<td>
+							<a href="#" class="up"></a>
+							<a href="#" class="down"></a>
+						</td>
+						<td>홍길동</td>
+						<td><a href="#" class="btn">사용</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group6"></label></td>
+						<td>124</td>
+						<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+						<td class="al_l"><a href="#">배너제목2 <span class="period">2016.06.11 ~ 2016.06.30</span></a></td>
+						<td>노출</td>
+						<td>
+							<a href="#" class="up"></a>
+							<a href="#" class="down"></a>
+						</td>
+						<td>홍길동</td>
+						<td><a href="#" class="btn">사용</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group6"></label></td>
+						<td>123</td>
+						<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+						<td class="al_l"><a href="#">배너제목3 <span class="period">2016.06.11 ~ 2016.06.30</span></a></td>
+						<td>노출</td>
+						<td>
+							<a href="#" class="up"></a>
+							<a href="#" class="down"></a>
+						</td>
+						<td>홍길동</td>
+						<td><a href="#" class="btn">사용</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group6"></label></td>
+						<td>122</td>
+						<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+						<td class="al_l"><a href="#">배너제목4 <span class="period">2016.06.11 ~ 2016.06.30</span></a></td>
+						<td>노출</td>
+						<td>
+							<a href="#" class="up"></a>
+							<a href="#" class="down"></a>
+						</td>
+						<td>홍길동</td>
+						<td><a href="#" class="btn">사용</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group6"></label></td>
+						<td>121</td>
+						<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+						<td class="al_l"><a href="#">배너제목5 <span class="period">2016.06.11 ~ 2016.06.30</span></a></td>
+						<td>노출</td>
+						<td>
+							<a href="#" class="up"></a>
+							<a href="#" class="down"></a>
+						</td>
+						<td>홍길동</td>
+						<td><a href="#" class="btn">사용</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group6"></label></td>
+						<td>120</td>
+						<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+						<td class="al_l"><a href="#">배너제목6 <span class="period">2016.06.11 ~ 2016.06.30</span></a></td>
+						<td>노출</td>
+						<td>
+							<a href="#" class="up"></a>
+							<a href="#" class="down"></a>
+						</td>
+						<td>홍길동</td>
+						<td><a href="#" class="btn">사용</a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div><!-- //List Table -->
+
+			<br><br>
+
+			<div class="tbl_wrap tbl_opt">
+				<form action="#" method="post">
+					<table class="tbl_write">
+						<caption></caption>
+						<colgroup>
+							<col style="width:160px;" />
+							<col />
+						</colgroup>
+						<tbody>
+						<tr>
+							<th scope="row"><span class="point">제목</span></th>
+							<td>
+								<div class="ele_wrap">
+									<input type="text" placeholder="제목을 입력해주세요." />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="point">게시기간</span></th>
+							<td>
+								<div class="period">
+									<p><input type="text" id="opt_start" readonly="readonly" /></p>
+									<p><input type="text" id="opt_end" readonly="readonly" /></p>
+									<a href="#" class="btn line02" data-period="today">오늘</a>
+									<a href="#" class="btn line02" data-period="week">1주일</a>
+									<a href="#" class="btn line02" data-period="month">1개월</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="point">URL</span></th>
+							<td>
+								<ul id="tags" class="tagit">
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><span>모바일 노출 선택</span></th>
+							<td>
+								<input type="radio" name="display" id="display01" checked="checked" data-target-toggle='{"ele":".mobile","display":"hide"}' /><label for="display01">모바일 비 노출</label>
+								<input type="radio" name="display" id="display02" data-target-toggle='{"ele":".mobile","display":"show"}' /><label for="display02">모바일 노출</label>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="vt"><span class="point">PC 배너 파일</span></th>
+							<td>
+								<div class="include_preview">
+									<div class="filebox" data-file-box="">
+										<input type="text" readonly="readonly" />
+										<input type="file" id="file01" />
+										<label for="file01">찾아보기</label>
+									</div>
+
+									<a href="#" class="btn line02">미리보기</a>
+								</div>
+								<p class="gray02">가로 : 570픽셀&nbsp;&nbsp;&nbsp;&nbsp;세로 : 400픽셀</p>
+							</td>
+						</tr>
+						<tr class="mobile">
+							<th scope="row" class="vt"><span class="point">모바일 배너 파일</span></th>
+							<td>
+								<div class="include_preview">
+									<div class="filebox" data-file-box="">
+										<input type="text" readonly="readonly" />
+										<input type="file" id="file02" />
+										<label for="file02">찾아보기</label>
+									</div>
+
+									<a href="#" class="btn line02">미리보기</a>
+								</div>
+								<p class="gray02">가로 : 000픽셀&nbsp;&nbsp;&nbsp;&nbsp;세로 : 000픽셀</p>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</form>
+			</div><!-- //Write Table -->
+
+			<div class="btnbox">
+				<div class="fr">
+					<a href="SP_CO_3016.html" class="btn confirm">등록</a>
+					<a href="SP_CO_3016.html" class="btn">취소</a>
+				</div>
+			</div><!-- //Button -->
+
+
+			<br><br>
+			<h1 class="guide_tit">-----Button-----</h1>
+
+			<div class="btnbox">
+				<div class="fl">
+					<a href="#" class="btn">삭제</a>
+				</div>
+
+				<div class="fr">
+					<a href="#" class="btn confirm">작성</a>
+				</div>
+			</div><!-- //Button -->
+
+			<div class="btnbox">
+				<div class="fl">
+					<button type="button" class="btn">삭제</button>
+				</div>
+
+				<div class="fr">
+					<button type="button" class="btn confirm">작성</button>
+				</div>
+			</div><!-- //Button -->
+
+			<div class="btnbox">
+				<div class="fl">
+					<a href="#" class="btn">노출</a>
+					<a href="#" class="btn">비노출</a>
+				</div>
+				<div class="fr">
+					<a href="#" class="btn_long confirm">커뮤니티 신규개설</a>
+				</div>
+			</div><!-- //Button -->
+
+			<div class="btnbox">
+				<div class="fl">
+					<a href="#" class="btn">이전글</a>
+					<a href="#" class="btn">다음글</a>
+				</div>
+				<div class="fr">
+					<a href="#" class="btn">삭제</a>
+					<a href="#" class="btn">수정</a>
+					<a href="#" class="btn">답글</a>
+					<a href="#" class="btn confirm">목록</a>
+				</div>
+			</div><!-- //Button -->
+
+			<div class="btnbox">
+				<div class="fl">
+					<a href="#" class="btn">취소</a>
+				</div>
+
+				<div class="fr">
+					<a href="#" class="btn">임시저장</a>
+					<a href="#" class="btn">미리보기</a>
+					<a href="#" class="btn confirm">작성</a>
+				</div>
+			</div>
+
+			<div class="btnbox">
+				<a href="#" class="btn confirm">확인</a>
+				<a href="#" class="btn">취소</a>
+			</div>
+
+			<a href="#" class="btn line">TEXT BUTTON LINE</a>
+			<br><br>
+			<a href="#" class="btn line02">TEXT BUTTON LINE</a>
+			<br><br>
+			<button type="button" class="btn line">TEXT BUTTON LINE</button>
+			<br><br>
+			<button type="button" class="btn line02">TEXT BUTTON LINE</button>
+
+			<br><br><br><br>
+			<h1 class="guide_tit">Pagination</h1>
+
+			<div class="paging">
+				<div>
+					<a href="#" class="first"><img src="../resource_admin/images/common/page_first.png" alt="처음으로"></a>
+					<a href="#" class="prev"><img src="../resource_admin/images/common/page_prev.png" alt="이전으로"></a>
+					<span>
+						<a href="#">821</a>
+						<a href="#">822</a>
+						<a href="#">823</a>
+						<a href="#">824</a>
+						<a href="#" class="on">825</a>
+						<a href="#">826</a>
+						<a href="#">827</a>
+						<a href="#">828</a>
+						<a href="#">829</a>
+						<a href="#">830</a>
+					</span>
+					<a href="#" class="next"><img src="../resource_admin/images/common/page_next.png" alt="다음으로"></a>
+					<a href="#" class="last"><img src="../resource_admin/images/common/page_last.png" alt="끝으로"></a>
+				</div>
+			</div><!-- //Pagination -->
+
+
+			<br><br>
+			<h1 class="guide_tit">Search</h1>
+
+			<div class="search">
+				<div>
+					<form action="#" method="post">
+						<select class="sch_sel">
+							<option value="">제목 + 내용</option>
+							<option value="">제목</option>
+							<option value="">내용</option>
+						</select>
+						<div class="instbox">
+							<div><input type="text" placeholder="검색어를 입력해 주세요." /></div>
+							<input type="submit" class="submit" value="검색" />
+						</div>
+					</form>
+				</div>
+			</div><!-- //Search Form -->
+
+			<br><br>
+			<h1 class="guide_tit">Tab</h1>
+
+			<div class="tabbox col3">
+				<ul>
+					<li><a href="#">받은 쪽지</a></li>
+					<li class="on"><a href="#">보낸 쪽지</a></li>
+					<li><a href="#">임시 저장</a></li>
+				</ul>
+			</div>
+
+			<br>
+
+			<div class="tabbox col2">
+				<ul>
+					<li class="on"><a href="#">받은 쪽지</a></li>
+					<li><a href="#">보낸 쪽지</a></li>
+				</ul>
+			</div>
+
+			<br><br>
+
+			<h2>팝업 링크 테스트</h2>
+			<br /><br />
+			<a href="http://150.28.205.232:8080/survey/AD_SV_3004.html" style="font-size: 20px; font-weight:bold;" data-layer-popup='{"name":"팝업이름","width":"680","height":"788"}'> -- 운영자 추가 팝업 </a>
+			<br /><br />
+		</div>
+	</div>
+
+
+	<div id="footer">
+		<div class="infoot">
+			<ul>
+				<li><a href="#">개인정보취급방침</a></li>
+				<li><a href="#">도움말</a></li>
+			</ul>
+
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal 서비스 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		$("#jqGrid").jqGrid({
+		url:'../data.json',
+		datatype: "json",
+		height:"auto",
+		multiselect:true,
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['사용자 그룹 명'],
+		colModel:[
+			{name:'사용자 그룹 명',index:'group', key: true, width: 150}
+		],
+		rowNum:10,
+		//sortname: 'seq_user',
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+			var flag = 0;
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+
+			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
+				var isAllChecked = true;
+				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
+					if ($(this).prop('checked') === false)
+					{
+						isAllChecked = false;
+					}
+				});
+
+				if (isAllChecked)
+				{
+					$("thead").find(className).prop("checked",isAllChecked);
+
+				}
+			});
+		}
+	});
+
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+	//JQ그리드 테이블 Width
+
+	resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+});
+</script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>노출대상 선택</strong>
+		<a href="#" class="close" data-pop-close="popup">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="tbl_wrap">
+			<table id="jqGrid"></table>
+			<div id="jqGridPager"></div>
+		</div>
+
+		<div class="btnbox">
+			<a href="#" class="btn confirm">확인</a>
+			<a href="#" class="btn" data-pop-close="popup">취소</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

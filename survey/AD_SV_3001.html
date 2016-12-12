@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>설문관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li class="on"><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">설문관리</h2>
+				<div class="multiview">
+					<ul class="multi">
+						<li class="on"><a href="AD_SV_3001.html"><span>설문관리</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>설문 관리</h2>
+				<div class="tbl_wrap">
+					<form action="#" method="post">
+						<table class="tbl_write">
+							<caption class="view">운영자 설정</caption>
+							<colgroup>
+								<col style="width:140px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row" class="vt">설문 운영자</th>
+								<td>
+									<div class="target_box">
+										<div data-target-box="box01">
+											<span class="target_tag">홍길동 (eqssss1023,SD마케팅팀)<a href="#" class="del"></a></span>
+											<span class="target_tag">홍길동 (eqssss1023,SD마케팅팀)<a href="#" class="del"></a></span>
+											<span class="target_tag">홍길동 (eqssss1023,SD마케팅팀)<a href="#" class="del"></a></span>
+											<span class="target_tag">홍길동 (eqssss1023,SD마케팅팀)<a href="#" class="del"></a></span>
+										</div>
+										<a href="AD_SV_3001_01.html"  class="find_target submit" data-layer-popup='{"name":"운영자 설정","width":"680","height":"777"}' data-target-box-button="box01">운영자 설정</a>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+
+				<!-- 2016-11-16 추가 -->
+				<div class="btnbox">
+					<div class="fr">
+						<a href="#" class="btn">적용</a>
+					</div>
+				</div>
+				<!-- //2016-11-16 추가 -->
+
+				<div class="tbl_opt reset_area mt10">
+					<form action="#" method="post">
+						<table>
+							<caption class="view mt40">설문관리</caption>
+							<colgroup>
+								<col style="width:98px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<td colspan="2">
+									<div class="frm_ele">
+										<select class="w170">
+											<option value="">설문명</option>
+											<option value="">설문운영자</option>
+										</select>
+										<input type="text" placeholder="검색어를 입력해주세요" />
+										<input type="checkbox" id="insch" /><label for="insch">결과 내 검색하기</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">설문유형</th>
+								<td>
+									<input type="checkbox" id="survey_type01" checked="checked" /><label for="survey_type01">전체</label>
+									<input type="checkbox" id="survey_type02" checked="checked" /><label for="survey_type02">설문</label>
+									<input type="checkbox" id="survey_type03" checked="checked" /><label for="survey_type03">퀴즈</label>
+									<input type="checkbox" id="survey_type04" checked="checked" /><label for="survey_type04">취합</label>
+									<input type="checkbox" id="survey_type05" checked="checked" /><label for="survey_type05">모바일</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">배포상태</th>
+								<td>
+									<input type="checkbox" id="survey_status01" checked="checked" /><label for="survey_status01">배포대기</label>
+									<input type="checkbox" id="survey_status02" checked="checked" /><label for="survey_status02">배포 중</label>
+									<input type="checkbox" id="survey_status03" checked="checked" /><label for="survey_status03">배포종료</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">기간검색</th>
+								<td>
+									<div class="period">
+										<select class="w170">
+											<option value="">게시시작일</option>
+											<option value="">게시종료일</option>
+										</select>
+										<p><input type="text" id="opt_start" readonly="readonly" /></p>
+										<p><input type="text" id="opt_end" readonly="readonly" /></p>
+										<a href="#" class="btn line02 on" data-period="today">오늘</a>
+										<a href="#" class="btn line02" data-period="month">1개월</a>
+										<a href="#" class="btn line02" data-period="month3">3개월</a>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="btnbox">
+					<a href="#" class="btn confirm">검색</a>
+					<a href="#" class="btn resetBtn">초기화</a>
+				</div>
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<div class="fl">
+							<p class="tbl_result">전체115건&nbsp;&nbsp;1/8페이지</p>
+						</div>
+
+						<div class="fr">
+							<select class="w121">
+								<option value="">10개씩 조회</option>
+								<option value="">20개씩 조회</option>
+								<option value="">30개씩 조회</option>
+								<option value="">50개씩 조회</option>
+							</select>
+						</div>
+					</form>
+				</div>
+
+				<div class="tbl_wrap">
+					<table class="tbl_list">
+						<caption></caption>
+						<colgroup>
+							<col style="width:7%;"/>
+							<col style="width:7%;"/>
+							<col style="width:10%;"/>
+							<col style="width:22%;"/>
+							<col style="width:10%;"/>
+							<col style="width:10%;"/>
+							<col style="width:10%;"/>
+							<col style="width:10%;"/>
+						</colgroup>
+						<thead>
+						<tr>
+							<th scope="col"><input type="checkbox" id="chkall" /><label for="chkall" class="label_check" data-check-all="check_group4"></label></th>
+							<th scope="col">번호</th>
+							<th scope="col">구분</th>
+							<th scope="col">설문명</th>
+							<th scope="col">설문 운영자</th>
+							<th scope="col">참여/대상자</th>
+							<th scope="col">상태</th>
+							<th scope="col">응답결과</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td><input type="checkbox" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group4"></label></td>
+							<td>125</td>
+							<td>설문</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells90" data-layer-popup='{"name":"설문", "width":"680", "height":"821"}'><strong>[복사]</strong>T방송 만족도 조사</a><img src="../resource_admin/images/common/badge_mobile.png" alt="모바일" class="badge"></td>
+							<td>김진수</td>
+							<td>-</td>
+							<td>배포 대기</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group4"></label></td>
+							<td>124</td>
+							<td>퀴즈</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>회의/보고 문화 현황 파악</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>박태훈</td>
+							<td>115/300</td>
+							<td>배포 대기</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group4"></label></td>
+							<td>123</td>
+							<td>퀴즈</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>T방송 만족도 조사</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>이수지</td>
+							<td>120/300</td>
+							<td>배포 종료</td>
+							<td><a href="AD_SV_3003.html" class="btn" data-layer-popup='{"name":"결과 조회", "width":"680", "height":"700"}'>결과 조회</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group4"></label></td>
+							<td>122</td>
+							<td>취합</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>고객센터 - SKT 부서간 협의</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>조유라</td>
+							<td>0/30</td>
+							<td>배포중</td>
+							<td><a href="AD_SV_3003.html" class="btn" data-layer-popup='{"name":"결과 조회", "width":"680", "height":"700"}'>결과 조회</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group4"></label></td>
+							<td>121</td>
+							<td>취합</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>희외/보고 문화 현황 파악</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>박태훈</td>
+							<td>115/300</td>
+							<td>배포 대기</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group4"></label></td>
+							<td>120</td>
+							<td>설문</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>2007년5월 사용자 만족도 조사</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>박지수</td>
+							<td>120/300</td>
+							<td>배포 대기</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk07" /><label for="chk07" class="label_check" data-check-group="check_group4"></label></td>
+							<td>119</td>
+							<td>취합</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>회의/보고 문화 현황 파악</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>조유라</td>
+							<td>0/30</td>
+							<td>배포 종료</td>
+							<td><a href="AD_SV_3003.html" class="btn" data-layer-popup='{"name":"결과 조회", "width":"680", "height":"700"}'>결과 조회</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk08" /><label for="chk08" class="label_check" data-check-group="check_group4"></label></td>
+							<td>118</td>
+							<td>퀴즈</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>사용자 만족도 조사 - A/S 센터</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>박태훈</td>
+							<td>115/300</td>
+							<td>배포중</td>
+							<td><a href="AD_SV_3003.html" class="btn" data-layer-popup='{"name":"결과 조회", "width":"680", "height":"700"}'>결과 조회</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk09" /><label for="chk09" class="label_check" data-check-group="check_group4"></label></td>
+							<td>117</td>
+							<td>설문</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>사용자 만족도 조사</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>박지수</td>
+							<td>120/300</td>
+							<td>배포 종료</td>
+							<td><a href="AD_SV_3003.html" class="btn" data-layer-popup='{"name":"결과 조회", "width":"680", "height":"700"}'>결과 조회</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk10" /><label for="chk10" class="label_check" data-check-group="check_group4"></label></td>
+							<td>116</td>
+							<td>취합</td>
+							<td class="al_l"><a href="AD_SV_3002.html" class="ells100" data-layer-popup='{"name":"설문 상세조회", "width":"680", "height":"821"}'>고객센터 - SKT 부서간 협의</a>
+							<span class="period">2016.06.11 ~ 2016.06.30</span></td>
+							<td>조규민</td>
+							<td>0/30</td>
+							<td>배포중</td>
+							<td><a href="AD_SV_3003.html" class="btn" data-layer-popup='{"name":"결과 조회", "width":"680", "height":"700"}'>결과 조회</a></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btnbox">
+					<div class="fl">
+						<a href="#" class="btn">삭제</a>
+						<a href="AD_SV_3002_06.html" class="btn" data-layer-popup='{"name":"설문 상세조회", "width":"400", "height":"321"}'>배포 종료</a>
+					</div>
+				</div>
+				<div class="paging">
+					<div>
+						<a href="#" class="first"><img src="../resource_admin/images/common/page_first.png" alt="처음으로"></a>
+						<a href="#" class="prev"><img src="../resource_admin/images/common/page_prev.png" alt="이전으로"></a>
+						<span>
+							<a href="#" class="on">1</a>
+							<a href="#">2</a>
+							<a href="#">3</a>
+							<a href="#">4</a>
+							<a href="#">5</a>
+							<a href="#">6</a>
+							<a href="#">7</a>
+							<a href="#">8</a>
+							<a href="#">9</a>
+							<a href="#">10</a>
+						</span>
+						<a href="#" class="next"><img src="../resource_admin/images/common/page_next.png" alt="다음으로"></a>
+						<a href="#" class="last"><img src="../resource_admin/images/common/page_last.png" alt="끝으로"></a>
+					</div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- //Container -->		
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

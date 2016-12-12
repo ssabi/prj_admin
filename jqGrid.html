@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal Notice 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script>
+$(document).ready(function(){
+	$("#page").pager();
+
+	$("#gridId").jqGrid({
+		url: 'data02.json',
+		datatype: "json",
+		colModel: [
+			{ label: 'ID', name: 'ProductID', width: 45, key: true },
+			{ label: 'Category Name', name: 'CategoryName', width: 75 },
+			{ label: 'Product Name', name: 'ProductName', width: 90 },
+			{ label: 'Country', name: 'Country', width: 100 },
+			{ label: 'Price', name: 'Price', width: 80, sorttype: 'integer' },
+			// sorttype is used only if the data is loaded locally or loadonce is set to true
+			{ label: 'Quantity', name: 'Quantity', width: 80, sorttype: 'number' }
+		],
+		loadonce: true,
+		rowNum: 10,
+		rowList:[10],
+		viewrecords: true,
+		autowidth:true,
+		multiselect: true,
+		height: 'auto',
+		//pager: "#jqGridPager",
+		loadComplete : function(data){  
+			// 그리드 데이터 총 갯수
+			var allRowsInGrid = jQuery('#gridId').jqGrid('getGridParam','records');
+
+			// 데이터가 없을 경우 (먼저 태그 초기화 한 후에 적용)
+			$("#NoData").html("");
+			if(allRowsInGrid==0){
+				$("#NoData").html("<br>데이터가 없습니다.<br>");
+			}
+			// 처음 currentPage는 널값으로 세팅 (=1)
+			initPage("gridId",allRowsInGrid,"");
+		}
+	});
+	//resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+});
+ 
+//jqGrid resize width
+function resizeJqGridWidth(grid_id, div_id, width){
+	$(window).bind('resize', function(){
+		// 그리드의 width 초기화
+		$('#' + grid_id).setGridWidth(width - 2, true);
+		// 그리드의 width를 div 에 맞춰서 적용
+		$('#' + grid_id).setGridWidth($('#' + div_id).width() - 2, true);
+	}).trigger('resize');
+}
+
+//그리드 페이징
+function initPage(gridId,totalSize,currentPage){
+	// 변수로 그리드아이디, 총 데이터 수, 현재 페이지를 받는다
+	var currentPage = currentPage;
+	if(currentPage==""){
+		currentPage = $('#'+gridId).getGridParam('page');
+	}
+	// 한 페이지에 보여줄 페이지 수 (ex:1 2 3 4 5)
+	var pageCount = 10;
+
+	// 그리드 데이터 전체의 페이지 수
+	var totalPage = Math.ceil(totalSize/$('#'+gridId).getGridParam('rowNum'));
+	// 전체 페이지 수를 한화면에 보여줄 페이지로 나눈다.
+	var totalPageList = Math.ceil(totalPage/pageCount);
+	// 페이지 리스트가 몇번째 리스트인지
+	var pageList=Math.ceil(currentPage/pageCount);
+
+	// 페이지 리스트가 1보다 작으면 1로 초기화
+	if(pageList<1) pageList=1;
+	// 페이지 리스트가 총 페이지 리스트보다 커지면 총 페이지 리스트로 설정
+	if(pageList>totalPageList) pageList = totalPageList;
+	// 시작 페이지
+	var startPageList=((pageList-1)*pageCount)+1;
+	// 끝 페이지
+	var endPageList=startPageList+pageCount-1;
+
+	// 시작 페이지와 끝페이지가 1보다 작으면 1로 설정
+	// 끝 페이지가 마지막 페이지보다 클 경우 마지막 페이지값으로 설정
+	if(startPageList<1) startPageList=1;
+	if(endPageList>totalPage) endPageList=totalPage;
+	if(endPageList<1) endPageList=1;
+
+	// 페이징 DIV에 넣어줄 태그 생성변수 
+	var pageInner="<div class='paging'><div>";
+
+	// 페이지 리스트가 1이나 데이터가 없을 경우 (링크 빼고 흐린 이미지로 변경)
+	if(pageList<2){
+		pageInner+="<a href='#' class='first'><img src='../resource_admin/images/common/page_first.png' alt='처음으로'></a>";
+		pageInner+="<a href='#' class='prev'><img src='../resource_admin/images/common/page_prev.png' alt='이전으로'></a>";
+	}
+	// 이전 페이지 리스트가 있을 경우 (링크넣고 뚜렷한 이미지로 변경)
+	if(pageList>1){
+		pageInner+="<a href='javascript:firstPage()' class='first'><img src='../resource_admin/images/common/page_first.png' alt='처음으로'></a>";
+		pageInner+="<a href='javascript:prePage("+totalSize+")' class='prev'><img src='../resource_admin/images/common/page_prev.png' alt='이전으로'></a>";
+	}
+
+	pageInner+="<span>";
+	// 페이지 숫자를 찍으며 태그생성 (현재페이지는 강조태그) 
+	for(var i=startPageList; i<=endPageList; i++){
+		if(i==currentPage){
+			pageInner = pageInner +"<a href='javascript:goPage("+(i)+")' id='"+(i)+"' class='on'><strong>"+(i)+"</strong></a> ";
+		}else{
+			pageInner = pageInner +"<a href='javascript:goPage("+(i)+")' id='"+(i)+"'>"+(i)+"</a> ";
+		}
+	}
+	pageInner+="</span>";
+
+	// 다음 페이지 리스트가 있을 경우
+	if(totalPageList>pageList){
+		pageInner+="<a href='javascript:nextPage("+totalSize+")' class='next'><img src='../resource_admin/images/common/page_next.png' alt='다음으로'></a>";
+		pageInner+="<a href='javascript:lastPage("+totalPage+")' class='last'><img src='../resource_admin/images/common/page_last.png' alt='끝으로'></a>";
+	}
+	// 현재 페이지리스트가 마지막 페이지 리스트일 경우
+	if(totalPageList==pageList){
+		pageInner+="<a href='#' class='next'><img src='../resource_admin/images/common/page_next.png' alt='다음으로'></a>";
+		pageInner+="<a href='#' class='last'><img src='../resource_admin/images/common/page_last.png' alt='끝으로'></a>";
+	}
+
+	pageInner+="</div></div>";
+	// 페이징할 DIV태그에 우선 내용을 비우고 페이징 태그삽입
+	$("#paginate").html("");
+	$("#paginate").append(pageInner);
+}
+
+// 그리드 첫페이지로 이동
+function firstPage(){
+	$("#gridId").jqGrid('setGridParam', {page:1}).trigger("reloadGrid");
+}
+// 그리드 이전페이지 이동
+function prePage(totalSize){
+	var currentPage = $('#gridId').getGridParam('page');
+	var pageCount = 10;
+	currentPage-=pageCount;
+	pageList=Math.ceil(currentPage/pageCount);
+	currentPage=(pageList-1)*pageCount+pageCount;
+	initPage("gridId",totalSize,currentPage);
+	$("#gridId").jqGrid('setGridParam', {page:currentPage}).trigger("reloadGrid");
+}
+// 그리드 다음페이지 이동
+function nextPage(totalSize){
+	var currentPage = $('#gridId').getGridParam('page');
+	var nextPage = currentPage + 1;
+
+	var pageCount = 10;
+	currentPage+=pageCount;
+	pageList=Math.ceil(currentPage/pageCount);
+	currentPage=(pageList-1)*pageCount+1;
+	initPage("gridId",totalSize,currentPage);
+	$("#gridId").jqGrid('setGridParam', {page:currentPage}).trigger("reloadGrid");
+}
+// 그리드 마지막페이지 이동 
+function lastPage(totalSize){
+	$("#gridId").jqGrid('setGridParam', {page:totalSize}).trigger("reloadGrid");
+}
+// 그리드 페이지 이동 
+function goPage(num){
+	$("#gridId").jqGrid('setGridParam', {page:num}).trigger("reloadGrid");
+}
+
+(function($){
+	$.fn.pager = function(options){
+		/* User Option Value Setting */
+		var opts = $.extend({}, $.fn.pager.base, options);
+
+		generatePager($(this), opts);
+	}
+	function generatePager(obj,opts){
+		var pageObj = opts.pageObj;
+		//var elem = obj.addClass('admin-ui-pager');  //$('<div/>').addClass('admin-ui-pager');
+		var wrap = obj.addClass('admin-ui-pager');
+		var child = $("<div/>", {class:'paging'}).appendTo(wrap);
+		var elem = $("<div/>", {}).appendTo(child);
+
+		var callback = opts.callbackfun;
+
+		// pager 초기화
+		//obj.empty();
+		//object empty 대신에 element를 empty 해주세요.
+		elem.empty();
+
+		var firstPage = opts.pageObj.firstPage;
+		var prevPage  = opts.pageObj.prevPage;
+		var startPage = opts.pageObj.startPage;
+		var endPage   = opts.pageObj.endPage;
+		var nextPage  = opts.pageObj.nextPage;
+		var lastPage  = opts.pageObj.lastPage;
+		var currPage  = opts.currPage;
+
+		if(firstPage < 0){
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "first"
+			}).append('<img src="../resource_admin/images/common/page_first.png" alt="처음으로">').appendTo(elem);
+		}else{
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "first",
+				title: "첫페이지("+firstPage+")",
+				click:function(){
+					callback(firstPage);
+				}
+			}).append('<img src="../resource_admin/images/common/page_first.png" alt="처음으로">').appendTo(elem);
+		}
+
+		if(prevPage < 0){
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "prev"
+			}).append('<img src="../resource_admin/images/common/page_prev.png" alt="전페이지">').appendTo(elem);
+		}else{
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "prev",
+				title: "전페이지("+prevPage+")",
+				click:function(){
+					callback(prevPage);
+				}
+			}).append('<img src="../resource_admin/images/common/page_prev.png" alt="전페이지">').appendTo(elem);
+		}
+
+		var elem_span = $("<span/>").appendTo(elem);
+		startPage = 1;
+		endPage = 10;
+		for(var i=startPage;i<(endPage+1);i++){
+			if(currPage == i){
+				$('<a/>', {
+					href: "javascript:void(0)",
+					title: "현재페이지",
+					class: "on"
+				}).append(i).appendTo(elem_span);
+			}else{
+				$('<a/>', {
+					href: "javascript:void(0)",
+					title: i + " 페이지",
+					page: i,
+					click:function(){
+						var page = $(this).attr('page');
+						callback(page);
+					}
+				}).append(i).appendTo(elem_span);
+			}
+		}
+
+		if(nextPage < 0){
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "next"
+			}).append('<img src="../resource_admin/images/common/page_next.png" alt="다음페이지">').appendTo(elem);
+		}else{
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "next",
+				title: "다음페이지("+nextPage+")",
+				click:function(){
+					callback(nextPage);
+				}
+			}).append('<img src="../resource_admin/images/common/page_next.png" alt="다음페이지">').appendTo(elem);
+		}
+
+		if(lastPage < 0){
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "last"
+			}).append('<img src="../resource_admin/images/common/page_last.png" alt="마지막페이지">').appendTo(elem);
+		}else{
+			$('<a/>', {
+				href: "javascript:void(0)",
+				class : "last",
+				title: "마지막페이지("+lastPage+")",
+				click:function(){
+					callback(lastPage);
+				}
+			}).append('<img src="../resource_admin/images/common/page_last.png" alt="마지막페이지">').appendTo(elem);
+		}
+		//obj.append(elem);
+		return obj;
+	}
+ 
+	// pager Default Option Value
+	$.fn.pager.base = {
+		gridObj  : null,
+		pageCnt  : 10,    // pager에 보여지는 최대페이지수
+		pageSize : 10,
+		currPage : 1,
+		totCnt   : 0,
+		pageObj  : {},
+		callbackfun:null
+	};
+})(jQuery);
+</script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>운영자 추가</strong>
+		<a href="#" class="close" data-pop-close="popup" onclick="javascript:window.close()">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="search pop">
+			<div>
+				<form action="#" method="post">
+					<div class="instbox">
+						<div><input type="text" /></div>
+						<input type="submit" class="submit" value="검색" />
+					</div>
+				</form>
+			</div>
+		</div><!-- //Search Form -->
+
+		<div class="tbl_opt">
+			<form action="#" method="post">
+				<div class="fl">
+					<p class="tbl_result">전체115건&nbsp;&nbsp;1/8페이지</p>
+				</div>
+				<div class="fr">
+					<select class="w121">
+						<option value="10">10개씩 조회</option>
+						<option value="20">20개씩 조회</option>
+						<option value="30">30개씩 조회</option>
+					</select>
+				</div>
+			</form>
+		</div><!-- //Table Option -->
+
+		<div class="tbl_wrap mt10">
+			<div id="NoData"></div>
+
+			<table id="gridId"></table>
+			<div id="jqGridPager"></div>
+
+			<div id="pager"></div>
+			<div id="paginate"></div>
+
+			<!-- /////////////////////////////////////// -->
+			<br><br><br><br>
+			<p class="al_c">jQuery Paging 처리</p>
+			<div id="page">
+			</div><!-- //jqGrid Paging - jquery -->
+
+		</div>
+		<div class="btnbox">
+			<a href="#" class="btn confirm">확인</a>
+			<a href="#" class="btn" data-pop-close="popup" onclick="javascript:window.close()">취소</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

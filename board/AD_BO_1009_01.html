@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal Notice 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>게시판 폐쇄</strong>
+		<a href="#" class="close" data-pop-close="popup" onclick="javascript:window.close()">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="guide_box mt10">
+			<strong>폐쇄하시면 신청 승인일로부터 2주간의 보류 기간을 거치며,<br />보류기간 2주 후에 폐쇄가 됩니다.<br />보류기간 중에는 신규 게시글을 작성할 수 없으며,<br /> 폐쇄 취소가 가능합니다</strong>
+			<p class="al_c">해당 게시판을 폐쇄하시겠습니까?</p>
+		</div><!-- //Guide Box -->
+		<div class="btnbox">
+			<a href="#" class="btn confirm">확인</a>
+			<a href="#" class="btn" data-pop-close="popup" onclick="javascript:window.close()">취소</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

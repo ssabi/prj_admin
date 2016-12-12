@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal Board 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li class="on"><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">게시판 관리</h2>
+				<div class="multiview">
+					<ul>
+						<li class="multi"><span class="open active">Swing Portal</span>
+							<ul class="open">
+								<li><a href="AD_BO_1001.html">Notice 관리</a></li>
+								<li class="on"><a href="AD_BO_1003.html">Board 관리</a></li>
+							</ul>
+						</li>
+						<li class="multi"><span>BP Portal</span>
+							<ul>
+								<li><a href="AD_BO_1013.html">Notice 관리</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>Swing Portal Board 관리</h2>
+				<div class="tbl_opt reset_area mt10">
+					<form action="#" method="post">
+						<table>
+							<colgroup>
+								<col style="width:120px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th>키워드</th>
+								<td>
+									<div class="frm_ele">
+										<select class="w170">
+											<option value="">게시판 이름</option>
+											<option value="">생성자 이름</option>
+											<option value="">운영자 이름</option>
+										</select>
+										<input type="text" placeholder="검색어를 입력해주세요" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">상태</th>
+								<td>
+									<input type="checkbox" id="survey_type01" checked="checked" /><label for="survey_type01">노출</label>
+									<input type="checkbox" id="survey_type02" checked="checked" /><label for="survey_type02">비노출</label>
+									<input type="checkbox" id="survey_type03" /><label for="survey_type03">폐쇄</label>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="btnbox">
+					<a href="#" class="btn confirm">검색</a>
+					<a href="#" class="btn resetBtn">초기화</a>
+				</div>
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<div class="fl">
+							<p class="txt_point"><span>*</span> 특수목적 게시판은 시스템 관리자에게 IT요청서를 통해 생성이 가능합니다.</p>
+						</div>
+						<div class="fr">
+							<select class="w121">
+								<option value="">10개씩 보기</option>
+								<option value="">20개씩 보기</option>
+								<option value="">30개씩 보기</option>
+								<option value="">50개씩 보기</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="tbl_wrap">
+					<table class="tbl_list" data-tbl-sort='{"up":".up","down":".down"}'>
+						<caption></caption>
+						<colgroup>
+							<col style="width:4%;" />
+							<col style="width:7%;" />
+							<col />
+							<col style="width:9%;" />
+							<col style="width:15%;" />
+							<col style="width:15%;" />
+							<col style="width:10%;" />
+							<col style="width:10%;" />
+						</colgroup>
+						<thead>
+						<tr>
+							<th scope="col"><input type="checkbox" id="chkAll" /><label for="chkAll" class="label_check" data-check-all="check_group5"></label></th>
+							<th scope="col">순서</th>
+							<th scope="col">게시판 이름</th>
+							<th scope="col">게시판 분류</th>
+							<th scope="col">생성자</th>
+							<th scope="col">운영자</th>
+							<th scope="col">정렬</th>
+							<th scope="col">상태</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td><input type="checkbox" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group5"></label></td>
+							<td class="num">1</td>
+							<td class="al_l"><a href="#">Sales Talk</a></td>
+							<td class="al_l">특수목적</td>
+							<td>홍길동</td>
+							<td><a href="AD_BO_1003_01.html" data-layer-popup='{"name":"운영자","width":"400","height":"418"}'>윤경아 외 2명</a></td>
+							<td>
+								<div class="orderby first">
+									<a href="#" class="up disabled"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>비노출</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group5"></label></td>
+							<td class="num">2</td>
+							<td class="al_l"><a href="#">통화품질 119</a></td>
+							<td class="al_l">특수목적</td>
+							<td>홍길동</td>
+							<td><a href="#">홍길동</a></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+						</tr>
+ 						<tr>
+							<td><input type="checkbox" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group5"></label></td>
+							<td class="num">3</td>
+							<td class="al_l"><a href="#">유선품질 119</a></td>
+							<td class="al_l">특수목적</td>
+							<td>홍길동</td>
+							<td><a href="AD_BO_1003_01.html" data-layer-popup='{"name":"운영자","width":"400","height":"418"}'>김길순 외 3명</a></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>비노출</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group5"></label></td>
+							<td class="num">4</td>							
+							<td class="al_l"><a href="#">게시판 생성을 통해 생성한 게시판이름</a></td>
+							<td class="al_l">문의게시판</td>
+							<td>홍길동</td>
+							<td><a href="#"></a></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group5"></label></td>
+							<td class="num">5</td>
+							<td class="al_l"><a href="#">게시판 생성을 통해 생성한 게시판이름</a></td>
+							<td class="al_l">자료실</td>
+							<td>홍길동</td>
+							<td><a href="#"></a></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>폐쇄</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group5"></label></td>
+							<td class="num">6</td>
+							<td class="al_l"><a href="#">게시판 생성을 통해 생성한 게시판이름</a></td>
+							<td class="al_l">자료실</td>
+							<td>홍길동</td>
+							<td><a href="#"></a></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down disabled"></a>
+								</div>
+							</td>
+							<td>폐쇄</td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="btnbox">
+						<div class="fl">
+							<a href="AD_BO_1004_01.html" class="btn" data-layer-popup='{"name":"선택항목 일괄 노출 처리","width":"680","height":"748"}'>노출</a>
+							<a href="AD_BO_1004_02.html" class="btn" data-layer-popup='{"name":"선택항목 일괄 노출 비처리","width":"680","height":"748"}'>비노출</a>
+						</div>
+						<div class="fr">
+							<a href="AD_BO_1005.html" class="btn_long confirm">게시판 생성</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btnbox btnbd">
+				
+				<div class="fr">
+					<a href="#" class="btn confirm">순서 적용</a>
+					<a href="#" class="btn">취소</a>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- Container -->		
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

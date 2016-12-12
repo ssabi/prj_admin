@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>권한 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script>
+
+	
+$(document).ready(function(){
+
+	$("#chk_tree li").each(function(){
+		var len = $(this).find("ul").length;
+		if(len > 0){
+			$(this).find("span:eq(0)").removeClass("pointer").addClass("pointer");
+		};
+	});
+	$('#chk_tree input').on('change',function() {
+		var $chk = $(this);
+		var $chkVal = $chk.prop('checked');
+		var siblingsClean = true;
+		var bubbleUp = function($parent) {
+			if ($parent.attr('id') !== 'chk_tree') {
+				var innerSiblingsClean = true;
+				if ($parent.get(0).tagName == 'LI') {
+					$parent.find('>input').prop('checked',$chkVal);
+					$parent.siblings().each(function(){
+						if ($(this).find('input').prop('checked')) {
+							innerSiblingsClean = false;
+						}
+					});
+				}
+				if (innerSiblingsClean) {
+					bubbleUp($parent.parent());
+				}
+			}
+		};
+		var bubbleDown = function($children) {
+			if ($children[0]){
+				if ($children.get(0).tagName == 'LI') {
+					$children.find('>input').prop('checked',$chkVal);
+				}
+				bubbleDown($children.children());
+			}
+		};
+		if ($chk.closest('li').siblings().each(function(){
+			if ($(this).find('input').prop('checked')) {
+				siblingsClean = false;
+			}
+		}))
+
+		if (siblingsClean) {
+			bubbleUp($chk.parent());
+			bubbleDown($chk.closest('li').find('ul'));
+		} else {
+			bubbleDown($chk.closest('li').find('ul'));
+		}
+	}) 
+});
+</script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>권한 상세 설정</strong>
+		<a href="#" class="close" data-pop-close="popup" onclick="javascript:window.close()">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<h2 class="pop_tit">Admin 메뉴명</h2>
+		<div class="incon">
+			<div class="treeview" id="chk_tree">
+				<ul>
+					<li><input type="checkbox" id="d1" checked="checked"><label for="d1">&nbsp;</label><span>게시판 관리</span>
+						<ul>
+							<li><input type="checkbox" id="d1s1" checked="checked"><label for="d1s1">&nbsp;</label><span>Swing Portal Notice 관리</span>
+								<ul>
+									<li><input type="checkbox" id="d1s1t1"><label for="d1s1t1">&nbsp;</label><span>Swing Portal Notice 관리</span></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="d1s2"><label for="d1s2">&nbsp;</label><span>BP Portal Notice 관리</span></li>
+							<li><input type="checkbox" id="d1s3"><label for="d1s3">&nbsp;</label><span>Swing Board 관리</span></li>
+							<li><input type="checkbox" id="d1s4"><label for="d1s4">&nbsp;</label><span>BP Portal Board 관리</span></li>
+						</ul>
+					</li>
+					<li><input type="checkbox" id="d2"><label for="d2">&nbsp;</label><span>커뮤니티 관리</span>
+						<ul>
+							<li><input type="checkbox" id="d2s1"><label for="d2s1">&nbsp;</label><span>승인요청 관리</span>
+								<ul>
+									<li><input type="checkbox" id="d2s1t1"><label for="d2s1t1">&nbsp;</label><span>커뮤니티 현황</span></li>
+									<li><input type="checkbox" id="d2s1t2"><label for="d2s1t2">&nbsp;</label><span>커뮤니티 게시판 관리</span></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="d2s2"><label for="d2s2">&nbsp;</label><span>커뮤니티 현황</span>
+								<ul>
+									<li><input type="checkbox" id="d2s2t1"><label for="d2s2t1">&nbsp;</label><span>커뮤니티 현황</span></li>
+									<li><input type="checkbox" id="d2s2t2"><label for="d2s2t2">&nbsp;</label><span>커뮤니티 게시판 관리</span></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="d2s3"><label for="d2s3">&nbsp;</label><span>커뮤니티 게시판 관리</span></li>
+						</ul>
+					</li>
+					<li><input type="checkbox" id="d3"><label for="d3">&nbsp;</label><span>설문 관리</span>
+					</li>
+					<li><input type="checkbox" id="d4"><label for="d4">&nbsp;</label><span>서비스 관리</span>
+						<ul>
+							<li><input type="checkbox" id="d4s1"><label for="d4s1">&nbsp;</label><span>Swing Portal 배너관리</span></li>
+							<li><input type="checkbox" id="d4s2"><label for="d4s2">&nbsp;</label><span>Swing Portal 링크관리</span></li>
+							<li><input type="checkbox" id="d4s3"><label for="d4s3">&nbsp;</label><span>Swing Portal 팝업관리</span></li>
+							<li><input type="checkbox" id="d4s4"><label for="d4s4">&nbsp;</label><span>고객정보 서약관리</span></li>
+							<li><input type="checkbox" id="d4s5"><label for="d4s5">&nbsp;</label><span>BP Portal 배너관리</span></li>
+							<li><input type="checkbox" id="d4s6"><label for="d4s6">&nbsp;</label><span>BP Portal 팝업관리</span></li>
+						</ul>
+					</li>
+					<li><input type="checkbox" id="d5"><label for="d5">&nbsp;</label><span>통계 관리</span>
+						<ul>
+							<li><input type="checkbox" id="d5s1"><label for="d5s1">&nbsp;</label><span>Swing Portal 접속현황</span></li>
+							<li><input type="checkbox" id="d5s2"><label for="d5s2">&nbsp;</label><span>Swing Portal 게시판 사용현황</span></li>
+							<li><input type="checkbox" id="d5s3"><label for="d5s3">&nbsp;</label><span>Swing Portal 커뮤니티 사용현황</span></li>
+							<li><input type="checkbox" id="d5s4"><label for="d5s4">&nbsp;</label><span>Swing Portal 설문통계</span></li>
+							<li><input type="checkbox" id="d5s5"><label for="d5s5">&nbsp;</label><span>Swing Portal 개인정보 서약 통계</span></li>
+							<li><input type="checkbox" id="d5s6"><label for="d5s6">&nbsp;</label><span>BP Portal 접속현황</span></li>
+							<li><input type="checkbox" id="d5s7"><label for="d5s7">&nbsp;</label><span>BP Portal 게시판 사용현황</span></li>
+						</ul>
+					</li>
+					<li><input type="checkbox" id="d6"><label for="d6">&nbsp;</label><span>관리자 관리</span>
+						<ul>
+							<li><input type="checkbox" id="d6s1"><label for="d6s1">&nbsp;</label><span>관리자 현황</span></li>
+							<li><input type="checkbox" id="d6s2"><label for="d6s2">&nbsp;</label><span>사용자 그룹조회</span></li>
+						</ul>
+					</li>
+					<li><input type="checkbox" id="d7"><label for="d7">&nbsp;</label><span>시스템 관리</span>
+						<ul>
+							<li><input type="checkbox" id="d7s1"><label for="d7s1">&nbsp;</label><span>메뉴관리</span></li>
+							<li><input type="checkbox" id="d7s2"><label for="d7s2">&nbsp;</label><span>권한관리</span></li>
+							<li><input type="checkbox" id="d7s3"><label for="d7s3">&nbsp;</label><span>시스템메시지 관리</span></li>
+							<li><input type="checkbox" id="d7s4"><label for="d7s4">&nbsp;</label><span>화면관리</span></li>
+							<li><input type="checkbox" id="d7s5"><label for="d7s5">&nbsp;</label><span>코드관리</span></li>
+							<li><input type="checkbox" id="d7s6"><label for="d7s6">&nbsp;</label><span>Mobile배포관리</span></li>
+						</ul>
+					</li>
+					<li><input type="checkbox" id="d8"><label for="d8">&nbsp;</label><span>검색관리</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="btnbox">
+			<a href="#" class="btn confirm">적용</a>
+			<a href="#" class="btn" data-pop-close="popup" onclick="javascript:window.close()">취소</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

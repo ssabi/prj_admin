@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>커뮤니티 현황</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>커뮤니티 상세정보</strong>
+		<a href="#" class="close" data-pop-close="popup">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="tbl_wrap">
+			<h2>커뮤니티 운영자 정보</h2>
+			<table class="tbl_write">				
+				<colgroup>
+					<col style="width:180px" />
+					<col />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th scope="row">이름(아이디,소속부서)</th>
+					<td class="del_p">
+						<div class="target_box">
+							<div data-target-box="box01"></div>
+							<a href="#" class="find_target submit"  data-target-box-button="box01">운영자 변경</a>
+						</div><!-- //대상찾기 -->
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="tbl_wrap">
+			<h2>커뮤니티 정보</h2>
+			<table class="tbl_write">				
+				<colgroup>
+					<col style="width:143px" />
+					<col />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th scope="row">신청일</th>
+					<td>
+						2016.06.20 16:23:15
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">유형</th>
+					<td>
+						일반
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">개설커뮤니티 명</th>
+					<td>
+						ABCD 커뮤니티
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">개설목적</th>
+					<td>
+						신청시 입력한 개설목적 내용이 표시됩니다.
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">공개여부</th>
+					<td>
+						공개
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">가입방식</th>
+					<td>
+						가입 신청 시 즉시 가입
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">커뮤니티 대상</th>
+					<td>
+						수도권마케팅 본부
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">상태</th>
+					<td>
+						<input type="radio" name="public" id="public01" checked="checked" data-target-toggle='{"ele":".reject","display":"hide"}' /><label for="public01">노출</label>
+						<input type="radio" name="public" id="public02" data-target-toggle='{"ele":".reject","display":"hide"}' /><label for="public02">비노출</label>
+						<input type="radio" name="public" id="public03" data-target-toggle='{"ele":".reject","display":"show"}' /><label for="public03">커뮤니티 폐쇄</label>
+					</td>
+				</tr>
+				<tr class="reject dn">
+					<th scope="row" class="vt">폐쇄사유</th>
+					<td>
+						<div class="vreply_write" data-chk-length="">
+							<div class="textarea">
+								<textarea id="reply_con01" cols="30" rows="10"></textarea>
+								<span class="byte"><span>0</span>/<em class="count">400</em></span>
+							</div>
+						</div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="tbl_wrap">
+			<table class="tbl_view del_bt">				
+				<colgroup>
+					<col style="width:143px" />
+					<col />
+				</colgroup>
+				<tbody>
+				<tr>
+					<th scope="row">최종 수정자</th>
+					<td>
+						홍순자(eqssss1023,강동마케팅팀)
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">최종 수정일</th>
+					<td>
+						2016.06.21 16:23:15
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="btnbox">
+			<a href="#" class="btn confirm">적용</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

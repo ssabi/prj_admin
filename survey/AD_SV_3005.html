@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>설문관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		$("#jqGrid").jqGrid({
+		url:'../data.json',
+		datatype: "json",
+		height:"auto",
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['번호','본부명', '팀명','소속부서','취합/설문 대상자','담당 마케터','참여율'],
+		colModel:[
+			{ name: '번호', index: 'num', width: 80,},
+			{ name: '본부명', index: 'base', width: 150,},
+			{ name: '팀명', index: 'team', width: 150 },
+			{ name: '소속부서', index: 'marketer', width: 120,},
+			{ name: '취합/설문 대상자', index: 'sum', width: 100,},
+			{ name: '담당 마케터', index: 'survey', width: 120 },
+			{ name: '참여율', index: 'percent', width: 80 }
+		],
+		rowNum:10,
+		//sortname: 'seq_user',
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+			var flag = 0;
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+
+			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
+				var isAllChecked = true;
+				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
+					if ($(this).prop('checked') === false)
+					{
+						isAllChecked = false;
+					}
+				});
+
+				if (isAllChecked)
+				{
+					$("thead").find(className).prop("checked",isAllChecked);
+
+				}
+			});
+		}
+	});
+
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+	//JQ그리드 테이블 Width
+
+	resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+
+	$('#opt_start').datepicker('setDate', setDateCal(180));
+});
+</script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>결과조회-[취합] 고해지율 유통망 대상 사유</strong>
+		<a href="#" class="close" data-pop-close="popup">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="sv_wrap">
+			<div class="sv_basic">
+				<dl>
+					<dt><img src="../resource_admin/images/common/badge_mobile.png" alt="모바일">[취합] 고해지율 유통망 대상 사유 <img src="../resource_admin/images/common/badge_dis_ing.png" alt="종료" class="badge"></dt>
+					<dd class="desc">고해지율 유통망 대상에 대한 사유를 제출해주세요. </dd>
+					<dd><span>기간</span>2016.01.05 - 2016. 02.04</dd>
+					<dd><span>대상</span>서부 마케팅 본부, 강남 마케팅 팀</dd>
+					<dd><span>인원</span>300명 중 100명 참여</dd>
+				</dl>
+			</div><!-- //설문 기본 정보 영역 -->
+			<div class="sv_con result">
+				<div class="sub_tab half_tab">
+					<ul>
+						<li><a href="AD_SV_3003.html">문항 별 결과 조회</a></li>
+						<li class="on"><a href="AD_SV_3005.html">조직 별 참여 현황</a></li>
+					</ul>
+				</div><!-- //탭 -->
+				<div class="tbl_opt">
+					<form action="#" method="post">
+						<div class="fl">
+							<p class="tbl_result">전체115건&nbsp;&nbsp;1/8페이지</p>
+						</div>
+						<div class="fr">
+							<select class="w121">
+								<option value="">10개씩 조회</option>
+								<option value="">20개씩 조회</option>
+								<option value="">30개씩 조회</option>
+								<option value="">50개씩 조회</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="tbl_wrap mt10">
+					<table id="jqGrid"></table>
+					<div id="Pager"></div>
+				</div>
+				<div class="search">
+					<div>
+						<form action="#" method="post">
+							<select class="sch_sel">
+								<option value="">본부명</option>
+								<option value="">팀명</option>
+							</select>
+							<div class="instbox">
+								<div><input type="text" placeholder="검색어를 입력해 주세요." /></div>
+								<input type="submit" class="submit" value="검색" /> 
+							</div>
+						</form>
+					</div>
+				</div><!-- //Search Form -->
+			</div><!-- //설문 문항 영역 -->
+		</div>
+
+		<div class="btnbox">
+			<div class="fr">
+				<a href="#" class="btn">설문 알림 재발송</a>
+				<a href="#" class="btn" onclick="javascript:window.open('/survey/AD_SV_3005_01.html','popup','scrollbars=no, resizable=no, width=400,height=321,left=630,top=400')">설문 대상 목록 받기</a>
+				<a href="#" class="btn" data-pop-close="popup">닫기</a>
+			</div>
+		</div><!-- //Button -->
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

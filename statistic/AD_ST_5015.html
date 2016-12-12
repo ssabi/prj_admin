@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal 설문 배포현황</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		$("#jqGrid").jqGrid({
+		url:'../data.json',
+		datatype: "json",
+		height:"auto",
+		autowidth:true,
+		shrinkToFit:false,
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['게시판 명','2016.01','2016.02','2016.03','2016.04','2016.05','2016.06','2016.07','2016.08','2016.09','2016.10','2016.11','2016.12','합계'],
+		colModel:[
+			{ name: '게시판 명', index: 'type', key: true, width: 150 },
+			{ name: '2016.01', index: '2016.01', width: 80 },
+			{ name: '2016.02', index: '2016.02', width: 80,},
+			{ name: '2016.03', index: '2016.03', width: 80 },
+			{ name: '2016.04', index: '2016.04', width: 80 },
+			{ name: '2016.05', index: '2016.05', width: 80 },
+			{ name: '2016.06', index: '2016.06', width: 80 },
+			{ name: '2016.07', index: '2016.07', width: 80 },
+			{ name: '2016.08', index: '2016.08', width: 80 },
+			{ name: '2016.09', index: '2016.09', width: 80 },
+			{ name: '2016.10', index: '2016.10', width: 80 },
+			{ name: '2016.11', index: '2016.11', width: 80 },
+			{ name: '2016.12', index: '2016.12', width: 80 },
+			{ name: '합계', index: 'sum', width: 100 }
+		],
+		rowNum:10,
+		//sortname: 'seq_user',
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+			var flag = 0;
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+
+			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
+				var isAllChecked = true;
+				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
+					if ($(this).prop('checked') === false)
+					{
+						isAllChecked = false;
+					}
+				});
+
+				if (isAllChecked)
+				{
+					$("thead").find(className).prop("checked",isAllChecked);
+
+				}
+			});
+		}
+	});
+
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+	//JQ그리드 테이블 Width
+
+	//resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+
+
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li class="on"><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">통계 관리</h2>
+				<div class="multiview">
+					<ul>
+						<li class="multi"><span>Swing Portal</span>
+							<ul>
+								<li><a href="AD_ST_5001.html">접속현황</a></li>
+								<li><a href="AD_ST_5005.html">게시판 사용현황</a></li>
+								<li><a href="AD_ST_5007.html">커뮤니티 사용현황</a></li>
+								<li><a href="AD_ST_5009.html">설문 배포현황</a></li>
+							</ul>
+						</li>
+						<li class="multi"><span class="open active">BP Portal</span>
+							<ul class="open">
+								<li><a href="AD_ST_5013.html">접속 현황</a></li>
+								<li class="on"><a href="AD_ST_5014.html">게시판 사용현황</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>BP Portal 게시판 사용현황</h2>
+				<div class="tbl_opt reset_area mt10">
+					<form action="#" method="post">
+						<table>
+							<colgroup>
+								<col style="width:98px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row" class="vt pl16">조건</th>
+								<td>
+									<div class="period">
+										<div class="target_chk">
+											<input type="radio" name="pc_show" id="opt_radio01" class="chk_target" /><label for="opt_radio01">게시판 별 게시글 조회 현황</label>
+											<input type="radio" name="pc_show" id="opt_radio02" class="chk_target" checked="checked"/><label for="opt_radio02">게시판 별 게시글 등록 현황</label>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">기준월 선택</th>
+								<td>
+									<div class="period">
+										<p><input type="text" id="opt_start" readonly="readonly" /></p>
+										<p><input type="text" id="opt_end" readonly="readonly" /></p>
+										<span class="coment">※ 최대 12개월까지 조회 가능</span>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div><!--//Tbl_opt-->
+				<div class="btnbox">
+					<a href="#" class="btn confirm">검색</a>
+					<a href="#" class="btn resetBtn">초기화</a>
+				</div>
+				<h3 class="subtit">게시판 별 게시글 등록 현황</h3>
+				<div class="tbl_wrap">
+					<table id="jqGrid"></table>
+<!-- 					<div id="jqGridPager"></div> -->
+				</div>
+				<div class="btnbox">
+					<div class="fr">
+						<a href="#" class="btn_long confirm">EXCEL 다운로드</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- Container -->		
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

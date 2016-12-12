@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal Notice 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+var table_header = [
+	{ label: '이름', name: 'name', width: 80,},
+	{ label: '아이디', name: 'id', width: 120 },
+	{ label: '소속부서', name: 'depa', width: 200 }
+];
+$(document).ready(function(){
+	//jqChk();
+	$("#jqGrid").jqGrid({
+		url:'./data.json',
+		datatype: "json",
+		multiselect:true,
+		jsonReader : { 
+			page: "page", 
+			total: "total", 
+			root: "user", 
+			records: function(obj){return obj.length;},
+			repeatitems: false, 
+			id: "seq_user"
+		},
+		colNames:['seq_user','Date', 'Client', 'Amount','name','Total','Notes'],
+		colModel:[
+			{name:'seq_user',index:'seq_user', width:55},
+			{name:'invdate',index:'invdate', width:90},
+			{name:'name',index:'invdate', width:100},
+			{name:'amount',index:'amount', width:80, align:"right"},
+			{name:'name',index:'name123123', width:80, align:"right"},
+			{name:'total',index:'total', width:80,align:"right"},
+			{name:'note',index:'note', width:150, sortable:false}
+		],
+		rowNum:10,
+		rowList:[10,20,30],
+		pager: '#pager02',
+		sortname: 'seq_user',
+		viewrecords: true,
+		sortorder: "desc",
+		loadonce: true,
+		loadComplete : function(){
+			var className = ".cbox";
+			var chk_btn = $(className);
+			var count=0;
+			var tbody_chk_btn = $("tbody").find(className);
+			var len = tbody_chk_btn.length;
+
+			chk_btn.each(function(idx){
+				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
+				$(this).parent().append(chk_label);
+			});
+
+			$("thead .cbox").bind({
+				"click" : function(){
+					count = (count==8) ? 0 : 8
+					console.log(count);
+				}
+			})
+
+			$("tbody tr").bind({
+				"click" : function(){
+					if($(this).attr("aria-selected")=="true"){
+						--count;
+						console.log(count);
+					}else{
+						++count;
+						console.log(count);
+					}
+					if(len == count){
+						$("thead").find(className).attr("checked","checked");
+						$("thead").find(".label_check").css("background-position","0 -18px");
+					}else{
+						$("thead").find(className).removeAttr("checked");
+						$("thead").find(".label_check").removeAttr("style");
+					}
+				}
+			})
+		}
+	});
+
+	jQuery("#jqGrid").jqGrid('navGrid','#pager02',{edit:false,add:false,del:false});
+	//JQ그리드 테이블 Width
+
+	resizeJqGridWidth("jqGrid", "tbl_wrap", "100%");
+	
+});
+</script>
+<style>
+body{overflow-y:visible;background-color:#fff}
+</style>
+</head>
+<body>
+<div id="pop_wrap">
+	<div id="pop_head">
+		<strong>운영자 추가</strong>
+		<a href="#" class="close" data-pop-close="popup" onclick="javascript:window.close()">닫기</a>
+	</div><!-- //Header -->
+	<div id="pop_container">
+		<div class="search pop">
+			<div>
+				<form action="#" method="post">
+					<select class="sch_sel">
+						<option value="">이름</option>
+						<option value="">아이디</option>
+						<option value="">소속부서</option>
+					</select>
+					<div class="instbox">
+						<div><input type="text" /></div>
+						<input type="submit" class="submit" value="검색" />
+					</div>
+				</form>
+			</div>
+		</div><!-- //Search Form -->
+		<div class="tbl_wrap mt10">
+			<table id="jqGrid"></table>
+			<div id="pager02"></div>
+		</div>
+		<div class="btnbox">
+			<a href="#" class="btn confirm">확인</a>
+			<a href="#" class="btn" data-pop-close="popup" onclick="javascript:window.close()">취소</a>
+		</div>
+	</div><!-- //Container -->
+</div>
+</body>
+</html>

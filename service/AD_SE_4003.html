@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>Swing Portal 배너 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".sel01").bind({
+		"change" : function(){
+			console.log('dhcns');
+			var val = $(this).val();
+
+			switch (val){
+			case "type03":
+				$(".sel02").removeClass("dn").selectOrDie("destroy").selectOrDie({customClass:$(".sel02").attr("class"), size: 10});
+				$(this).parents('tr').siblings('tr').addClass('disable');				
+				$(this).parents('tr').siblings('tr').find('.w170').selectOrDie('disable');
+
+			break;
+			default:
+				$(".sel02").addClass("dn");
+				$(this).parents('tbody').children('tr').removeClass('disable');
+				$(this).parents('tr').siblings('tr').find('.w170').selectOrDie('enable');
+			break;
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li class="on"><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">서비스 관리</h2>
+				<div class="multiview">
+					<ul>
+						<li class="multi"><span class="open active">Swing Portal</span>
+							<ul class="open">
+								<li class="on"><a href="AD_SE_4001.html">배너 관리</a></li>
+								<li><a href="AD_SE_4007.html">링크 관리</a></li>
+								<li><a href="AD_SE_4015.html">팝업 관리</a></li>
+								<li><a href="AD_SE_4019.html">고객정보보호서약 관리</a></li>
+							</ul>
+						</li>
+						<li class="multi"><span>BP Portal</span>
+							<ul>
+								<li><a href="AD_SE_4021.html">배너 관리</a></li>
+								<li><a href="AD_SE_4028.html">링크 관리</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>Swing Portal 배너관리</h2>
+				<div class="tbl_wrap">
+					<form action="#" method="post">
+						<table class="tbl_write tbl_banner reset_area">
+							<caption></caption>
+							<colgroup>
+								<col style="width:140px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row" class="vt">배너위치 선택</th>
+								<td>
+									<select class="w170 sel01">
+										<option value="type01">메인배너</option>
+										<option value="type02">커뮤니티 홈</option>
+										<option value="type03">커뮤니티 개별 홈 배너</option>
+									</select>
+									<select class="w260 dn sel02">
+										<option value="">커뮤니티 이름01</option>
+										<option value="">커뮤니티 이름02</option>
+										<option value="">커뮤니티 이름03</option>
+									</select>
+								</td>
+							</tr>
+							<tr class="sel_blur">
+								<th scope="row">게시대상 선택</th>
+								<td>
+									<select class="w170">
+										<option value="">선택</option>
+										<option value="">그룹명1</option>
+										<option value="">그룹명2</option>
+										<option value="">그룹명3</option>
+									</select>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+
+				<div class="btnbox">
+					<a href="#" class="btn confirm">검색</a>
+					<a href="#" class="btn resetBtn">초기화</a>
+				</div>
+
+				<div class="sub_tab half_tab mt40">
+					<ul>
+						<li class="on"><a href="AD_SE_4003.html">사용 배너</a></li>
+						<li><a href="AD_SE_4003_01.html">미사용 배너</a></li>
+					</ul>
+				</div><!-- //탭 -->
+
+				<div class="tbl_wrap">
+					<table class="tbl_list" data-tbl-sort='{"up":".up","down":".down"}'>
+						<caption></caption>
+						<colgroup>
+							<col style="width:4%;" />
+							<col style="width:4%;" />
+							<col style="width:146px" />
+							<col />
+							<col style="width:10%;" />
+							<col style="width:11%;" />
+							<col style="width:10%;" />
+							<col style="width:10%;" />
+						</colgroup>
+						<thead>
+						<tr>
+							<th scope="col"><input type="checkbox" id="chkAll" /><label for="chkAll" class="label_check"	data-check-all="check_group4"></label></th>
+							<th scope="col">순서</th>
+							<th scope="col">이미지</th>
+							<th scope="col">제목/게시기간</th>
+							<th scope="col">등록자</th>
+							<th scope="col">정렬</th>
+							<th scope="col">모바일</th>
+							<th scope="col">상태</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td><input type="checkbox" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">1</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby first">
+									<a href="#" class="up disabled"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">2</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>비노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">3</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">4</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>비노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">5</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">6</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk07" /><label for="chk07" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">7</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk08" /><label for="chk08" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">8</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk09" /><label for="chk09" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">8</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk10" /><label for="chk10" class="label_check" data-check-group="check_group4"></label></td>
+							<td class="num">9</td>
+							<td><span class="img"><img src="../resource_admin/images/temp/dummy228x58.gif" alt=""></span></td>
+							<td class="al_l">
+								<a href="#">제목 : 테스트1</a><span class="period">위치 : #개별커뮤니티 명#</span>
+								<span class="period">게시기간 : 2016.06.11 ~ 2016.06.30</span>
+							</td>
+							<td>홍길동</td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down disabled"></a>
+								</div>
+							</td>
+							<td>노출</td>
+							<td><a href="#" class="btn">사용</a></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btnbox">
+					<div class="fl">
+						<a href="#" class="btn">선택항목삭제</a>
+					</div>
+				
+					<div class="fr">
+						<a href="#" class="btn">순서적용</a>
+						<a href="AD_SE_4004.html" class="btn confirm">배너등록</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+		
+	</div><!-- //Container -->
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>

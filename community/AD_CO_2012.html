@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>커뮤니티 게시판 관리</title>
+
+<link rel="stylesheet" href="../resource_admin/css/style.css">
+
+<script src="../resource_admin/js/script.js"></script>
+<script src="../resource_admin/js/common.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="inhead">
+			<h1 class="logo"><a href="#"><img src="../resource_admin/images/common/logo.png" alt="Swing Portal Admin"></a></h1>
+
+			<div class="login_info">
+				<p>홍길동(eqsss1023)님 접속중</p>
+				<a href="#" class="btn login">로그아웃</a>
+				<a href="#" class="btn radius">검색관리</a>
+			</div>
+		</div>
+		<div class="gnb_all">
+			<ul class="gnb">
+				<li><a href="../board/AD_BO_1001.html">게시판관리</a></li>
+				<li class="on"><a href="../community/AD_CO_2001.html">커뮤니티관리</a></li>
+				<li><a href="../survey/AD_SV_3001.html">설문관리</a></li>
+				<li><a href="../service/AD_SE_4001.html">서비스관리</a></li>
+				<li><a href="../statistic/AD_ST_5001.html">통계관리</a></li>
+				<li><a href="../operator/AD_MA_6001.html">관리자관리</a></li>
+				<li><a href="../system/AD_SY_7001.html">시스템관리</a></li>
+			</ul>
+		</div>
+	</div><!-- //Header -->
+	<div id="container">
+		<div id="lnb">
+			<div class="incon">
+				<h2 class="lnb_tit">커뮤니티 관리</h2>
+				<div class="multiview">
+					<ul>
+						<li><a href="AD_CO_2001.html"><span>승인요청 관리</span></a></li>
+						<li><a href="AD_CO_2004.html"><span>커뮤니티 현황</span></a></li>
+						<li class="on"><a href="AD_CO_2011.html"><span>커뮤니티 게시판 관리</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- //LNB -->
+		<div id="content">
+			<div class="incon">
+				<h2>커뮤니티 게시판 상세조회</h2>
+				<div class="tbl_wrap">
+					<table class="tbl_write">
+						<caption class="view">커뮤니티 정보</caption>
+						<colgroup>
+							<col style="width:142px" />
+							<col />
+						</colgroup>
+						<tbody>
+						<tr>
+							<th scope="row">유형</th>
+							<td>일반</td>
+						</tr>
+						<tr>
+							<th scope="row">커뮤니티 이름</th>
+							<td>ABCD커뮤니티</td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="managebox mt40">
+						<form action="#" method="post">
+							<table class="tbl_write">
+								<caption class="view">게시판 정보</caption>
+								<colgroup>
+									<col style="width:140px" />
+									<col />
+									<col style="width:140px" />
+									<col />
+								</colgroup>
+								<tbody>
+								<tr>
+									<th scope="row">게시판 이름</th>
+									<td colspan="3">
+										<div class="ele_wrap">
+											<input type="text" />
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">게시판 분류</th>
+									<td colspan="3">
+										<select class="w340">
+											<option value="">전체</option>
+											<option value="">공지 게시판</option>
+											<option value="">일반 게시판</option>
+											<option value="">문의 게시판</option>
+											<option value="">자료실</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">알림설정</th>
+									<td colspan="3">
+										<div class="target_chk">
+											<input type="checkbox" id="survey_type01"/><label for="survey_type01">SMS/MMS</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">말머리</th>
+									<td colspan="3">
+										<div class="subject">
+											<div class="subject_reg" data-chk-length="">
+												<input type="text" />
+												<a href="#" class="btn line02">추가</a>
+												<span class="byte"><span>0</span>/<em class="count">20</em></span>
+											</div><!-- //말머리 등록 -->
+												<div class="subject_result">
+												<div class="subject_list">
+													<div class="subject_item">
+														<p class="txt">말머리01<a href="#">삭제</a></p>
+														<p class="input"><input type="text" value="말머리01" /></p>
+													</div><!-- //item01 -->
+													<div class="subject_item">
+														<p class="txt">말머리02<a href="#">삭제</a></p>
+														<p class="input"><input type="text" value="말머리02" /></p>
+													</div><!-- //item02 -->
+													<div class="subject_item">
+														<p class="txt">말머리03<a href="#">삭제</a></p>
+														<p class="input"><input type="text" value="말머리03" /></p>
+													</div><!-- //item03 -->
+													<div class="subject_item">
+														<p class="txt">말머리04<a href="#">삭제</a></p>
+														<p class="input"><input type="text" value="말머리04" /></p>
+													</div><!-- //item04 -->
+												</div>
+													<p class="desc">말머리를 더블 클릭하면 수정할 수 있습니다.</p>
+											</div><!-- //말머리 결과 -->
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">게시판 노출제어</th>
+									<td colspan="3">
+										<div class="target_chk">
+											<input type="radio" name="show" id="show01" class="chk_target" checked="checked" /><label for="show01">노출</label>
+											<input type="radio" name="show" id="show02" class="chk_target" /><label for="show02">비노출</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">조회 권한</th>
+									<td colspan="3">
+										<div class="target_chk">
+											<input type="radio" name="search" id="search01" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"show"}' checked="checked" /><label for="search01">게시대상 선택</label>
+											<input type="radio" name="search" id="search02" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"hide"}' /><label for="search02">모든 사용자</label>
+										</div>
+
+										<div class="target_box t_box01">
+											<div data-target-box="box01">
+												<span class="target_tag">수도권마케팅<a href="#" class="del"></a></span>
+											</div>
+											<a href="AD_CO_2013.html"  class="find_target submit" data-layer-popup='{"name":"대상찾기","width":"920","height":"611"}'>대상 찾기</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">쓰기 권한</th>
+									<td colspan="3">
+										<div class="target_chk">
+											<input type="radio" name="write" id="write01" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"show"}' checked="checked" /><label for="write01">게시대상 선택</label>
+											<input type="radio" name="write" id="write02" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"hide"}' /><label for="write02">모든 사용자</label>
+										</div>
+
+										<div class="target_box t_box02">
+											<div data-target-box="box01">
+												<span class="target_tag">수도권마케팅<a href="#" class="del"></a></span>
+											</div>
+											<a href="AD_CO_2013.html"  class="find_target submit" data-layer-popup='{"name":"대상찾기","width":"920","height":"611"}'>대상 찾기</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">첨부파일</th>
+									<td>
+										<div class="target_chk">
+											<input type="radio" name="upload" id="upload01" class="chk_target" checked="checked" /><label for="upload01">사용</label>
+											<input type="radio" name="upload" id="upload02" class="chk_target" /><label for="upload02">미사용</label>
+										</div>
+									</td>
+									<th scope="row" class="vt">댓글허용</th>
+									<td>
+										<div class="target_chk">
+											<input type="radio" name="reply" id="reply01" class="chk_target" checked="checked" /><label for="reply01">사용</label>
+											<input type="radio" name="reply" id="reply02" class="chk_target" /><label for="reply02">미사용</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">비밀 게시글</th>
+									<td>
+										<div class="target_chk">
+											<input type="radio" name="secret" id="secret01" class="chk_target" checked="checked" /><label for="secret01">사용</label>
+											<input type="radio" name="secret" id="secret02" class="chk_target" /><label for="secret02">미사용</label>
+										</div>
+									</td>
+									<th scope="row" class="vt">답글허용</th>
+									<td>
+										<div class="target_chk">
+											<input type="radio" name="answer" id="answer01" class="chk_target" checked="checked" /><label for="answer01">사용</label>
+											<input type="radio" name="answer" id="answer02" class="chk_target" /><label for="answer02">미사용</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt_line">게시글<br>조회권한 설정</th>
+									<td colspan="3" class="vt">
+										<div class="target_chk">
+											<input type="radio" name="access" id="access01" class="chk_target" checked="checked" /><label for="access01">사용</label>
+											<input type="radio" name="access" id="access02" class="chk_target" /><label for="access02">미사용</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt">게시글 수</th>
+									<td colspan="3">1231</td>
+								</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+					<table class="single_tb">
+						<caption></caption>
+						<colgroup>
+							<col style="width:142px" />
+							<col />
+							<col style="width:142px" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr class="bd_top">
+								<th scope="row" class="vt"><span>최종 수정자</span></th>
+								<td class="w274">홍길순(eqsss1023,SD마케팅팀)</td>
+								<th scope="row" class="vt">최종 수정일</th>
+								<td>2016.07.25 16:23:23</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btnbox">
+					<div class="fl">
+						<a href="AD_CO_2012_01.html"  class="find_target btn" data-layer-popup='{"name":"커뮤니티 게시판 폐쇄","width":"400","height":"279"}'>폐쇄</a>
+					</div>
+					<div class="fr">
+						<a href="AD_CO_2012_02.html"  class="find_target btn confirm" data-layer-popup='{"name":"커뮤니티 게시판 수정","width":"400","height":"279"}'>수정</a>
+						<a href="AD_CO_2011.html" class="btn">취소</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- //Content -->
+	</div><!-- //Container -->
+	<div id="footer">
+		<div class="infoot">
+			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
+			<p class="copyright">(C) 2017 BY SKTELECOM</p>
+		</div>
+	</div><!-- //Footer -->
+</div>
+</body>
+</html>
