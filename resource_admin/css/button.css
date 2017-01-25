@@ -1,16 +1,23 @@
 /* Button - Box */
-.btnbox{overflow:hidden;margin-top:10px;text-align:center}
+.btnbox{/* overflow:hidden; */display:inline-block;width:100%;margin-top:10px;text-align:center;vertical-align:middle}
 #pop_wrap .btnbox{margin-top:20px;}
 .tbl_opt+.btnbox{margin-top:20px;}
-.btn{display:inline-block;padding:0 10px;min-width:72px;height:40px;line-height:38px;border:0;background-color:#e2e2e2;color:#454545;text-align:center;vertical-align:middle;/* transition:all 0.3s ease */}
+.btnbox + h2{margin-top:39px}
+.btn{display:inline-block;/* padding:0 10px;min-width:72px; */padding:0 15px;min-width:62px;height:40px;line-height:38px;border:0;background-color:#e2e2e2;color:#454545;text-align:center;vertical-align:middle;/* transition:all 0.3s ease */}
 .btn.confirm{background-color:#ff3b57;color:#fff}
 .btn:hover{background-color:#c0c0c0}
 .btn.active, .btn:active{background-color:#ff3b57;color:#fff}
 .btn.confirm:hover{background-color:#d9324a}
 .btn.active.confirm, .btn.confirm:active{background-color:#c01623}
+.btnbox p{line-height:140%}
 
 /* 버튼 상단 border 및 padding */
 .btnbox.btnbd {border-top: 1px solid #b3b3b3; padding-top:20px;}
+
+.btnbox .sod_select{height:40px;width:auto !important;min-width:80px}
+.btnbox .sod_select .sod_label{height:38px;line-height:38px;padding-right:20px}
+.btnbox .sod_select:after{top:17px}
+.btnbox .sod_select .sod_list_wrapper{width:auto !important;right:-1px !important}
 
 /* long 버튼 */
 .btn_long{display:inline-block;padding:0 10px;min-width:127px;height:40px;line-height:38px;border:0;background-color:#e2e2e2;color:#454545;text-align:center;vertical-align:middle;/* transition:all 0.3s ease */}

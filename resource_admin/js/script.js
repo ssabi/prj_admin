@@ -5,7 +5,6 @@ document.write("<script src='../resource_admin/js/libs/jquery.easing.min.js'></s
 document.write("<script src='../resource_admin/js/plugins/selectordie.min.js'></script>");
 document.write("<script src='../resource_admin/js/plugins/spectrum.js'></script>");
 document.write("<script src='../resource_admin/js/plugins/slick.min.js'></script>");
-document.write("<script src='../resource_admin/js/plugins/jquery.blockUI.js'></script>");
 document.write("<script src='../resource_admin/js/plugins/jstree.min.js'></script>");
 document.write("<script src='../resource_admin/js/plugins/jqgrid/i18n/grid.locale-en.js'></script>");
 document.write("<script src='../resource_admin/js/plugins/jqgrid/jquery.jqGrid.js'></script>");

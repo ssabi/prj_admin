@@ -59,83 +59,44 @@
 		</div><!-- //LNB -->
 		<div id="content">
 			<div class="incon">
-				<h2>정보변경</h2>
-				<div class="tbl_wrap tbl_opt">
+				<h2>등록 가이드 조회</h2>
+
+				<div class="tbl_opt reset_area mt10">
 					<form action="#" method="post">
-						<table class="tbl_write">
-							<caption></caption>
+						<table>
 							<colgroup>
-								<col style="width:160px;" />
+								<col style="width:98px;" />
 								<col />
 							</colgroup>
 							<tbody>
 							<tr>
-								<th scope="row"><span class="point">명칭</span></th>
-								<td>
-									<div class="ele_wrap">
-										<input type="text" placeholder="제목을 입력해주세요." />
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="vt"><span class="point">설명</span></th>
-								<td>
-									<div class="vreply_write" data-chk-length="">
-										<div class="textarea">
-											<textarea id="reply_con" cols="30" rows="10"></textarea>
-											<span class="byte"><span>0</span>/<em class="count">200</em></span>
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><span class="point">회사구분</span></th>
+								<th scope="row">회사</th>
 								<td>
 									<select class="w140">
 										<option value="">전체</option>
-										<option value="">선택</option>
-										<option value="">프로젝트</option>
+										<option value="">SKT</option>
+										<option value="">SKB</option>
 									</select>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><span class="point">OS</span></th>
+								<th scope="row">OS</th>
 								<td>
 									<select class="w140">
 										<option value="">전체</option>
-										<option value="">선택</option>
-										<option value="">프로젝트</option>
+										<option value="">Android</option>
+										<option value="">iOS</option>
 									</select>
+									&nbsp;&nbsp;
+									<input type="checkbox" name="" id="non_use" /><label for="non_use">미사용 포함</label>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row" class="vt"><span class="point">유형</span></th>
+								<th scope="row">가이드명</th>
 								<td>
-									<select class="w140">
-										<option value="">전체</option>
-										<option value="">선택</option>
-										<option value="">프로젝트</option>
-									</select>
-								</td>
-							</tr>
-							<tr class="pc">
-								<th scope="row" class="vt">아이콘</th>
-								<td>
-									<div class="include_preview del_p">
-										<div class="filebox" data-file-box="">
-											<input type="text" readonly="readonly" />
-											<input type="file" id="file01" />
-											<label for="file01">찾아보기</label>
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="vt">노출여부</th>
-								<td>
-									<div class="target_chk">
-										<input type="radio" name="target01" id="t01" class="chk_target" checked="checked" /><label for="t01">노출</label>
-										<input type="radio" name="target01" id="t02" class="chk_target" /><label for="t02">비노출</label>
+									<div class="ele_wrap_opt">
+										<input type="text" placeholder="검색어를 입력해주세요" />
+										<a href="#" class="btn line02">검색</a>
 									</div>
 								</td>
 							</tr>
@@ -143,24 +104,151 @@
 						</table>
 					</form>
 				</div>
+
+				<div class="tbl_wrap mt40">
+					<table class="tbl_list" data-tbl-sort='{"up":".up","down":".down"}'>
+						<caption></caption>
+						<colgroup>
+							<col style="width:38px;" />
+							<col style="width:65px;" />
+							<col style="width:50px;" />
+							<col style="width:70px;" />
+							<col style="width:20%" />
+							<col style="width:60px;" />
+							<col style="width:70px;" />
+							<col />
+						</colgroup>
+						<thead>
+						<tr>
+							<th scope="col">선택</th>
+							<th scope="col">순서</th>
+							<th scope="col">회사<br>구분</th>
+							<th scope="col">OS</th>
+							<th scope="col">가이드</th>
+							<th scope="col">최종<br>배포일시</th>
+							<th scope="col">최종<br>배포버전</th>
+							<th scope="col">파일경로</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td><input type="checkbox" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group5"></label></td>
+							<td>
+								<div class="orderby first">
+									<a href="#" class="up disabled"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>SKT</td>
+							<td>Android</td>
+							<td class="al_l">단말기 업그레이드</td>
+							<td>17/05/01 08:00:00</td>
+							<td>iOS<br>Android</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group5"></label></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>SKB</td>
+							<td>Android</td>
+							<td class="al_l">Swing 사용법</td>
+							<td>17/05/03 11:21:34</td>
+							<td>iOS</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
+						</tr>
+ 						<tr>
+							<td><input type="checkbox" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group5"></label></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>SKT</td>
+							<td>iOS</td>
+							<td class="al_l">단말기 업그레이드</td>
+							<td>17/05/01 08:00:00</td>
+							<td>Android</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group5"></label></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>SKT</td>
+							<td>iOS</td>
+							<td class="al_l">단말기 업그레이드</td>
+							<td>17/05/01 08:00:00</td>
+							<td>iOS</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group5"></label></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>SKB</td>
+							<td>Android</td>
+							<td class="al_l">단말기 업그레이드</td>
+							<td>17/05/03 11:21:34</td>
+							<td>Android</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group5"></label></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down"></a>
+								</div>
+							</td>
+							<td>SKT</td>
+							<td>Android</td>
+							<td class="al_l"><a href="#">Swing SSM</a></td>
+							<td>17/05/01 08:00:00</td>
+							<td>Android</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="chk07" /><label for="chk07" class="label_check" data-check-group="check_group5"></label></td>
+							<td>
+								<div class="orderby">
+									<a href="#" class="up"></a>
+									<a href="#" class="down disabled"></a>
+								</div>
+							</td>
+							<td>SKT</td>
+							<td>Android</td>
+							<td class="al_l">단말기 업그레이드</td>
+							<td>17/05/01 08:00:00</td>
+							<td>iOS</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 				<div class="btnbox">
-					<div class="fl">
-						<a href="#" class="btn">삭제</a>
-					</div>
 					<div class="fr">
-						<a href="#" class="btn confirm">변경저장</a>
-						<a href="AD_SY_7016.html" class="btn">취소</a>
+						<a href="#" class="btn confirm">순서적용</a>
+						<a href="#" class="btn">신규등록</a>
+						<a href="#" class="btn">배포</a>
 					</div>
 				</div>
 			</div>
 		</div><!-- //Content -->
-	</div><!-- //Container -->
-	<div id="footer">
-		<div class="infoot">
-			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
-			<p class="copyright">(C) 2017 BY SKTELECOM</p>
-		</div>
-	</div><!-- //Footer -->
+	</div><!-- Container -->		
 </div>
 </body>
 </html>

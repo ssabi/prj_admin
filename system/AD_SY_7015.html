@@ -11,6 +11,23 @@
 
 <script src="../resource_admin/js/script.js"></script>
 <script src="../resource_admin/js/common.js"></script>
+<script>
+$(document).ready(function(){
+	$(".direct_link").each(function(){
+		$(this).bind({
+			"click" : function(){
+				var tr = $(this).closest("tr");
+
+				if($(this).prop("checked")){
+					tr.find("input[type=text]").attr("disabled", false).removeClass("disable");
+				}else{
+					tr.find("input[type=text]").attr("disabled", true).addClass("disable");
+				}
+			}
+		});
+	});
+});
+</script>
 </head>
 <body>
 <div id="wrap">
@@ -59,60 +76,73 @@
 		</div><!-- //LNB -->
 		<div id="content">
 			<div class="incon">
-				<h2>가이드 신규등록</h2>
+				<h2>가이드 배포</h2>
 				<div class="tbl_wrap tbl_opt">
 					<form action="#" method="post">
 						<table class="tbl_write">
 							<caption></caption>
 							<colgroup>
-								<col style="width:160px;" />
+								<col style="width:100px;" />
+								<col />
+								<col style="width:164px;" />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row">명칭</th>
+								<td>Swing Mobile</td>
+								<td rowspan="5" class="img_area">
+									<a href="#" class="btn_long">정보변경</a>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">설명</th>
+								<td>모바일 사용자를 위한 Swing App.</td>
+							</tr>
+							<tr>
+								<th scope="row">OS</th>
+								<td>Android/iOS</td>
+							</tr>
+							<tr>
+								<th scope="row">유형</th>
+								<td>필수</td>
+							</tr>
+							<tr>
+								<th scope="row">지원범위</th>
+								<td><span class="gray02">(사용여부)</span> 사용&nbsp;&nbsp;&nbsp;<span class="gray02">(회사)</span> SKT/SKB</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+
+				<h3 class="subtit mt40">Android</h3>
+				<div class="tbl_wrap mt10">
+					<form action="#" method="post">
+						<table class="tbl_write">
+							<colgroup>
+								<col style="width:120px;" />
 								<col />
 							</colgroup>
 							<tbody>
 							<tr>
-								<th scope="row"><span class="point">명칭</span></th>
+								<th scope="row"><input type="checkbox" class="direct_link" name="" id="link01" /><label for="link01">페이지 연결</label></th>
+								<td><div class="ele_wrap"><input type="text" title="" disabled="disabled" class="disable" /></div></td>
+							</tr>
+							<tr>
+								<th scope="row">가이드</th>
 								<td>
-									<div class="ele_wrap">
-										<input type="text" />
+									<div class="filebox" data-file-box="">
+										<input type="text" readonly="readonly" />
+										<input type="file" id="file02" />
+										<label for="file02">찾아보기</label>
 									</div>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row" class="vt"><span class="point">설명</span></th>
-								<td>
-									<div class="vreply_write" data-chk-length="">
-										<div class="textarea">
-											<textarea id="reply_con" cols="30" rows="10"></textarea>
-											<span class="byte"><span>0</span>/<em class="count">200</em></span>
-										</div>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><span class="point">회사구분</span></th>
-								<td>
-									<select class="w140">
-										<option value="">공용</option>
-										<option value="">SKT</option>
-										<option value="">SKB</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><span class="point">OS</span></th>
-								<td>
-									<select class="w140">
-										<option value="">Android</option>
-										<option value="">iOS</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="vt">노출여부</th>
+								<th scope="row">사용여부</th>
 								<td>
 									<div class="target_chk">
-										<input type="radio" name="target01" id="t01" class="chk_target" checked="checked" /><label for="t01">노출</label>
-										<input type="radio" name="target01" id="t02" class="chk_target" /><label for="t02">비노출</label>
+										<input type="checkbox" name="target01" id="t01" class="chk_target" checked="checked" /><label for="t01">사용</label>
 									</div>
 								</td>
 							</tr>
@@ -122,19 +152,60 @@
 				</div>
 				<div class="btnbox">
 					<div class="fr">
-						<a href="#" class="btn confirm">신규등록</a>
-						<a href="AD_SE_4021.html" class="btn">취소</a>
+						<a href="#" class="btn">삭제</a>
+						<a href="#" class="btn">변경저장</a>
+						<a href="#" class="btn confirm">등록</a>
+					</div>
+				</div>
+
+				<h3 class="subtit">iOS</h3>
+				<div class="tbl_wrap mt10">
+					<form action="#" method="post">
+						<table class="tbl_write">
+							<colgroup>
+								<col style="width:120px;" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row"><input type="checkbox" class="direct_link" name="" id="link02" /><label for="link02">페이지 연결</label></th>
+								<td><div class="ele_wrap"><input type="text" title="" disabled="disabled" class="disable" /></div></td>
+							</tr>
+							<tr>
+								<th scope="row">가이드</th>
+								<td>
+									<div class="include_preview">
+										<div class="filebox" data-file-box="">
+											<input type="text" readonly="readonly" />
+											<input type="file" id="file02" />
+											<label for="file02">찾아보기</label>
+										</div>
+										<a href="#" class="btn line02">등록</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">사용여부</th>
+								<td>
+									<div class="target_chk">
+										<input type="checkbox" name="target02" id="t02" class="chk_target" checked="checked" /><label for="t02">사용</label>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<div class="btnbox">
+					<div class="fr">
+						<a href="#" class="btn">삭제</a>
+						<a href="#" class="btn">변경저장</a>
+						<a href="#" class="btn confirm">등록</a>
 					</div>
 				</div>
 			</div>
 		</div><!-- //Content -->
-	</div><!-- //Container -->
-	<div id="footer">
-		<div class="infoot">
-			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
-			<p class="copyright">(C) 2017 BY SKTELECOM</p>
-		</div>
-	</div><!-- //Footer -->
+	</div><!-- Container -->		
 </div>
 </body>
 </html>

@@ -59,7 +59,9 @@
 		</div><!-- //LNB -->
 		<div id="content">
 			<div class="incon">
-				<h2>신규등록</h2>
+				<!-- <h2>신규등록</h2> -->
+				<h2>App 신규 등록 / 정보 변경</h2>
+
 				<div class="tbl_wrap tbl_opt">
 					<form action="#" method="post">
 						<table class="tbl_write">
@@ -78,24 +80,22 @@
 								</td>
 							</tr>
 							<tr>
-								<th scope="row" class="vt"><span class="point">설명</span></th>
+								<th scope="row"><span class="point">ID</span></th>
 								<td>
-									<div class="vreply_write" data-chk-length="">
-										<div class="textarea">
-											<textarea id="reply_con" cols="30" rows="10"></textarea>
-											<span class="byte"><span>0</span>/<em class="count">200</em></span>
-										</div>
+									<div class="ele_wrap">
+										<input type="text" placeholder="ID를 입력해주세요." />
 									</div>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><span class="point">회사구분</span></th>
+								<th scope="row" class="vt"><span class="point">설명</span></th>
 								<td>
-									<select class="w170">
-										<option value="">전체</option>
-										<option value="">SKT</option>
-										<option value="">SKB</option>
-									</select>
+									<div class="vreply_write" data-chk-length="">
+										<div class="textarea">
+											<textarea id="reply_con" cols="30" rows="10" placeholder="설명을 입력해주세요."></textarea>
+											<span class="byte"><span>0</span>/<em class="count">200</em></span>
+										</div>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -112,9 +112,27 @@
 								<th scope="row" class="vt"><span class="point">유형</span></th>
 								<td>
 									<select class="w170">
-										<option value="">전체</option>
+										<option value="">필수</option>
 										<option value="">선택</option>
 									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="point">1.사용여부</span></th>
+								<td><input type="checkbox" name="" id="use" /><label for="use">사용</label></td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="point">2.회사별 지원 범위</span></th>
+								<td>
+									<input type="checkbox" name="" id="chk_skt" /><label for="chk_skt">SKT</label>
+									<input type="checkbox" name="" id="chk_skb" /><label for="chk_skb">SKB</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="point">3.선택적 노출</span></th>
+								<td>
+									<input type="checkbox" name="" id="type_a" /><label for="type_a">정직원만 제공</label>
+									<input type="checkbox" name="" id="type_b" /><label for="type_b">일반직원만 제공</label>
 								</td>
 							</tr>
 							<tr class="pc">
@@ -129,34 +147,20 @@
 									</div>
 								</td>
 							</tr>
-							<tr>
-								<th scope="row" class="vt"><span>노출여부</span></th>
-								<td>
-									<div class="target_chk">
-										<input type="radio" name="target01" id="t03" class="chk_target" checked="checked" /><label for="t03">노출</label>
-										<input type="radio" name="target01" id="t04" class="chk_target" /><label for="t04">비노출</label>
-									</div>
-								</td>
-							</tr>
 							</tbody>
 						</table>
 					</form>
 				</div>
 				<div class="btnbox">
 					<div class="fr">
-						<a href="#" class="btn confirm">신규등록</a>
-						<a href="AD_SE_4021.html" class="btn">취소</a>
+						<a href="#" class="btn">삭제</a>
+						<a href="#" class="btn">변경저장</a>
+						<a href="AD_SY_7010.html" class="btn confirm">신규등록</a>
 					</div>
 				</div>
 			</div>
 		</div><!-- //Content -->
 	</div><!-- //Container -->
-	<div id="footer">
-		<div class="infoot">
-			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
-			<p class="copyright">(C) 2017 BY SKTELECOM</p>
-		</div>
-	</div><!-- //Footer -->
 </div>
 </body>
 </html>

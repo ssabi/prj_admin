@@ -13,7 +13,7 @@
 <script src="../resource_admin/js/common.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-		$("#jqGrid").jqGrid({
+	$("#jqGrid").jqGrid({
 		url:'../data.json',
 		datatype: "json",
 		height:"auto",
@@ -25,48 +25,21 @@ $(document).ready(function(){
 			repeatitems: false, 
 			id: "seq_user"
 		},
-		colNames:['NO','제목', '게시시작일','등록자','소속부서', '서약/미서약'],
+		colNames:['사용자 그룹','제목', '등록일','등록자','서약/미서약'],
 		colModel:[
-			{ name: 'NO', index: 'number', key: true, width: 50 },
-			{ name: '제목', index: 'name', width: 200 },
-			{ name: '게시시작일', index: 'start', width: 150},
-			{ name: '등록자', index: 'name', width: 80 },
-			{ name: '소속부서', index: 'group', width: 150 },
-			{ name: '서약/미서약', index: 'pledge', width: 80 }
+			{ label: '사용자 그룹', name: 'user', index: 'user', width: 90 },
+			{ label: '제목', name: 'title', index: 'title'},
+			{ label: '등록일', name: 'date', index: 'date', width: 80},
+			{ label: '등록자', name: 'name', index: 'name', width: 80 },
+			{ label: '서약/미서약', name: 'pledge', index: 'pledge', width: 80 }
 		],
-		rowNum:10,
+		//rowNum:10,
 		//sortname: 'seq_user',
 		viewrecords: true,
 		sortorder: "desc",
 		loadonce: true,
 		loadComplete : function(){
-			var className = ".cbox";
-			var chk_btn = $(className);
-			var count=0;
-			var tbody_chk_btn = $("tbody").find(className);
-			var len = tbody_chk_btn.length;
-			var flag = 0;
-			chk_btn.each(function(idx){
-				var chk_label = ('<label for="'+$(this).eq(idx).attr('id')+'" class="label_check"></label>');
-				$(this).parent().append(chk_label);
-			});
-
-
-			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
-				var isAllChecked = true;
-				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
-					if ($(this).prop('checked') === false)
-					{
-						isAllChecked = false;
-					}
-				});
-
-				if (isAllChecked)
-				{
-					$("thead").find(className).prop("checked",isAllChecked);
-
-				}
-			});
+			
 		}
 	});
 
@@ -128,37 +101,15 @@ $(document).ready(function(){
 		<div id="content">
 			<div class="incon">
 				<h2>고객정보보호서약 관리</h2>
-				<div class="tbl_opt">
-					<form action="#" method="post">
-						<div class="fr">
-							<select class="w121">
-								<option value="">10개씩 조회</option>
-								<option value="">20개씩 조회</option>
-								<option value="">30개씩 조회</option>
-								<option value="">50개씩 조회</option>
-							</select>
-						</div>
-					</form>
-				</div>
+
 				<div class="tbl_wrap">
 					<table id="jqGrid"></table>
 					<div id="Pager"></div>
-				</div>
-				<div class="btnbox">
-					<div class="fr">
-						<a href="AD_SE_4020.html" class="btn confirm">등록</a>
-					</div>
 				</div>
 
 			</div>
 		</div><!-- //Content -->
 	</div><!-- //Container -->
-	<div id="footer">
-		<div class="infoot">
-			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
-			<p class="copyright">(C) 2017 BY SKTELECOM</p>
-		</div>
-	</div><!-- //Footer -->
 </div>
 </body>
 </html>

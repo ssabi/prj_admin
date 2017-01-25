@@ -323,109 +323,6 @@ $(document).ready(function(){
 		});
 	});
 
-	//Layer Popup
-	hasDataAttr("[data-layer-popup]", function($ele){
-		$ele.each(function(){
-			$(this).bind({
-				"click" : function(e){
-					e.preventDefault();
-
-					var $this = $(this), data = $(this).data("layer-popup");
-					var href = e.currentTarget.href;
-					var name = data.name;
-					var width = data.width;
-					var height = data.height;
-					var left = ($(window).width() - width) /2 + 'px';
-					var top = ($(window).height() - height) /2 + 'px';
-
-					var settings = resizePop(width, height, left, top);
-					var tw = settings.tmpWidth;
-					var th = settings.tmpHeight;
-					var tl = settings.tmpLeft;
-					var tt = settings.tmpTop;
-
-					//$("body").css("overflow", "hidden");
-					$("body").addClass("ovf_hdn");
-
-					//BlockUI ifrmae
-					$.blockUI({
-						message : $('<iframe src="'+href+'" width="100%" height="100%" style="border:0"></iframe>'),
-						draggable: true,
-						css:{
-							padding:0,
-							margin:0,
-							width:tw,
-							height:th,
-							top: tt,
-							left: tl,
-							textAlign:'left',
-							color:'#000',
-							border:'0',
-							backgroundColor:'#fff',
-							cursor:'default',
-							overflow:'hidden'
-						},
-						// styles for the overlay
-						overlayCSS:{
-							backgroundColor: '#000',
-							opacity:0.5,
-							cursor:'auto'
-						},
-						fadeIn:200,
-						fadeOut:100,
-						onUnblock: function(){
-							//$("body").css({"overflow":"visible", "overflow-y":"scroll"});
-							$("body").removeClass("ovf_hdn");
-						},
-						onOverlayClick: $.unblockUI
-					});
-				}
-			});
-		});
-	});
-
-	//팝업창 닫기
-	hasDataAttr("[data-pop-close]", function($ele){
-		$ele.each(function(idx){
-			var $this = $(this), val = $(this).data("pop-close");
-
-			$this.on({
-				"click" : function(e){
-					e.preventDefault();
-
-					if(val == "popup"){
-						parent.$.unblockUI();
-						$("body", window.parent.document).removeClass("ovf_hdn");
-					}
-				}
-			});
-		});
-	});
-	hasDataAttr("[data-pop-close]", function($ele){
-		$ele.each(function(idx){
-			var $this = $(this), data = $(this).data("pop-close");
-
-			$this.on({
-				"click" : function(e){
-					e.preventDefault();
-
-					var txt = data.txt;
-					var val = data.val;
-
-					if(txt == null || txt == ""){
-						txt = "팝업을 닫으시겠습니까?";
-					}
-					if(val == "popup"){
-						if(confirm(txt)){
-							parent.$.unblockUI();
-							$("body", window.parent.document).removeClass("ovf_hdn");
-						}
-					}
-				}
-			});
-		});
-	});
-
 	//검색 옵션 초기화
 	$(".resetBtn").click(function(e){
 		e.preventDefault();
@@ -739,6 +636,16 @@ var browser = function() {
 		isEdge ? 'Edge' :
 		"Don't know";
 };
+//Detect Browser Version
+function getInternetExplorerVersion(){
+	var rv = -1; // Return value assumes failure.
+	if(navigator.appName == 'Microsoft Internet Explorer'){
+		var ua = navigator.userAgent;
+		var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		if(re.exec(ua) != null) rv = parseFloat(RegExp.$1);
+	}
+	return rv;
+}
 //Window Open Popup
 function openpop(url, name, width, height, scroll){
 	if(browser() == "Opera"){
@@ -844,92 +751,6 @@ var controll = function(target){
 	
 	tr.eq(len-1).find(".down").addClass(className);
 }
-//Layer Popup Resizing
-var resizePop = function(width, height, left, top){
-	ww = $(window).width();
-	hh  = $(window).height();
-	var tmpWidth, tmpHeight, tmpLeft, tmpTop;
-	var dW = width, dH = height, dL = left, dT = top;
-
-	//Desktop
-	if(ww >= 1024){
-		tmpWidth = dW;
-		tmpHeight = dH;
-		tmpLeft = (ww - dW) / 2;
-		tmpTop = (hh - dH) / 2;
-	}
-	//Tablet
-	if(ww < 1024){
-		if(ww <= width){
-			tmpWidth = width;
-			tmpLeft = (ww - width) / 2;
-		}
-		if(ww > width){
-			tmpWidth = "90%";
-			tmpLeft = "5%";
-		}
-		if(hh <= height){
-			tmpHeight = height;
-			tmpTop = (hh - height) / 2;
-		}
-		if(hh > height){
-			tmpHeight = "90%";
-			tmpTop = "5%";
-		}
-	}
-	//Mobile 
-	if(ww < 768){
-		tmpWidth = "100%";
-		tmpLeft = "0";
-		tmpHeight = "100%";
-		tmpTop = "0";
-	}
-
-	$("div.blockPage").css({"width" : tmpWidth, "height" : tmpHeight, "top" : tmpTop, "left" : tmpLeft, "-webkit-overflow-scrolling":"touch"});
-
-	$(window).on('resize',function(){
-		ww = $(window).width();
-		hh  = $(window).height();
-
-		//Desktop
-		if(ww >= 1024){
-			tmpWidth = dW;
-			tmpHeight = dH;
-			tmpLeft = (ww - dW) / 2;
-			tmpTop = (hh - dH) / 2;
-		}
-		//Tablet
-		if(ww < 1024){
-			if(ww > width){
-				tmpWidth = width;
-				tmpLeft = (ww - width) / 2;
-			}
-			if(ww <= width){
-				tmpWidth = "90%";
-				tmpLeft = "5%";
-			}
-			if(hh > height){
-				tmpHeight = height;
-				tmpTop = (hh - height) / 2;
-			}
-			if(hh <= height){
-				tmpHeight = "90%";
-				tmpTop = "5%";
-			}
-		}
-		//Mobile 
-		if(ww < 768){
-			tmpWidth = "100%";
-			tmpLeft = "0";
-			tmpHeight = "100%";
-			tmpTop = "0";
-		}
-
-		$("div.blockPage").css({"width" : tmpWidth, "height" : tmpHeight, "top" : tmpTop, "left" : tmpLeft, "-webkit-overflow-scrolling":"touch"});
-	});
-
-	return {tmpWidth:tmpWidth, tmpHeight:tmpHeight, tmpLeft:tmpLeft, tmpTop:tmpTop};
-}
 //검색 옵션 초기화
 var resetOptions = function(ele){
 	var $this = $(ele);
@@ -950,5 +771,252 @@ var resetOptions = function(ele){
 	for(var i=0; i < desingSelect.length; i++){	//디자인 셀렉트박스 초기화
 		//desingSelect.eq(i).selectOrDie("destroy").selectOrDie({customClass: desingSelect.eq(i).attr("class"), size: 10});
 		desingSelect.eq(i).selectOrDie("update");
+	}
+}
+
+var setWatermak = function(text){
+	var html = "";
+	var opt1 = ' width="920" height="500" ';
+	var opt2 = ' width="750" height="500" ';
+	var pos1 = ' y="100" x="0" ';
+	var pos2 = ' y="350" x="0" ';
+	if(text == null || text == ""){
+		var opt1 = ' width="900" height="600" ';
+		text = "SK Telecom";
+	}
+
+	var date = new Date();
+
+	if(getInternetExplorerVersion() != -1 && getInternetExplorerVersion() < 10){
+		//console.log("IE 9 이하...");
+	}else{
+		html = "";
+		html += '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="left:0px;top:0px;right:0px;bottom:0px;position:fixed;z-index:9999;fill-opacity:0.16;pointer-events:none">';
+		html += '<defs>';
+		//사번
+		html += '<pattern id="textstripe" patternUnits="userSpaceOnUse" '+opt1+' patternTransform="rotate(-20)">';
+		html += '<text '+pos1+' font-size="120" style="color:#000;font-family:\'맑은 고딕\', \'나눔 고딕\', Dotum, \'droid sans fallback\', \'AppleGothic\', sans-serif">'+text+'</text>';
+		html += '</pattern>';
+		//날짜
+		html += '<pattern id="textstripe2" patternUnits="userSpaceOnUse" '+opt2+' patternTransform="rotate(-20)">';
+		html += '<text '+pos2+' font-size="120" style="color:#000;font-family:\'맑은 고딕\', \'나눔 고딕\', Dotum, \'droid sans fallback\', \'AppleGothic\', sans-serif">'+getFormatDate(date)+'</text>';
+		html += '</pattern>';
+		html += '</defs>';
+		html += '<rect width="100%" height="100%" fill="url(#textstripe)" />';
+		html += '<rect width="100%" height="100%" fill="url(#textstripe2)" />';
+		html += '</svg>';
+	}
+	var $body = $("body");
+	$body.append(html);
+}
+function getFormatDate(date){
+	var year = date.getFullYear();
+	var month = (1 + date.getMonth());
+	month = month >= 10 ? month : '0' + month;
+	var day = date.getDate();
+	day = day >= 10 ? day : '0' + day;
+
+	return  year + '-' + month + '-' + day;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                                                        //
+//  개발 적용 시 현재 라인 아래로는 소스코드 제거                                                                   //
+//                                                                                                                                                        //
+////////////////////////////////////////////////////////////////////////////////
+/**
+ * 메인 화면안에 다이얼 로그 창을 생성후 그안에 사용자 프레임을 로드해 준다.
+ * @type void
+ * @param strUrl - 표시할 주소, strTitle - 메세지 창의 제목을 입력해준다.
+ */
+gf_DialogFrame = function(sUrl, sWidth, sHeight, sTitle, sModal, sResize, sOverflow, sData, sCallback, sButtonOpt){
+	var pBody;
+	var dialog;
+	var vDate = new Date();
+	var vdName = "";
+	var dvFrame;
+	var iframe;
+	var dOpt = new Object();
+	var glv_Arg;       ///gv_gArg 변수 대체
+
+	vdName = sUrl;
+
+	if(!gf_isNull(parent)){
+		pBody = parent.$("body");
+		glv_Arg = parent.gv_gArg;
+	}else{
+		pBody = $("body");
+		glv_Arg = gv_gArg;
+	}
+
+	var tW, tH;
+	/*
+	if(mobilecheck()){
+		tW = $(window).outerWidth(true);
+		tH = $(window).outerHeight(true);
+	}else{
+		tW = sWidth;
+		tH = sHeight;
+	}
+	*/
+	tW = sWidth;
+	tH = sHeight - 67;
+	if(tH >= $(parent.window.document).outerHeight()){
+		tH = $(parent.window.document).outerHeight() - 100;
+	}
+
+	if(gf_isNull(sResize)) sResize = false;
+	if(gf_isNull(sModal)) sModal = true;
+	if(gf_isNull(sOverflow)){
+		sOverflow = "no";
+	}else{
+		sOverflow = "yes";
+	}
+	dvFrame = $("<div class='divFrame_" + vdName + "' ></div>").css('zIndex', 999).css('overflow', 'hidden');
+	dvFrame.css('width', tW).css('height', tH );
+
+	iframe = $('<iframe frameborder="0" marginwidth="0" marginheight="0" scrolling="' + sOverflow + '"></iframe>');
+
+	dOpt.autoOpen = false;
+	dOpt.modal = sModal;
+	dOpt.resizable= sResize;
+	dOpt.width = "auto";
+	dOpt.height = "auto";
+	dOpt.title = sTitle;
+	dOpt.show = {effect : "fade", duration : 200};
+	dOpt.close = function(){
+		//parent.gv_gArg.pop();
+	};
+	dOpt.buttons = sButtonOpt;
+
+	dialog = dvFrame.append(iframe).appendTo(pBody).dialog(dOpt);
+
+	iframe.attr({
+		width: +tW,
+		height: +tH,
+		src: sUrl
+	});
+
+	dialog.dialog({
+		position: {my: "center", at: "center", of: parent.window}
+	});
+	dialog.parent('.ui-dialog').css('zIndex', 999);
+	dialog.parent('.ui-dialog').css('overflow', 'hidden');
+	dialog.dialog("open");
+	//Dialog 닫기 시 해당 ele Remove..
+	dialog.dialog({
+		close : function(event, ui){
+			$(this).dialog("destroy").remove();
+		}
+	});
+	dialog.parent('.ui-dialog').dblclick(function(e){
+	if(dialog.parent('.ui-dialog').height() > 67)
+		dialog.parent('.ui-dialog').height(67);
+	else
+		dialog.parent('.ui-dialog').height(dvFrame.height() + 40);
+	});
+
+	dialog.parent('.ui-dialog').resize(function(e){
+		iframe.attr({width : dvFrame.css('width'), height : dvFrame.css('height') });
+	});
+
+	/*
+	if(mobilecheck()){
+		dialog.dialog({
+			width : $(window).outerWidth(true),
+			//height: $(window).outerHeight(true),
+			postion:{ my:"left top", at:"left top"}
+		});
+	}
+	*/
+
+	if(gf_isNull(sTitle))  dialog.parents(".ui-dialog").find(".ui-dialog-titlebar").remove();
+
+	//glv_Arg.PopID = dialog;
+};
+
+/*******************************************************************************
+ * Function Name  : gf_confirm
+ * Description   : 메세지 확인창  예/아니오를 선택 할수 있다. 
+ * Parameter    : title  - 제목,html - 내용,callback - 예 일경우 처리 함수, 
+ *        onlyOk - 버튼이 하나만 필요한 경우 true, rvOK - 버튼 표시명, rvNO - 버튼 표시명
+ * Return     : void
+ * 사 용 법    : gf_confirm("선택팝업 창", "내용을 보고 예/아니오를 선택하세요. ",  사용자 콜백함수 명, false, "예", "아니오")  이렇게 사용하세요.
+ *******************************************************************************/
+var gf_confirm = function(title,html,callback, onlyOk, rvOK, rvNO){
+	var lv_dOpt = new Object();
+
+	if(gf_isNull(onlyOk)) onlyOk = false;
+	if(gf_isNull(rvOK)) rvOK = "예";
+	if(gf_isNull(rvNO)) rvNO = "아니오";
+ 
+	lv_dOpt.title = title;
+	lv_dOpt.dialogClass = "mg-message-dialog";
+	lv_dOpt.resizable = false;
+	lv_dOpt.autoOpen = false;
+	lv_dOpt.width = "auto";
+	lv_dOpt.position = "center";
+	lv_dOpt.minHeight = 0;
+	lv_dOpt.modal = true; 
+
+	if (callback) {
+		lv_dOpt.buttons = [{ text: "OK", click: function() { $( this ).dialog( "destroy" ); }}];  
+	}else{
+		if(onlyOk){
+			lv_dOpt.buttons = [{
+				text : rvOK,
+				click : function() {
+					$( this ).dialog( "destroy" );
+					callback(true);
+					return false;
+				}
+			}];
+		}else{
+			lv_dOpt.buttons = {
+				OK : {
+					text : rvOK,
+					click : function() {
+					$( this ).dialog( "destroy" );
+					callback(true);
+					return false;
+				}
+			},
+			NOK : {
+				text : rvNO,
+					click : function() {
+						$( this ).dialog( "destroy" );
+						callback(false);
+						return false;
+					}
+				}
+			};
+		};
+	};
+
+	if (callback) {
+		var a_dialog = $("<div></div>").dialog(lv_dOpt);
+	} else {
+		var a_dialog = $("<div></div>").dialog(lv_dOpt);
+	}
+
+	a_dialog.dialog("open").html(html).parent().removeClass("ui-corner-all").children(".ui-dialog-titlebar").removeClass("ui-corner-all");
+	$(".ui-dialog").css({left:($(window).width() / 2) - (a_dialog.width() /2) + "px", top: ($(window).height() / 2) - a_dialog.height() + "px"});
+	a_dialog.find('button').focus();
+};
+
+function gf_isNull(val){
+	var bool;
+	if(val == "" || val == "undefined" || val == null){
+		bool = true;
+	}else{
+		bool = false;
+	}
+	return bool;
+}
+
+var closeDialog = function(ele){
+	if(parent.$("body").find(target).length > 0){
+		//parent.$("body").find(target).closest(".ui-dialog").dialog("close");
+		parent.$("body").find(target).dialog("close");
 	}
 }

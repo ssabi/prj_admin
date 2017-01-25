@@ -70,8 +70,9 @@
 						</tr>
 						</tbody>
 					</table>
-					<div class="managebox mt40">
-						<form action="#" method="post">
+
+					<form action="#" method="post">
+						<div class="managebox mt40">
 							<table class="tbl_write">
 								<caption class="view">게시판 정보</caption>
 								<colgroup>
@@ -110,39 +111,6 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" class="vt">말머리</th>
-									<td colspan="3">
-										<div class="subject">
-											<div class="subject_reg" data-chk-length="">
-												<input type="text" />
-												<a href="#" class="btn line02">추가</a>
-												<span class="byte"><span>0</span>/<em class="count">20</em></span>
-											</div><!-- //말머리 등록 -->
-												<div class="subject_result">
-												<div class="subject_list">
-													<div class="subject_item">
-														<p class="txt">말머리01<a href="#">삭제</a></p>
-														<p class="input"><input type="text" value="말머리01" /></p>
-													</div><!-- //item01 -->
-													<div class="subject_item">
-														<p class="txt">말머리02<a href="#">삭제</a></p>
-														<p class="input"><input type="text" value="말머리02" /></p>
-													</div><!-- //item02 -->
-													<div class="subject_item">
-														<p class="txt">말머리03<a href="#">삭제</a></p>
-														<p class="input"><input type="text" value="말머리03" /></p>
-													</div><!-- //item03 -->
-													<div class="subject_item">
-														<p class="txt">말머리04<a href="#">삭제</a></p>
-														<p class="input"><input type="text" value="말머리04" /></p>
-													</div><!-- //item04 -->
-												</div>
-													<p class="desc">말머리를 더블 클릭하면 수정할 수 있습니다.</p>
-											</div><!-- //말머리 결과 -->
-										</div>
-									</td>
-								</tr>
-								<tr>
 									<th scope="row" class="vt">게시판 노출제어</th>
 									<td colspan="3">
 										<div class="target_chk">
@@ -152,34 +120,34 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" class="vt">조회 권한</th>
+									<th scope="row" class="vt">게시판 조회권한</th>
 									<td colspan="3">
 										<div class="target_chk">
-											<input type="radio" name="search" id="search01" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"show"}' checked="checked" /><label for="search01">게시대상 선택</label>
-											<input type="radio" name="search" id="search02" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"hide"}' /><label for="search02">모든 사용자</label>
+											<input type="radio" name="target02" id="t05" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"show"}' checked="checked" /><label for="t05">게시대상 선택</label>
+											<input type="radio" name="target02" id="t06" class="chk_target" data-target-toggle='{"ele":".t_box01", "display":"hide"}' /><label for="t06">모든 사용자</label>
 										</div>
 
 										<div class="target_box t_box01">
-											<div data-target-box="box01">
+											<div data-target-box="box02">
 												<span class="target_tag">수도권마케팅<a href="#" class="del"></a></span>
 											</div>
-											<a href="AD_CO_2013.html"  class="find_target submit" data-layer-popup='{"name":"대상찾기","width":"920","height":"611"}'>대상 찾기</a>
+											<a href="AD_BO_1007.html"  class="find_target submit" data-layer-popup='{"name":"조회 대상 설정","width":"920","height":"611"}' data-target-box-button="box02">대상 찾기</a>
 										</div>
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" class="vt">쓰기 권한</th>
+									<th scope="row" class="vt">게시글 작성권한</th>
 									<td colspan="3">
 										<div class="target_chk">
-											<input type="radio" name="write" id="write01" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"show"}' checked="checked" /><label for="write01">게시대상 선택</label>
-											<input type="radio" name="write" id="write02" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"hide"}' /><label for="write02">모든 사용자</label>
+											<input type="radio" name="target03" id="t07" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"show"}' checked="checked" /><label for="t07">게시대상 선택</label>
+											<input type="radio" name="target03" id="t08" class="chk_target" data-target-toggle='{"ele":".t_box02", "display":"hide"}' /><label for="t08">모든 사용자</label>
 										</div>
 
 										<div class="target_box t_box02">
-											<div data-target-box="box01">
+											<div data-target-box="box03">
 												<span class="target_tag">수도권마케팅<a href="#" class="del"></a></span>
 											</div>
-											<a href="AD_CO_2013.html"  class="find_target submit" data-layer-popup='{"name":"대상찾기","width":"920","height":"611"}'>대상 찾기</a>
+											<a href="AD_BO_1007.html"  class="find_target submit" data-layer-popup='{"name":"쓰기 대상 설정","width":"920","height":"611"}' data-target-box-button="box03">대상 찾기</a>
 										</div>
 									</td>
 								</tr>
@@ -252,22 +220,55 @@
 				</div>
 				<div class="btnbox">
 					<div class="fl">
-						<a href="AD_CO_2012_01.html"  class="find_target btn" data-layer-popup='{"name":"커뮤니티 게시판 폐쇄","width":"400","height":"279"}'>폐쇄</a>
+						<a href="javascript:void(0);"  class="find_target btn" onclick="gf_DialogFrame('AD_CO_2012_01.html','400','279','커뮤니티 게시판 삭제',true, false, true);">삭제</a>
 					</div>
 					<div class="fr">
-						<a href="AD_CO_2012_02.html"  class="find_target btn confirm" data-layer-popup='{"name":"커뮤니티 게시판 수정","width":"400","height":"279"}'>수정</a>
+						<a href="javascript:void(0);"  class="find_target btn confirm" onclick="gf_DialogFrame('AD_CO_2012_02.html','400','279','커뮤니티 게시판 수정', true, false, true);">수정</a>
 						<a href="AD_CO_2011.html" class="btn">취소</a>
 					</div>
 				</div>
+
+				<h2>말머리 설정</h2>
+				<div class="managebox type03">
+					<div class="tbl_wrap">
+						<table class="tbl_write">
+							<colgroup>
+								<col style="width:164px" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row" class="vt">
+									<span>
+										말머리
+										<a href="javascript:void(0);" class="btn_reg" onclick="gf_DialogFrame('../board/AD_BO_1005_pop.html', 370, 323, '말머리 설정', '', '', 'yes')">설정</a>
+									</span>
+								</th>
+								<td>
+									<div class="subject">
+										<div class="subject_list">
+											<span>말머리1</span>
+											<span>말머리2</span>
+											<span>말머리3</span>
+											<span>말머리4</span>
+											<span>말머리5</span>
+											<span>말머리6</span>
+											<span>말머리7</span>
+											<span>말머리8</span>
+											<span>말머리9</span>
+											<span>말머리10</span>
+										</div>
+									</div><!-- //말머리 결과 -->
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
 			</div>
 		</div><!-- //Content -->
 	</div><!-- //Container -->
-	<div id="footer">
-		<div class="infoot">
-			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
-			<p class="copyright">(C) 2017 BY SKTELECOM</p>
-		</div>
-	</div><!-- //Footer -->
 </div>
 </body>
 </html>

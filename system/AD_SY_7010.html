@@ -59,13 +59,9 @@
 		</div><!-- //LNB -->
 		<div id="content">
 			<div class="incon">
-				<h2>Mobile 배포관리</h2>
-				<div class="sub_tab half_tab">
-					<ul>
-						<li class="on"><a href="AD_SY_7010.html">등록 APP관리</a></li>
-						<li><a href="AD_SY_7014.html">등록 가이드 관리</a></li>
-					</ul>
-				</div><!-- //탭 -->
+				<!-- <h2>Mobile 배포관리</h2> -->
+				<h2>등록 App 조회</h2>
+
 				<div class="tbl_opt reset_area mt10">
 					<form action="#" method="post">
 						<table>
@@ -75,10 +71,9 @@
 							</colgroup>
 							<tbody>
 							<tr>
-								<th scope="row">구분</th>
+								<th scope="row">회사</th>
 								<td>
 									<select class="w170">
-										<option value="">전체</option>
 										<option value="">SKT</option>
 										<option value="">SKB</option>
 									</select>
@@ -88,17 +83,29 @@
 								<th scope="row">OS</th>
 								<td>
 									<select class="w170">
-										<option value="">전체</option>
 										<option value="">Android</option>
 										<option value="">iOS</option>
 									</select>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row">서비스명</th>
+								<th scope="row">유형</th>
+								<td>
+									<select class="w170">
+										<option value="">전체</option>
+										<option value="">필수</option>
+										<option value="">선택</option>
+									</select>
+									&nbsp;&nbsp;
+									<input type="checkbox" name="" id="non_use" /><label for="non_use">미사용 포함</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">Application명</th>
 								<td>
 									<div class="ele_wrap_opt">
 										<input type="text" placeholder="검색어를 입력해주세요" />
+										<a href="#" class="btn line02">검색</a>
 									</div>
 								</td>
 							</tr>
@@ -106,186 +113,124 @@
 						</table>
 					</form>
 				</div>
-				<div class="btnbox">
-					<a href="#" class="btn confirm">검색</a>
-					<a href="#" class="btn resetBtn">초기화</a>
-				</div>
+
 				<div class="tbl_wrap mt40">
 					<table class="tbl_list" data-tbl-sort='{"up":".up","down":".down"}'>
 						<caption></caption>
 						<colgroup>
-							<col style="width:5%;" />
-							<col style="width:6%;" />
-							<col style="width:7%;" />
-							<col style="width:5%;" />
-							<col style="width:13%;"/>
-							<col style="width:7%;" />
-							<col style="width:7%;" />
-							<col style="width:15%;" />
-							<col style="width:10%;" />
-							<col style="width:10%;" />
-							<col style="width:15%;" />
+							<col style="width:38px;" />
+							<col style="width:65px;" />
+							<col style="width:50px;" />
+							<col style="width:60px;" />
+							<col style="width:50px;"/>
+							<col />
+							<col style="width:60px;" />
+							<col style="width:60px;" />
+							<col style="width:60px;" />
+							<col style="width:60px" />
+							<col />
 						</colgroup>
 						<thead>
 						<tr>
 							<th scope="col">선택</th>
 							<th scope="col">순서</th>
-							<th scope="col">구분</th>
-							<th scope="col">필수<br>여부</th>
-							<th scope="col">서비스명</th>
-							<th scope="col">현재<br>버전</th>
-							<th scope="col">예정<br>버전</th>
-							<th scope="col">배포일시<br>(예정일시)</th>
+							<th scope="col">회사<br>구분</th>
 							<th scope="col">OS</th>
-							<th scope="col">정렬</th>
+							<th scope="col">유형</th>
+							<th scope="col">Application</th>
+							<th scope="col">최종<br>배포일시</th>
+							<th scope="col">최종<br>배포버전</th>
+							<th scope="col">배포<br>예정일시</th>
+							<th scope="col">배포<br>예정버전</th>
 							<th scope="col">파일경로</th>
 						</tr>
 						</thead>
 						<tbody>
 						<tr>
 							<td><input type="checkbox" id="chk01" /><label for="chk01" class="label_check" data-check-group="check_group5"></label></td>
-							<td class="num">1</td>
-							<td class="al_l">SKT</td>
-							<td class="al_l">필수</td>
-							<td><a href="#">Swing Mobile</a></td>
-							<td>1.0.1</td>
-							<td></td>
-							<td>17/05/01 08:00:00</td>
-							<td>Android</td>
 							<td>
 								<div class="orderby first">
 									<a href="#" class="up disabled"></a>
 									<a href="#" class="down"></a>
 								</div>
 							</td>
-							<td>/upload/...</td>
+							<td>SKT</td>
+							<td>Android</td>
+							<td>필수</td>
+							<td class="al_l">Swing Mobile (SKT)<br>com.gmp.skt.swing</td>
+							<td>17/05/01 08:00:00</td>
+							<td>1.0.1</td>
+							<td>17/05/03 08:00:00</td>
+							<td>1.0.2</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" id="chk02" /><label for="chk02" class="label_check" data-check-group="check_group5"></label></td>
-							<td class="num">2</td>
-							<td class="al_l">SKB</td>
-							<td class="al_l">필수</td>
-							<td><a href="#">Swing Mobile</a></td>
-							<td>1.0.1</td>
-							<td></td>
-							<td>17/05/03 11:21:34</td>
-							<td>iOS</td>
 							<td>
 								<div class="orderby">
 									<a href="#" class="up"></a>
 									<a href="#" class="down"></a>
 								</div>
 							</td>
-							<td>/upload/...</td>
+							<td>SKB</td>
+							<td>iOS</td>
+							<td>필수</td>
+							<td class="al_l">Swing SSM<br>swg.ssm</td>
+							<td>17/05/01 08:00:00</td>
+							<td>1.0.1</td>
+							<td>17/05/03 08:00:00</td>
+							<td>1.0.2</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" id="chk03" /><label for="chk03" class="label_check" data-check-group="check_group5"></label></td>
-							<td class="num">3</td>
-							<td class="al_l">공용</td>
-							<td class="al_l">필수</td>
-							<td><a href="#">Swing Mobile</a></td>
-							<td>1.0.1</td>
-							<td>1.02</td>
-							<td>17/05/01 08:00:00</td>
-							<td>Android</td>
 							<td>
 								<div class="orderby">
 									<a href="#" class="up"></a>
 									<a href="#" class="down"></a>
 								</div>
 							</td>
-							<td>/upload/...</td>
+							<td>SKT</td>
+							<td>Android</td>
+							<td>필수</td>
+							<td class="al_l">Swing E-Form<br>Com.gmp.skt.swing.eform</td>
+							<td>17/05/01 08:00:00</td>
+							<td>1.0.1</td>
+							<td>17/05/03 08:00:00</td>
+							<td>1.0.2</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" id="chk04" /><label for="chk04" class="label_check" data-check-group="check_group5"></label></td>
-							<td class="num">4</td>
-							<td class="al_l">SKT</td>
-							<td class="al_l">선택</td>
-							<td><a href="#">Swing Mobile</a></td>
-							<td>1.0.1</td>
-							<td></td>
-							<td>17/05/01 08:00:00</td>
-							<td>iOS</td>
-							<td>
-								<div class="orderby">
-									<a href="#" class="up"></a>
-									<a href="#" class="down"></a>
-								</div>
-							</td>
-							<td>/upload/...</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" id="chk05" /><label for="chk05" class="label_check" data-check-group="check_group5"></label></td>
-							<td class="num">5</td>
-							<td class="al_l">SKB</td>
-							<td class="al_l">선택</td>
-							<td><a href="#">Swing Mobile</a></td>
-							<td>1.0.1</td>
-							<td></td>
-							<td>17/05/03 11:21:34</td>
-							<td>Android</td>
-							<td>
-								<div class="orderby">
-									<a href="#" class="up"></a>
-									<a href="#" class="down"></a>
-								</div>
-							</td>
-							<td>/upload/...</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" id="chk06" /><label for="chk06" class="label_check" data-check-group="check_group5"></label></td>
-							<td class="num">6</td>
-							<td class="al_l">공용</td>
-							<td class="al_l">필수</td>
-							<td><a href="#">Swing Mobile</a></td>
-							<td>1.0.1</td>
-							<td></td>
-							<td>17/05/01 08:00:00</td>
-							<td>Android</td>
-							<td>
-								<div class="orderby">
-									<a href="#" class="up"></a>
-									<a href="#" class="down"></a>
-								</div>
-							</td>
-							<td>/upload/...</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" id="chk07" /><label for="chk07" class="label_check" data-check-group="check_group5"></label></td>
-							<td class="num">7</td>
-							<td class="al_l">공용</td>
-							<td class="al_l">선택</td>
-							<td><a href="#">Swing Mobile</a></td>
-							<td>1.0.1</td>
-							<td></td>
-							<td>17/05/01 08:00:00</td>
-							<td>iOS</td>
 							<td>
 								<div class="orderby">
 									<a href="#" class="up"></a>
 									<a href="#" class="down disabled"></a>
 								</div>
 							</td>
-							<td>/upload/...</td>
+							<td>SKT</td>
+							<td>iOS</td>
+							<td>선택</td>
+							<td class="al_l">Swing 문서뷰어<br>Com.gmp.skt.swing.fileviewer</td>
+							<td>17/05/01 08:00:00</td>
+							<td>1.0.1</td>
+							<td>17/05/03 08:00:00</td>
+							<td>1.0.2</td>
+							<td class="al_l">http://m.swingd.sktelecom.com:8443/download/Swing...<br>[MAG장애]<br>http://m.swingd.sktelecom.com:8443/download/Swing...</td>
 						</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="btnbox">
 					<div class="fr">
+						<a href="#" class="btn confirm">순서적용</a>
 						<a href="AD_SY_7011.html" class="btn">신규등록</a>
-						<a href="#" class="btn">App 배포</a>
+						<a href="AD_SY_7012.html" class="btn">배포</a>
 					</div>
 				</div>
 			</div>
 		</div><!-- //Content -->
 	</div><!-- Container -->
-	<div id="footer">
-		<div class="infoot">
-			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
-			<p class="copyright">(C) 2017 BY SKTELECOM</p>
-		</div>
-	</div><!-- //Footer -->
 </div>
 </body>
 </html>

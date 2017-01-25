@@ -48,7 +48,6 @@ $(document).ready(function(){
 				$(this).parent().append(chk_label);
 			});
 
-
 			$("body").on("click","#jqGrid tbody tr,#jqGrid tbody tr input[type='checkbox']",function() {
 				var isAllChecked = true;
 				$("#jqGrid tbody tr input[type='checkbox']").each(function() {
@@ -86,10 +85,20 @@ body{overflow-y:visible;background-color:#fff}
 	</div><!-- //Header -->
 	<div id="pop_container">
 		<div class="tbl_wrap mt10">
-			<table id="jqGrid"></table>			
+			<table id="jqGrid"></table>
 		</div>
 		<div class="btnbox">
+			<div class="fl">
+				<p class="al_l">총 <span class="red02">N</span>개의 다운로드 파일이 있습니다.<br>파일을 선택하여 다운로드 받으세요.</p>
+			</div>
+
 			<div class="fr">
+				<select class="w121">
+					<option>파일 01</option>
+					<option>파일 02</option>
+					<option>파일 03</option>
+				</select>
+
 				<a href="#" class="btn_long confirm">미서약자 EXCEL 다운로드</a>
 			</div>
 		</div>

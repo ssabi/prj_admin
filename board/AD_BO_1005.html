@@ -59,12 +59,12 @@
 		<div id="content">
 			<div class="incon">
 				<h2>게시판 생성</h2>
-				<div class="tbl_wrap">
-					<form action="#" method="post">
+				<form action="#" method="post">
+					<div class="tbl_wrap">
 						<table class="tbl_write del_bb">
 							<caption></caption>
 							<colgroup>
-								<col style="width:150px;" />
+								<col style="width:141px;" />
 								<col />
 							</colgroup>
 							<tbody>
@@ -111,7 +111,7 @@
 										<div data-target-box="box01">
 											<span class="target_tag">홍길동 (eqssss1023,SD마케팅팀)<a href="#" class="del"></a></span>
 										</div>
-										<a href="AD_BO_1002.html"  class="find_target submit" data-layer-popup='{"name":"운영자 대상 설정","width":"680","height":"777"}' data-target-box-button="box01">운영자 설정</a>
+										<a href="javascript:void(0);"  class="find_target submit" onclick="gf_DialogFrame('AD_BO_1002.html','680','777','운영자 대상 설정',true, false, true);" data-target-box-button="box01">운영자 설정</a>
 									</div>
 								</td>
 							</tr>
@@ -149,122 +149,129 @@
 							</tr>
 							</tbody>
 						</table>
-					</form>
-				</div>
-				<div class="managebox">
-					<div class="tbl_wrap" style="border:none;">
-						<table class="tbl_view tbl_write">
-							<caption></caption>
-							<colgroup>
-								<col style="width:140px" />
-								<col />
-								<col style="width:140px" />
-								<col />
-							</colgroup>
-							<tbody>
-							<tr>
-								<th scope="row">알림설정</th>
-								<td class="w274">
-									<div class="target_chk">
-										<input type="checkbox" id="survey_type01"/><label for="survey_type01">SMS/MMS</label>
-									</div>
-								</td>
-								<th scope="row">비밀게시글</th>
-								<td>
-									<input type="radio" name="display01" id="display03" checked="checked" /><label for="display03">허용</label>
-									<input type="radio" name="display01" id="display04" /><label for="display04">미허용</label>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">첨부파일</th>
-								<td>
-									<input type="radio" name="display02" id="display05" checked="checked" /><label for="display05">허용</label>
-									<input type="radio" name="display02" id="display06" /><label for="display06">미허용</label>
-								</td>
-								<th scope="row">댓글허용</th>
-								<td>
-									<input type="radio" name="display03" id="display07" checked="checked" /><label for="display07">허용</label>
-									<input type="radio" name="display03" id="display08" /><label for="display08">미허용</label>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">답글허용</th>
-								<td colspan="3">
-									<input type="radio" name="display04" id="display09" checked="checked" /><label for="display09">허용</label>
-									<input type="radio" name="display04" id="display10" /><label for="display10">미허용</label>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="vt_line">게시글<br>조회권한 설정</th>
-								<td colspan="3" class="vt">
-									<input type="radio" name="display05" id="display11" checked="checked" /><label for="display11">허용</label>
-									<input type="radio" name="display05" id="display12" /><label for="display12">미허용</label>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row" class="vt">말머리</th>
-								<td colspan="3">
-									<div class="subject">
-										<div class="subject_reg" data-chk-length="">
-											<input type="text" />
-											<a href="#" class="btn line02">추가</a>
-											<span class="byte"><span>0</span>/<em class="count">10</em></span>
-										</div><!-- //말머리 등록 -->
-										<div class="subject_result">
-											<div class="subject_list">
-												<div class="subject_item">
-													<p class="txt">말머리01<a href="#">삭제</a></p>
-													<p class="input"><input type="text" value="말머리01" /></p>
-												</div><!-- //item01 -->
-												<div class="subject_item">
-													<p class="txt">말머리02<a href="#">삭제</a></p>
-													<p class="input"><input type="text" value="말머리02" /></p>
-												</div><!-- //item02 -->
-												<div class="subject_item">
-													<p class="txt">말머리03<a href="#">삭제</a></p>
-													<p class="input"><input type="text" value="말머리03" /></p>
-												</div><!-- //item03 -->
-												<div class="subject_item">
-													<p class="txt">말머리04<a href="#">삭제</a></p>
-													<p class="input"><input type="text" value="말머리04" /></p>
-												</div><!-- //item04 -->
-											</div>
-											<p class="desc">말머리를 더블 클릭하면 수정할 수 있습니다.</p>
-										</div><!-- //말머리 결과 -->
-									</div>
-								</td>
-							</tr>
-							<tr class="tb_end">
-								<th scope="row" class="vt">비고</th>
-								<td colspan="3">
-									<div class="vreply_write" data-chk-length="">
-										<form action="#" method="post">
-											<div class="textarea">
-												<textarea id="reply_con" cols="30" rows="10"></textarea>
-											</div>
-										</form>
-									</div>
-								</td>
-							</tr>
-							</tbody>
-						</table>
 					</div>
-				</div>
+
+					<div class="managebox type02">
+						<div class="tbl_wrap">
+							<table class="tbl_view tbl_write">
+								<caption></caption>
+								<colgroup>
+									<col style="width:141px" />
+									<col style="width:281px" />
+									<col style="width:136px" />
+									<col />
+								</colgroup>
+								<tbody>
+								<tr>
+									<th scope="row">알림설정</th>
+									<td>
+										<input type="radio" name="display" id="display11" checked="checked" /><label for="display11">허용</label>
+										<input type="radio" name="display" id="display22" /><label for="display22">미허용</label>
+
+										<!-- 
+										<div class="target_chk">
+											<input type="checkbox" id="survey_type01"/><label for="survey_type01">SMS/MMS</label>
+										</div>
+										 -->
+
+									</td>
+									<th scope="row">비밀게시글</th>
+									<td>
+										<input type="radio" name="display01" id="display03" checked="checked" /><label for="display03">허용</label>
+										<input type="radio" name="display01" id="display04" /><label for="display04">미허용</label>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">첨부파일</th>
+									<td>
+										<input type="radio" name="display02" id="display05" checked="checked" /><label for="display05">허용</label>
+										<input type="radio" name="display02" id="display06" /><label for="display06">미허용</label>
+									</td>
+									<th scope="row">댓글허용</th>
+									<td>
+										<input type="radio" name="display03" id="display07" checked="checked" /><label for="display07">허용</label>
+										<input type="radio" name="display03" id="display08" /><label for="display08">미허용</label>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">답글허용</th>
+									<td colspan="3">
+										<input type="radio" name="display04" id="display09" checked="checked" /><label for="display09">허용</label>
+										<input type="radio" name="display04" id="display10" /><label for="display10">미허용</label>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="vt_line">게시글<br>조회권한 설정</th>
+									<td colspan="3" class="vt">
+										<input type="radio" name="display05" id="display11" checked="checked" /><label for="display11">허용</label>
+										<input type="radio" name="display05" id="display12" /><label for="display12">미허용</label>
+									</td>
+								</tr>
+								<tr class="tb_end">
+									<th scope="row" class="vt">비고</th>
+									<td colspan="3">
+										<div class="vreply_write" data-chk-length="">
+											<form action="#" method="post">
+												<div class="textarea">
+													<textarea id="reply_con" cols="30" rows="10"></textarea>
+												</div>
+											</form>
+										</div>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</form>
 				<div class="btnbox">
 					<div class="fr">
 						<a href="#" class="btn confirm">생성</a>
 						<a href="#" class="btn">취소</a>
 					</div>
 				</div>
+
+				<h2>말머리 설정</h2>
+				<div class="managebox type03">
+					<div class="tbl_wrap">
+						<table class="tbl_write">
+							<colgroup>
+								<col style="width:164px" />
+								<col />
+							</colgroup>
+							<tbody>
+							<tr>
+								<th scope="row" class="vt">
+									<span>
+										말머리
+										<a href="javascript:void(0);" class="btn_reg" onclick="gf_DialogFrame('../board/AD_BO_1005_pop.html', 370, 323, '말머리 설정', true, false, true)">설정</a>
+									</span>
+								</th>
+								<td>
+									<div class="subject">
+										<div class="subject_list">
+											<span>말머리1</span>
+											<span>말머리2</span>
+											<span>말머리3</span>
+											<span>말머리4</span>
+											<span>말머리5</span>
+											<span>말머리6</span>
+											<span>말머리7</span>
+											<span>말머리8</span>
+											<span>말머리9</span>
+											<span>말머리10</span>
+										</div>
+									</div><!-- //말머리 결과 -->
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
 			</div>
 		</div><!-- //Content -->
 	</div><!-- //Container -->
-	<div id="footer">
-		<div class="infoot">
-			<address>서울특별시 중구 을지로 65(을지로2가) SK텔레콤(주) 대표이사/사장 : 장동현</address>
-			<p class="copyright">(C) 2017 BY SKTELECOM</p>
-		</div>
-	</div><!-- //Footer -->
 </div>
 </body>
 </html>
